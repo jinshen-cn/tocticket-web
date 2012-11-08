@@ -1,0 +1,19 @@
+common: &common
+  adapter: postgresql
+  username: gogetix
+  password: password # from psql setup, see Postgresql
+
+development:
+  <<: *common
+  database: gogetix_development
+
+test: &test
+  <<: *common
+  database: gogetix_test
+
+production:
+  <<: *common
+  database: gogetix_production
+
+cucumber:
+  <<: *test
