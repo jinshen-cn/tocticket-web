@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
+//= require jquery-ui-timepicker-addon
+//= require jquery-ui-sliderAccess
 //= require bootstrap
 //= require_tree .

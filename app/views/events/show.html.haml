@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Date:
+  = @event.celebrated_at
+%p
+  %b Address:
+  = @event.address
+%p
+  %b Price:
+  = @event.price
+%p
+  %b Info:
+  = @event.info
+%p
+  %b Url:
+  = @event.url
+%p
+  %b Selling deadline:
+  = @event.selling_deadline
+%p
+  %b Tickets limit:
+  = @event.tickets_limit
+%p
+  %b Door payment:
+  = @event.door_payment
+
+= link_to 'Edit', edit_event_path(@event)
+\|
+= link_to 'Back', events_path

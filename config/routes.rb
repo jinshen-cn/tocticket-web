@@ -1,6 +1,8 @@
 GogetixWeb::Application.routes.draw do
+  resources :events
+
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'events#index'
   end
   root :to => "home#index"
   devise_for :users

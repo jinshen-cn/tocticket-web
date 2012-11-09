@@ -1,0 +1,35 @@
+%h1 Listing events
+
+%table
+  %tr
+    %th Name
+    %th Date
+    %th Address
+    %th Price
+    %th Info
+    %th Url
+    %th Selling deadline
+    %th Tickets limit
+    %th Door payment
+    %th
+    %th
+    %th
+
+  - @events.each do |event|
+    %tr
+      %td= event.name
+      %td= event.celebrated_at
+      %td= event.address
+      %td= event.price
+      %td= event.info
+      %td= event.url
+      %td= event.selling_deadline
+      %td= event.tickets_limit
+      %td= event.door_payment
+      %td= link_to 'Show', event
+      %td= link_to 'Edit', edit_event_path(event)
+      %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Event', new_event_path
