@@ -1,8 +1,11 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!, :except => :show
+  before_filter :is_event_organizer, :only => [:edit, :update, :destroy]
+  
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where("organizer_id=?",current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -34,13 +37,13 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(params[:event])
+    @event.organizer = current_user
 
     respond_to do |format|
       if @event.save
@@ -56,7 +59,6 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
-    @event = Event.find(params[:id])
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
@@ -72,12 +74,19 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
 
     respond_to do |format|
       format.html { redirect_to events_url }
       format.json { head :no_content }
+    end
+  end
+  
+  private
+  def is_event_organizer
+    @event = Event.find(params[:id])
+    unless current_user == @event.organizer
+      redirect_to @event, alert: 'You have to be the event organizer to edit this event.'
     end
   end
 end
