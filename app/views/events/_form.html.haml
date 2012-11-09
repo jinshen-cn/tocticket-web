@@ -3,12 +3,12 @@
 
   .form-inputs
     = f.input :name
-    = f.input :celebrated_at
+    = f.input :celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}
     = f.input :address
     = f.input :price
     = f.input :info
     = f.input :url
-    = f.input :selling_deadline
+    = f.input :selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}
     = f.input :tickets_limit
     = f.input :door_payment
 
