@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121109020559) do
     t.datetime "selling_deadline"
     t.integer  "tickets_limit"
     t.boolean  "door_payment"
+    t.integer  "organizer_id"
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
   end

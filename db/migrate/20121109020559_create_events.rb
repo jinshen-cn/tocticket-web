@@ -10,7 +10,9 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :selling_deadline
       t.integer :tickets_limit
       t.boolean :door_payment
-
+      
+      t.integer  :organizer_id
+      
       t.timestamps
     end
   end

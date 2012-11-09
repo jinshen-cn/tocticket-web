@@ -1,6 +1,6 @@
-%h1 Listing events
+%h4 Listing events
 
-%table
+%table.table.table-condensed.table-hover
   %tr
     %th Name
     %th Date
@@ -16,7 +16,7 @@
     %th
 
   - @events.each do |event|
-    %tr
+    %tr{:onclick=>"location.href='#{event_path(event)}'", :style=>"cursor:pointer"}
       %td= event.name
       %td= event.celebrated_at
       %td= event.address
@@ -26,10 +26,13 @@
       %td= event.selling_deadline
       %td= event.tickets_limit
       %td= event.door_payment
-      %td= link_to 'Show', event
-      %td= link_to 'Edit', edit_event_path(event)
-      %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
+      %td
+        = link_to edit_event_path(event), :class => 'btn btn-mini' do
+          %i.icon-edit
+      %td
+        = link_to event, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' do
+          %i.icon-trash
 
 %br
 
-= link_to 'New Event', new_event_path
+= link_to 'New Event', new_event_path, :class => 'btn'

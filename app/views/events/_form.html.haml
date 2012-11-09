@@ -1,16 +1,16 @@
-= simple_form_for(@event) do |f|
+= simple_form_for(@event, :html => {:class => 'form-vertical' }) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.input :celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}
-    = f.input :address
-    = f.input :price
-    = f.input :info
-    = f.input :url
-    = f.input :selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}
-    = f.input :tickets_limit
-    = f.input :door_payment
+    = f.input :name, :label => false, :placeholder => "Name", :input_html => {:class => 'span12'}
+    = f.input :celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => false, :placeholder => "Celebrated at"
+    = f.input :address, :label => false, :placeholder => "Address", :input_html => {:class => 'span12', :rows =>'4'}
+    = f.input :price, :label => false, :placeholder => "Price", :input_html => { :step => '0.05' }
+    = f.input :info, :label => false, :placeholder => "Additional info", :input_html => {:class => 'span12', :rows =>'4'}
+    = f.input :url, :label => false, :placeholder => "Formal URL", :input_html => {:class => 'span6'}
+    = f.input :selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}, :label => false, :placeholder => "Selling deadline"
+    = f.input :tickets_limit, :label => false, :placeholder => "Tickets limit", :input_html => { :step => '10' }
+    = f.input :door_payment, :label => "Is possible pay at the door", :as => :boolean
 
   .form-actions
     = f.button :submit
