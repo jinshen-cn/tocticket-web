@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   
   has_many :events
+  has_many :tickets
    
   before_create :set_default_role
   private
