@@ -1,17 +1,19 @@
 class TicketsController < ApplicationController
-  # GET /tickets
-  # GET /tickets.json
-  def index
-    @tickets = Ticket.all
+  before_filter :authenticate_user!
+  before_filter :get_event, :except => :my_tickets
+  # GET /my_tickets
+  # GET /my_tickets.json
+  def my_tickets
+    @tickets = Ticket.where("user_id=?",current_user.id)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # my_tickets.html.erb
       format.json { render json: @tickets }
     end
   end
 
-  # GET /tickets/1
-  # GET /tickets/1.json
+  # GET /events/:event_id/tickets/1
+  # GET /events/:event_id/tickets/1.json
   def show
     @ticket = Ticket.find(params[:id])
 
@@ -21,8 +23,8 @@ class TicketsController < ApplicationController
     end
   end
 
-  # GET /tickets/new
-  # GET /tickets/new.json
+  # GET /events/:event_id/tickets/new
+  # GET /events/:event_id/tickets/new.json
   def new
     @ticket = Ticket.new
 
@@ -32,19 +34,21 @@ class TicketsController < ApplicationController
     end
   end
 
-  # GET /tickets/1/edit
+  # GET /events/:event_id/tickets/1/edit
   def edit
     @ticket = Ticket.find(params[:id])
   end
 
-  # POST /tickets
-  # POST /tickets.json
+  # POST /events/:event_id/tickets
+  # POST /events/:event_id/tickets.json
   def create
     @ticket = Ticket.new(params[:ticket])
+    @ticket.event = @event
+    @ticket.user = current_user
 
     respond_to do |format|
       if @ticket.save
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
+        format.html { redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully created.' }
         format.json { render json: @ticket, status: :created, location: @ticket }
       else
         format.html { render action: "new" }
@@ -53,14 +57,14 @@ class TicketsController < ApplicationController
     end
   end
 
-  # PUT /tickets/1
-  # PUT /tickets/1.json
+  # PUT /events/:event_id/tickets/1
+  # PUT /events/:event_id/tickets/1.json
   def update
     @ticket = Ticket.find(params[:id])
 
     respond_to do |format|
       if @ticket.update_attributes(params[:ticket])
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+        format.html { redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -69,15 +73,19 @@ class TicketsController < ApplicationController
     end
   end
 
-  # DELETE /tickets/1
-  # DELETE /tickets/1.json
+  # DELETE /events/:event_id/tickets/1
+  # DELETE /events/:event_id/tickets/1.json
   def destroy
     @ticket = Ticket.find(params[:id])
     @ticket.destroy
 
     respond_to do |format|
-      format.html { redirect_to tickets_url }
+      format.html { redirect_to event_url(@event) }
       format.json { head :no_content }
     end
+  end
+  private
+  def get_event
+    @event = Event.find(params[:event_id])
   end
 end

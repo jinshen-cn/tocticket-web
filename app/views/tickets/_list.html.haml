@@ -1,0 +1,17 @@
+%table.table.table-condensed.table-hover
+  %tr
+    %th Attendee
+    %th Attendees
+    %th
+    %th
+
+  - @tickets.each do |ticket|
+    %tr{:onclick=>"location.href='#{event_ticket_path(ticket.event,ticket)}'", :style=>"cursor:pointer"}
+      %td= ticket.user.name
+      %td= ticket.attendees
+      %td
+        = link_to edit_event_ticket_path(ticket.event,ticket), :class => 'btn btn-mini' do
+          %i.icon-edit
+      %td
+        = link_to event_ticket_path(ticket.event,ticket), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' do
+          %i.icon-trash

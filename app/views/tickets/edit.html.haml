@@ -1,7 +1,7 @@
-%h1 Editing ticket
+%h4 Editing ticket
 
 = render 'form'
 
-= link_to 'Show', @ticket
-\|
-= link_to 'Back', tickets_path
+.btn-group
+  = link_to 'Show', event_ticket_path(@event,@ticket), :class => 'btn'
+  = link_to 'Back', event_path(@event), :class => 'btn'

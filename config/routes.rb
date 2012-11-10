@@ -1,7 +1,9 @@
 GogetixWeb::Application.routes.draw do
-  resources :tickets
-
-  resources :events
+  
+  resources :events do
+    resources :tickets
+  end
+  match 'my_tickets' => 'tickets#my_tickets', :as => :my_tickets
 
   authenticated :user do
     root :to => 'events#index'
