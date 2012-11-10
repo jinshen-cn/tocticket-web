@@ -1,0 +1,9 @@
+= simple_form_for(@ticket) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :random_key
+    = f.input :attendees
+
+  .form-actions
+    = f.button :submit

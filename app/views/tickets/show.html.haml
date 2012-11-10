@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Random key:
+  = @ticket.random_key
+%p
+  %b Attendees:
+  = @ticket.attendees
+
+= link_to 'Edit', edit_ticket_path(@ticket)
+\|
+= link_to 'Back', tickets_path

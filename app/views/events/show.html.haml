@@ -27,7 +27,10 @@
 %p
   %b Door payment:
   = @event.door_payment
+
 - if @event.organizer == current_user
   .btn-group
     = link_to 'Edit', edit_event_path(@event), :class => "btn"
     = link_to 'Back', events_path, :class => "btn"
+
+= link_to 'Purchase a ticket', tickets_path, :class => "btn"
