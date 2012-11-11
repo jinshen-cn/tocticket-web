@@ -1,8 +1,11 @@
 .row-fluid
   .span4= render 'new'
   .span4
-    = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn btn-primary'
     %br
     %br
-    = link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter), :class => 'btn btn-primary'
+    %br
+    = link_to "Sign in/up with Facebook", user_omniauth_authorize_path(:facebook), :class => 'btn btn-primary btn-block'
+    %br
+    %br
+    = link_to "Sign in/up with Twitter", user_omniauth_authorize_path(:twitter), :class => 'btn btn-primary btn-block'
   .span4= render'devise/registrations/new'
