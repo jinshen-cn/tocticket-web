@@ -25,6 +25,18 @@ class User < ActiveRecord::Base
     end
     user
   end
+  def self.find_for_twitter_oauth(auth)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(name:auth.info.name,
+                           provider:auth.provider,
+                           uid:auth.uid,
+                           email: "fake@fake.com",
+                           password:Devise.friendly_token[0,20]
+                           )
+    end
+    user
+  end
   def self.new_with_session(params, session)
     super.tap do |user|
       # Gets facebook mail if exists
@@ -33,7 +45,8 @@ class User < ActiveRecord::Base
       end
     end
   end
-
+  
+  # Relations with model
   has_many :events
   has_many :tickets
    

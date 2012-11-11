@@ -1,0 +1,5 @@
+%h2 Please, write your mail
+= form_tag user_omniauth_authorize_path(:twitter), :method => "get", :class => 'form-vertical'  do
+  = text_field_tag :email
+  %br
+  = submit_tag "Twitter sign up", :class => 'btn btn-primary'
