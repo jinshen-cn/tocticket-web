@@ -8,4 +8,6 @@
     %br
     %br
     = link_to "Sign in/up with Twitter", user_omniauth_authorize_path(:twitter), :class => 'btn btn-primary btn-block'
-  .span4= render'devise/registrations/new'
+  .span4
+    %h4 Sign up as attendee
+    = render :partial => 'devise/registrations/new', :locals => {:role => :attendee}

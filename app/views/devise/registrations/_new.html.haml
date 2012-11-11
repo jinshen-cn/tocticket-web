@@ -1,6 +1,6 @@
-%h4 New to GoGetix? Sign up
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
   = f.error_notification
+  = f.input :role, :as => :hidden, :input_html => { :value => role }
   = f.input :name, :autofocus => true, :label => false, :placeholder => "Full Name"
   = f.input :email, :required => true, :label => false, :placeholder => "Email"
   = f.input :password, :required => true, :label => false, :placeholder => "Password"

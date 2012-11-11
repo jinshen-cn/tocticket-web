@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :role_ids, :as => :admin
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :role
 
   # Omniauth
   attr_accessible :provider, :uid
@@ -29,13 +29,9 @@ class User < ActiveRecord::Base
   # Relations with model
   has_many :events
   has_many :tickets
-   
-  before_create :set_default_role
-  private
-  def set_default_role
-    if self.roles.empty?
-      self.roles = [Role.find_by_name(:organizer)]
-    end
+  
+  def role=(role_name)
+    self.roles = [Role.find_by_name(role_name)]
   end
   
 end

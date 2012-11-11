@@ -3,6 +3,7 @@
     %h3 Welcome to GoGetix
     %h4 Organize your events on the best way
   .span4
-    = render'devise/sessions/new'
+    = render 'devise/sessions/new'
   .span4
-    = render'devise/registrations/new'
+    %h4 Sign up as Organizer
+    = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
