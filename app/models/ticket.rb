@@ -3,6 +3,7 @@ class Ticket < ActiveRecord::Base
   
   belongs_to :event
   belongs_to :user
+  has_one :payment_notification
   
   validates :attendees, :numericality => {:greater_than => 0}
   validate :attendees_cannot_exceed_event_capacity, :if => :attendees
@@ -18,12 +19,13 @@ class Ticket < ActiveRecord::Base
     self.random_key ||= SecureRandom.hex(16)
   end
   
-  def paypal_url(return_url)
+  def paypal_url(return_url, notify_url)
     values = {
       :business => event.organizer.email,
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,
+      :notify_url => notify_url,
       :invoice => id,
       :amount_1 => event.price,
       :item_name_1 => event.name,

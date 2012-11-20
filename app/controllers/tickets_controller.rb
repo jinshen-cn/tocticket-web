@@ -53,7 +53,7 @@ class TicketsController < ApplicationController
         # Ticket is not paid until paypal notify us
         @ticket.unpaid = true
         @ticket.save
-        redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket))
+        redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
       end
     else
       render action: "new"

@@ -11,4 +11,6 @@ GogetixWeb::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",  :registrations => "users/registrations"  }
   resources :users
+  # Payment Notifications service
+ resources :payment_notifications
 end

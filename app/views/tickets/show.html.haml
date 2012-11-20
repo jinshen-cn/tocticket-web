@@ -6,6 +6,12 @@
 %p
   %b Attendees:
   = @ticket.attendees
+%p
+  %b Paid:
+  = !@ticket.unpaid
+%p
+  %b Ticket id:
+  = @ticket.id
 
 .btn-group
   = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn'
