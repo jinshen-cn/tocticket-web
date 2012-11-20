@@ -51,4 +51,7 @@ GogetixWeb::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Paypal URL for payments
+  config.paypal_url = "https://www.sandbox.paypal.com"
 end

@@ -32,6 +32,6 @@ class Ticket < ActiveRecord::Base
       :item_number_1 => id,
       :quantity_1 => attendees
     }
-    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+    Rails.application.config.paypal_url + "/cgi-bin/webscr?" + values.to_query
   end
 end
