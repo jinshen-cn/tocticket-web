@@ -10,8 +10,15 @@
   %b Paid:
   = !@ticket.unpaid
 %p
+  %b Pay at door:
+  = @ticket.pay_at_door
+%p
   %b Ticket id:
   = @ticket.id
+- if !@ticket.unpaid and !@ticket.pay_at_door
+  %p
+    %b Paypal Payment nofication:
+    %pre= simple_format @ticket.payment_notification.to_yaml
 
 .btn-group
   = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn'

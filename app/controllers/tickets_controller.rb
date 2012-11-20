@@ -47,12 +47,9 @@ class TicketsController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      if @ticket.unpaid 
+      if @ticket.pay_at_door
         redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully booked.'
       else
-        # Ticket is not paid until paypal notify us
-        @ticket.unpaid = true
-        @ticket.save
         redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
       end
     else
