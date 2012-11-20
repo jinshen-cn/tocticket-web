@@ -2,8 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :random_key
-    = f.input :attendees
-
+    = f.input :attendees, :label => "Number of attendees"
+    = f.input :unpaid, :label => "Want to pay at door ?", :as => :boolean if @event.door_payment
   .form-actions
-    = f.button :submit
+    = f.button :submit, :value => "Book Ticket"

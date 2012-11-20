@@ -46,14 +46,14 @@ class TicketsController < ApplicationController
     @ticket.event = @event
     @ticket.user = current_user
 
-    respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully created.' }
-        format.json { render json: @ticket, status: :created, location: @ticket }
+    if @ticket.save
+      if @ticket.unpaid 
+        redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully booked.'
       else
-        format.html { render action: "new" }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
+        redirect_to paypal
       end
+    else
+      render action: "new"
     end
   end
 
