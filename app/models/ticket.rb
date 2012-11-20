@@ -18,4 +18,18 @@ class Ticket < ActiveRecord::Base
     self.random_key ||= SecureRandom.hex(16)
   end
   
+  def paypal_url(return_url)
+    values = {
+      :business => event.organizer.email,
+      :cmd => '_cart',
+      :upload => 1,
+      :return => return_url,
+      :invoice => id,
+      :amount_1 => event.price,
+      :item_name_1 => event.name,
+      :item_number_1 => id,
+      :quantity_1 => attendees
+    }
+    "https://www.sandbox.paypal.com/cgi-bin/webscr?" + values.to_query
+  end
 end
