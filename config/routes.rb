@@ -9,6 +9,6 @@ GogetixWeb::Application.routes.draw do
     root :to => 'events#index'
   end
   root :to => "home#index"
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",  :registrations => "users/registrations"  }
   resources :users
 end
