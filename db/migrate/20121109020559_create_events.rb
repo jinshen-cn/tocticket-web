@@ -8,7 +8,7 @@ class CreateEvents < ActiveRecord::Migration
       t.text :info
       t.string :url
       t.datetime :selling_deadline
-      t.integer :tickets_limit
+      t.integer :capacity
       t.boolean :door_payment
       
       t.integer  :organizer_id

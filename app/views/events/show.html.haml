@@ -22,8 +22,8 @@
   %b Selling deadline:
   = @event.selling_deadline
 %p
-  %b Tickets limit:
-  = @event.tickets_limit
+  %b Attendees:
+  #{@event.total_attendees} / #{@event.capacity}
 %p
   %b Door payment:
   = @event.door_payment

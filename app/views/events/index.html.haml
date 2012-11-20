@@ -4,12 +4,9 @@
   %tr
     %th Name
     %th Date
-    %th Address
     %th Price
-    %th Info
-    %th Url
     %th Selling deadline
-    %th Tickets limit
+    %th Tickets (sold/limit)
     %th Door payment
     %th
     %th
@@ -19,12 +16,9 @@
     %tr{:onclick=>"location.href='#{event_path(event)}'", :style=>"cursor:pointer"}
       %td= event.name
       %td= event.celebrated_at
-      %td= event.address
       %td= event.price
-      %td= event.info
-      %td= event.url
       %td= event.selling_deadline
-      %td= event.tickets_limit
+      %td #{event.total_attendees} / #{event.capacity}
       %td= event.door_payment
       %td
         = link_to edit_event_path(event), :class => 'btn btn-mini' do

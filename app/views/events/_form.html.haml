@@ -2,14 +2,14 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name, :label => false, :placeholder => "Name", :input_html => {:class => 'span12'}
-    = f.input :celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => false, :placeholder => "Celebrated at"
-    = f.input :address, :label => false, :placeholder => "Address", :input_html => {:class => 'span12', :rows =>'4'}
-    = f.input :price, :label => false, :placeholder => "Price", :input_html => { :step => '0.05' }
-    = f.input :info, :label => false, :placeholder => "Additional info", :input_html => {:class => 'span12', :rows =>'4'}
-    = f.input :url, :label => false, :placeholder => "Formal URL", :input_html => {:class => 'span6'}
-    = f.input :selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}, :label => false, :placeholder => "Selling deadline"
-    = f.input :tickets_limit, :label => false, :placeholder => "Tickets limit", :input_html => { :step => '10' }
+    = f.input :name, :label => "Name", :placeholder => "Full Name", :input_html => {:class => 'span12'}
+    = f.input :celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => "Celebrate at", :placeholder => "Date of Event"
+    = f.input :address, :label => "Address", :placeholder => "Address", :input_html => {:class => 'span12', :rows =>'4'}
+    = f.input :price, :label => "Price", :placeholder => "Price", :input_html => { :step => '0.05' }
+    = f.input :info, :label => "More information", :placeholder => "Additional info", :input_html => {:class => 'span12', :rows =>'4'}
+    = f.input :url, :label => "URL of Event", :placeholder => "Formal URL", :input_html => {:class => 'span6'}
+    = f.input :selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}, :label => "Final selling date", :placeholder => "Selling deadline"
+    = f.input :capacity, :label => "Capacity of attendees", :placeholder => "Limit of attendees", :input_html => { :step => '10' }
     = f.input :door_payment, :label => "Is possible pay at the door", :as => :boolean
 
   .form-actions
