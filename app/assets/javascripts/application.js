@@ -16,4 +16,6 @@
 //= require jquery-ui-timepicker-addon
 //= require jquery-ui-sliderAccess
 //= require bootstrap
+//= require jwplayer
+//= require jwplayer.html5
 //= require_tree .
