@@ -3,8 +3,8 @@
 %p#notice= notice
 
 %p
-  %b Random key:
-  = @ticket.random_key
+  %b QR code:
+  = render 'qr_code'
 %p
   %b Attendees:
   = @ticket.attendees
