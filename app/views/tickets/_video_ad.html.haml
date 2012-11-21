@@ -1,0 +1,17 @@
+- if current_user.has_role? :attendee
+  .video
+    .video-centered
+      #my-video
+  :javascript
+    jwplayer.key = "JecsEjKdu13WIgLAkIFZ844rlWbw+EUSgap/iA==";
+    jwplayer('my-video').setup({
+      file : 'http://www.youtube.com/watch?v=HLGEa6ZgQGw',
+      flashplayer: '/jwplayer.flash.swf',
+      controls : false,
+      autostart : true,
+      width : '800',
+      height : '480'
+    });
+    jwplayer().onComplete(function() {
+      $('.video').hide("slow");
+    });
