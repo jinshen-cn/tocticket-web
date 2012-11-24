@@ -8,4 +8,3 @@
   - if user_signed_in?
     %li
       = link_to 'Edit account', edit_user_registration_path
-    %li= link_to 'Admin', users_path if current_user.has_role? :admin
