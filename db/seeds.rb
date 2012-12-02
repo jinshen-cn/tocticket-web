@@ -8,7 +8,7 @@
 puts 'CREATING ROLES'
 Role.create([
   { :name => 'organizer' }, 
-  { :name => 'atendee' }
+  { :name => 'attendee' }
 ], :without_protection => true)
 puts 'SETTING UP DEFAULT USER LOGIN'
 organizer = User.create! :name => 'Organizer User', :email => 'organizer@gogetix.com', :password => 'please', :password_confirmation => 'please'
