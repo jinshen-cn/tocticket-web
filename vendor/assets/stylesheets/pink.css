@@ -1,0 +1,270 @@
+/* =================================================================== */
+/* Pink #c71c77
+====================================================================== */
+
+body {
+	color: #545454;
+	background:#fff;
+}
+a {
+	color: #c71c77;
+}
+a:hover {
+	color: #2D2D2D;
+}
+.footer a:hover {
+	color: #c71c77
+}
+
+.progress .bar {background:none; background:#c71c77; }
+.progress-striped .bar {background-color: #d81e81;
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+	-webkit-background-size: 40px 40px;
+	-moz-background-size: 40px 40px;
+	-o-background-size: 40px 40px;
+	background-size: 40px 40px; }
+.navbg {
+	background:#fff;
+	box-shadow:0px 1px 5px rgba(225,225,225,0.3);
+}
+
+.nav-agency .bottomline { border-bottom:none;}
+.nav-agency .active, .nav-agency .active a.dropdown-toggle, .nav-agency .active a.home {
+	background:#c71c77;
+	color:#fff !important;
+}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+	color: #c71c77;
+}
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+	color: #c71c77;
+}
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
+	color: #c71c77;
+}
+.nav-agency .dropdown-menu {
+	border-top: 2px solid #c71c77;
+}
+.nav-agency .dropdown-menu li > a:hover, .nav-agency .dropdown-menu li > a:focus, .nav-agency .dropdown-submenu:hover > a {
+	color: #c71c77;
+}
+
+
+#nav-header ul li a.active {
+	color: #c71c77 !important;
+}
+.page-header {
+	background: #c71c77;
+	border-bottom: 1px solid #c71c77;
+	border-top: 1px solid #c71c77;
+	color: #fff;
+}
+h2.sectiontitle {
+	background:url(../../img/title-pattern.png) repeat-x bottom center;
+}
+.marketing .span3:hover {
+	background: #c71c77;
+	border:1px solid #a80b5f; /* darker */
+	color:#fff;
+}
+.da-slide h2 {
+	background: #c71c77;
+}
+h2.sectiontitle:before {
+	color:#c71c77;
+}
+.featured-boxes:hover i {
+	color: #c71c77;
+}
+.featured-boxes {
+	-webkit-box-shadow: 0px 0px 1px 1px #e1e1e1;
+	-moz-box-shadow: 0px 0px 1px 1px #e1e1e1;
+	box-shadow: 0px 0px 1px 1px #e1e1e1;
+	}
+.featured-boxes:hover {
+	-webkit-box-shadow: 0px 0px 1px 1px #c71c77;
+	-moz-box-shadow: 0px 0px 1px 1px #c71c77;
+	box-shadow: 0px 0px 1px 1px #c71c77;
+}
+.item-info-overlay {
+	background:#c71c77;
+}
+.btn {
+	border-color: #c5c5c5;
+	border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+.btn-primary {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #006dcc;
+ *background-color: #0044cc;
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary.active, .btn-primary.disabled, .btn-primary[disabled] {
+	color: #ffffff;
+	background-color: #0157a2;
+ *background-color: #0157a2;
+}
+.btn-primary:active, .btn-primary.active {
+	background-color: #0157a2 \9;
+}
+.btn-warning {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #faa732;
+ *background-color: #e28604;
+}
+.btn-warning:hover, .btn-warning:active, .btn-warning.active, .btn-warning.disabled, .btn-warning[disabled] {
+	color: #ffffff;
+	background-color: #e28604;
+ *background-color: #e28604;
+}
+.btn-warning:active, .btn-warning.active {
+	background-color: #e28604 \9;
+}
+.btn-danger {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #da4f49;
+ *background-color: #bd362f;
+}
+.btn-danger:hover, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled] {
+	color: #ffffff;
+	background-color: #c73630;
+ *background-color: #c73630;
+}
+.btn-danger:active, .btn-danger.active {
+	background-color: #c73630 \9;
+}
+.btn-success {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background: #c71c77;
+}
+.btn-success:hover, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
+	color: #ffffff;
+	background-color: #a80b5f; /* darker */
+
+}
+.btn-success:active, .btn-success.active {
+	background-color: #83a100 \9;
+}
+.btn-info {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #49afcd;
+ *background-color: #2f96b4;
+}
+.btn-info:hover, .btn-info:active, .btn-info.active, .btn-info.disabled, .btn-info[disabled] {
+	color: #ffffff;
+	background-color: #2e8da9;
+ *background-color: #2e8da9;
+}
+.btn-info:active, .btn-info.active {
+	background-color: #2e8da9 \9;
+}
+.btn-inverse {
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #565656;
+ *background-color: #222222;
+}
+.btn-inverse:hover, .btn-inverse:active, .btn-inverse.active, .btn-inverse.disabled, .btn-inverse[disabled] {
+	color: #ffffff;
+	background-color: #7b7272;
+ *background-color: #7b7272;
+}
+.btn-inverse:active, .btn-inverse.active {
+	background-color: #7b7272 \9;
+}
+.dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a {
+	color: #ffffff;
+	background: #c71c77;
+}
+.dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+	color: #c71c77;
+	background-color: rgba(0, 0, 0, 0.02);
+}
+#pricing .price-plan.most-popular {
+	background: #c71c77;
+}
+.info-box {
+	background:#c71c77;
+	color:#fff;
+}
+.greenbtnslide:hover {
+	background: #c71c77;
+	color: #FFF;
+}
+.blog .blog-post-tags li a:hover {
+	background: #c71c77;
+	color: #fff;
+	border: 1px solid #c71c77;
+}
+.blog .nav-pills li.active a, .blog .nav-pills li a:hover {
+	background-color: #c71c77 !important;
+	color: #fff;
+}
+.work-item {background:#fff; border-bottom: 1px solid #DFDFDF; }
+.work-item:hover {
+	background:#c71c77;
+	color:#fff;
+	border-bottom:1px solid #a80b5f; /* darker */
+}
+.work-item-overlay .inner ul li a.gallery-btn:hover {
+	background: #c71c77;
+}
+.work-item-image-container .work-item-overlay .inner ul li a:hover, .work-item-image-container .work-item-overlay .inner ul li a:active {
+	color: #c71c77;
+}
+.work-item-image-container .work-item-overlay .inner ul li a:hover {
+	color: #c71c77;
+}
+.portfolio-grid ul li {
+	background-color: #c71c77;
+}
+.green {
+	background:#c71c77;
+}
+.flex-direction-nav li a.next:hover, .flex-direction-nav li a.prev:hover, .homecarousel .carousel-control-home-right:hover, homecarousel .carousel-control-home-left:hover {
+	background-color:#c71c77;
+}
+.greenbtn {
+	background: #373B43;
+}
+.greenbtn:hover {
+	background: #a80b5f; /* darker */
+	color: #FFF;
+}
+.client-list li {background:#fff;}
+
+.img-location {
+	background: url(../../img/th-icons/pink/icon-location.png) no-repeat 0 13px;
+	
+}
+.img-skype {
+	background: url(../../img/th-icons/pink/icon-skype.png) no-repeat 0 13px;
+	
+}
+.img-phone {
+	background: url(../../img/th-icons/pink/icon-phone.png) no-repeat 0 13px;
+	
+}
+.img-linkedin{
+	background: url(../../img/th-icons/pink/icon-linkedin.png) no-repeat 0 13px;
+	
+}
+.img-compatible {background:url(../../img/th-icons/pink/icon-compatible.png) no-repeat;  }
+.img-compatible.hover {background:url(../../img/th-icons/pink/icon-compatible-hover.png) no-repeat; }
+
+.img-responsive {background:url(../../img/th-icons/pink/icon-responsive.png) no-repeat; display:inline-block; }
+.img-responsive.hover {background:url(../../img/th-icons/pink/icon-responsive-hover.png) no-repeat; display:inline-block;}
+
+.img-creative {background:url(../../img/th-icons/pink/icon-creative.png) no-repeat;}
+.img-creative.hover {background:url(../../img/th-icons/pink/icon-creative-hover.png) no-repeat;}
+
+.img-customize {background:url(../../img/th-icons/pink/icon-customize.png) no-repeat;  }
+.img-customize.hover {background:url(../../img/th-icons/pink/icon-customize-hover.png) no-repeat; }

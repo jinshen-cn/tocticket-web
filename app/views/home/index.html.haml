@@ -1,10 +1,35 @@
 .row-fluid
-  .span4
-    %h3 Welcome to GoGetix
-    = link_to 'Print tickets', new_user_session_path, :class => 'btn btn-primary'
-    %h4 or Organize your events on the best way
-  .span4
-    = render 'devise/sessions/new'
-  .span4
-    %h4 Sign up as Organizer
-    = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
+  .span6.bannertext.centered-slogan
+    %h1 Welcome to GoGetix
+    %p.lead Online Ticketing Without Service Fee's
+  .span6
+    .video-container
+      #promo-video
+      :javascript
+        jwplayer.key = "JecsEjKdu13WIgLAkIFZ844rlWbw+EUSgap/iA==";
+        jwplayer('promo-video').setup({
+          file : '/promo-video.mp4',
+          flashplayer: '/jwplayer.flash.swf',
+          image: '/assets/promo-poster.png',
+          title: 'How it works ..',
+          logo: {
+            file: "/assets/logo.png",
+            link: "http://www.gogetix.com/"
+          },
+          width : '480'
+        });
+
+.container
+  .row-fluid
+    .span4.featured-boxes
+      .feature-inner
+        %h4 Create an Event:
+        = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
+    .span4.featured-boxes
+      .feature-inner
+        %h4 Log in to manage your event:
+        = render 'devise/sessions/new'
+    .span4.featured-boxes
+      .feature-inner
+        %h4 Already attending an event?
+        = link_to 'Print your tickets', new_user_session_path, :class => 'btn btn-success'

@@ -1,10 +1,13 @@
-= link_to "Gogetix Web", root_path, :class => 'brand'
-%ul.nav
-  - if user_signed_in?
-    %li= link_to('My Events', events_path) if current_user.has_role? :organizer
-    %li= link_to 'My Tickets', my_tickets_path if current_user.has_role? :attendee
-    %li
-      = link_to 'Logout', destroy_user_session_path, :method=>'delete'
-  - if user_signed_in?
-    %li
-      = link_to 'Edit account', edit_user_registration_path
+= link_to image_tag("logo.png"), root_path, :class => 'brand'
+.main-nav
+  .nav-collapse.collapse
+    %ul.nav
+      - if user_signed_in?
+        %li= link_to('My Events', events_path) if current_user.has_role? :organizer
+        %li= link_to 'My Tickets', my_tickets_path if current_user.has_role? :attendee
+        %li
+          = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+      - if user_signed_in?
+        %li
+          = link_to 'Edit account', edit_user_registration_path
+          

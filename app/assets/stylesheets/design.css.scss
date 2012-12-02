@@ -1,0 +1,15 @@
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600";
+@import "docs";
+@import "nojs";
+@import "pink";
+@import "flex-slider";
+
+
+.navbar-inner {
+  background-image: none;
+  background-color: white;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border-width: 0 0 0px !important;
+}
