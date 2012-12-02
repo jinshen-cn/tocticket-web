@@ -33,5 +33,12 @@ class User < ActiveRecord::Base
   def role=(role_name)
     self.roles = [Role.find_by_name(role_name)]
   end
-  
+     
+  before_create :set_default_role
+  private
+  def set_default_role
+    if self.roles.empty?
+      self.roles = [Role.find_by_name(:attendee)]
+    end
+  end
 end
