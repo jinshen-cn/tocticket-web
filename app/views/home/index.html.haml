@@ -19,17 +19,16 @@
           width : '480'
         });
 
-.container
-  .row-fluid
-    .span4.featured-boxes
-      .feature-inner
-        %h4 Create an Event:
-        = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
-    .span4.featured-boxes
-      .feature-inner
-        %h4 Log in to manage your event:
-        = render 'devise/sessions/new'
-    .span4.featured-boxes
-      .feature-inner
-        %h4 Already attending an event?
-        = link_to 'Print your tickets', new_user_session_path, :class => 'btn btn-success'
+.row-fluid
+  .span4.featured-boxes
+    .feature-inner
+      %h4 Create an Event:
+      = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
+  .span4.featured-boxes
+    .feature-inner
+      %h4 Log in to manage your event:
+      = render 'devise/sessions/new'
+  .span4.featured-boxes
+    .feature-inner
+      %h4 Already attending an event?
+      = link_to 'Print your tickets', new_user_session_path, :class => 'btn btn-success'
