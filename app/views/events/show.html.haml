@@ -1,39 +1,35 @@
 %p#notice= notice
-
-%p
-  %b Name:
-  = @event.name
-%p
-  %b Date:
-  = @event.celebrated_at
-%p
-  %b Address:
-  = @event.address
-%p
-  %b Price:
-  = @event.price
-%p
-  %b Info:
-  = @event.info
-%p
-  %b Url:
-  = @event.url
-%p
-  %b Selling deadline:
-  = @event.selling_deadline
-%p
-  %b Attendees:
-  #{@event.total_attendees} / #{@event.capacity}
-%p
-  %b Door payment:
-  = @event.door_payment
+%h2.sectiontitle Event: #{@event.name}
+%dl.dl-horizontal
+  - if @event.celebrated_at
+    %dt Date:
+    %dd= @event.celebrated_at
+  - if !@event.address.empty?
+    %dt Address:
+    %dd= @event.address
+  - if @event.price
+    %dt Price:
+    %dd= @event.price
+  - if !@event.info.empty?
+    %dt Additional Info:
+    %dd= @event.info
+  - if !@event.url.empty?
+    %dt Url:
+    %dd= @event.url
+  - if @event.selling_deadline
+    %dt Selling deadline:
+    %dd= @event.selling_deadline
+  %dt Attendees:
+  %dd #{@event.total_attendees} / #{@event.capacity}
+  %dt Door payment:
+  %dd= @event.door_payment.to_s
 
 - if @event.organizer == current_user
   %h4 Ticket list
   = render "tickets/list"
   .btn-group
-    = link_to 'New Ticket', new_event_ticket_path(@event), :class => "btn"
-    = link_to 'Edit', edit_event_path(@event), :class => "btn"
-    = link_to 'Back', events_path, :class => "btn"
+    = link_to 'New Ticket', new_event_ticket_path(@event), :class => "btn btn-success"
+    = link_to 'Edit', edit_event_path(@event), :class => "btn btn-success"
+    = link_to 'Back', events_path, :class => "btn btn-success"
 - else
-  = link_to 'Purchase a ticket', new_event_ticket_path(@event), :class => "btn"
+  = link_to 'Purchase a ticket', new_event_ticket_path(@event), :class => "btn btn-success"

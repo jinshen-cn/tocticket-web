@@ -12,8 +12,8 @@
       %td= ticket.attendees
       %td= ticket.unpaid
       %td
-        = link_to edit_event_ticket_path(ticket.event,ticket), :class => 'btn btn-mini' do
-          %i.icon-edit
+        = link_to edit_event_ticket_path(ticket.event,ticket), :class => 'btn btn-mini btn-success' do
+          %i.icon-edit.icon-white
       %td
-        = link_to event_ticket_path(ticket.event,ticket), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' do
-          %i.icon-trash
+        = link_to event_ticket_path(ticket.event,ticket), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-success' do
+          %i.icon-trash.icon-white

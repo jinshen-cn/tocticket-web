@@ -5,4 +5,4 @@
     = f.input :attendees, :label => "Number of attendees"
     = f.input :pay_at_door, :label => "Want to pay at door ?", :as => :boolean if @event.door_payment
   .form-actions
-    = f.button :submit, :value => "Book Ticket"
+    = f.button :submit, :value => "Book Ticket", :class => "btn btn-success"

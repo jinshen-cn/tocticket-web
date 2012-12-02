@@ -2,26 +2,23 @@
 
 %p#notice= notice
 
-%p
-  %b QR code:
-  = render 'qr_code'
-%p
-  %b Attendees:
-  = @ticket.attendees
-%p
-  %b Paid:
-  = !@ticket.unpaid
-%p
-  %b Pay at door:
-  = @ticket.pay_at_door
-%p
-  %b Ticket id:
-  = @ticket.id
+%dl.dl-horizontal
+  %dt Attendees:
+  %dd= @ticket.attendees
+  %dt Paid:
+  %dd= !@ticket.unpaid
+  %dt Pay at door:
+  %dd= @ticket.pay_at_door
+  %dt Ticket id:
+  %dd= @ticket.id
+  %dt QR code:
+  %dd= render 'qr_code'
+
 - if !@ticket.unpaid and !@ticket.pay_at_door
-  %p
-    %b Paypal Payment nofication:
+  %dt Paypal Payment nofication:
+  %dd
     %pre= simple_format @ticket.payment_notification.to_yaml
 
 .btn-group
-  = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn'
-  = link_to 'Back', event_path(@event), :class => 'btn'
+  = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn btn-success'
+  = link_to 'Back', event_path(@event), :class => 'btn btn-success'

@@ -64,7 +64,7 @@ a:hover {
 	color: #fff;
 }
 h2.sectiontitle {
-	background:url(../../img/title-pattern.png) repeat-x bottom center;
+	background:url(/assets/title-pattern.png) repeat-x bottom center;
 }
 .marketing .span3:hover {
 	background: #c71c77;
