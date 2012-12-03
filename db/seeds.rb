@@ -5,15 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'CREATING ROLES'
+puts 'CREATING ROLES ...'
 Role.create([
   { :name => 'organizer' }, 
   { :name => 'attendee' }
 ], :without_protection => true)
-puts 'SETTING UP DEFAULT USER LOGIN'
-organizer = User.create! :name => 'Organizer User', :email => 'organizer@gogetix.com', :password => 'please', :password_confirmation => 'please'
-puts 'New user created: ' << organizer.name
-attendee = User.create! :name => 'Attendee User', :email => 'attendee@gogetix.com', :password => 'please', :password_confirmation => 'please'
-puts 'New user created: ' << attendee.name
+
+puts 'SETTING UP DEFAULT USERS LOGIN ...'
+
+organizer = User.new :name => 'Organizer User', :email => 'organizer@gogetix.com', :password => 'please', :password_confirmation => 'please'
 organizer.add_role :organizer
+organizer.save
+puts 'New Organizer created: ' << organizer.name
+
+attendee = User.new :name => 'Attendee User', :email => 'attendee@gogetix.com', :password => 'please', :password_confirmation => 'please'
 attendee.add_role :attendee
+attendee.save
+puts 'New Attendee created: ' << attendee.name
+
+admin = AdminUser.create!(:email => 'admin@gogetix.com', :password => 'please', :password_confirmation => 'please')
+puts 'New Admin created: ' <<  admin.email
