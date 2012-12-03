@@ -34,3 +34,6 @@ gem "therubyracer", ">= 0.10.2", :group => :assets, :platform => :ruby
 gem 'activeadmin'
 gem "railroady", :group => :development
 gem "capistrano"
+group :development do
+  gem "debugger"
+end
