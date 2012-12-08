@@ -47,11 +47,7 @@ class TicketsController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      if @ticket.pay_at_door
-        redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully booked.'
-      else
-        redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
-      end
+      redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
     else
       render action: "new"
     end

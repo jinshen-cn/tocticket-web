@@ -10,7 +10,6 @@ ActiveAdmin.register Ticket do
     end
     column "Number of attendees", :attendees
     column :unpaid
-    column "Will pay at door", :pay_at_door
     default_actions
   end
   form do |f|
@@ -20,7 +19,6 @@ ActiveAdmin.register Ticket do
       f.input :random_key
       f.input :attendees
       f.input :unpaid
-      f.input :pay_at_door
     end
     f.buttons
   end
