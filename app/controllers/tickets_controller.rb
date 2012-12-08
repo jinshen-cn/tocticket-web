@@ -47,7 +47,13 @@ class TicketsController < ApplicationController
     @ticket.user = current_user
 
     if @ticket.save
-      redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
+      if @event.organizer == current_user
+        @ticket.paid = true
+        @ticket.save
+        redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully created.'
+      else
+        redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
+      end
     else
       render action: "new"
     end

@@ -12,7 +12,7 @@
   %dt QR code:
   %dd= render 'qr_code'
 
-- if @ticket.paid
+- if @ticket.paid and @ticket.payment_notification and (@event.organizer == current_user)
   %dt Paypal Payment nofication:
   %dd
     %pre= simple_format @ticket.payment_notification.to_yaml
