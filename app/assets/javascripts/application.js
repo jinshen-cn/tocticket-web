@@ -15,8 +15,8 @@
 //= require jquery.ui.all
 //= require jquery-ui-timepicker-addon
 //= require jquery-ui-sliderAccess
+//= require datetime-picker
 //= require bootstrap
 //= require jwplayer
 //= require jwplayer.html5
 //= require jquery.qrcode.min
-//= require_tree .
