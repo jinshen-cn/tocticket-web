@@ -9,7 +9,7 @@ ActiveAdmin.register Ticket do
       ticket.event.name
     end
     column "Number of attendees", :attendees
-    column :unpaid
+    column :paid
     default_actions
   end
   form do |f|
@@ -18,7 +18,7 @@ ActiveAdmin.register Ticket do
       f.input :user, :collection => Role.where('name = ?', :attendee).first.users
       f.input :random_key
       f.input :attendees
-      f.input :unpaid
+      f.input :paid
     end
     f.buttons
   end

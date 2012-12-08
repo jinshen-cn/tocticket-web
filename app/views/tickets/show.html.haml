@@ -6,13 +6,13 @@
   %dt Attendees:
   %dd= @ticket.attendees
   %dt Paid:
-  %dd= !@ticket.unpaid
+  %dd= @ticket.paid
   %dt Ticket id:
   %dd= @ticket.id
   %dt QR code:
   %dd= render 'qr_code'
 
-- if !@ticket.unpaid
+- if @ticket.paid
   %dt Paypal Payment nofication:
   %dd
     %pre= simple_format @ticket.payment_notification.to_yaml

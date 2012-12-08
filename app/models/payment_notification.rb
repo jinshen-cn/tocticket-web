@@ -7,7 +7,7 @@ class PaymentNotification < ActiveRecord::Base
 private
   def mark_ticket_as_purchased
     if status == "Completed"
-      ticket.update_attributes(:unpaid => false)
+      ticket.update_attributes(:paid => true)
     end
   end
 end

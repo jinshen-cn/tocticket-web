@@ -2,7 +2,7 @@
   %tr
     %th Attendee
     %th Attendees
-    %th Unpaid
+    %th Paid
     %th
     %th
 
@@ -10,7 +10,7 @@
     %tr{:onclick=>"location.href='#{event_ticket_path(ticket.event,ticket)}'", :style=>"cursor:pointer"}
       %td= ticket.user.name
       %td= ticket.attendees
-      %td= ticket.unpaid
+      %td= ticket.paid
       %td
         = link_to edit_event_ticket_path(ticket.event,ticket), :class => 'btn btn-mini btn-success' do
           %i.icon-edit.icon-white
