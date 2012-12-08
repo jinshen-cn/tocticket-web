@@ -22,7 +22,7 @@
   %dt Attendees:
   %dd #{@event.total_attendees} / #{@event.capacity}
   %dt Door payment:
-  %dd= @event.door_payment.to_s
+  %dd= @event.door_payment ? 'yes':'no'
 
 - if @event.organizer == current_user
   %h4 Ticket list
