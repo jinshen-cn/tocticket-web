@@ -20,3 +20,4 @@
 //= require jwplayer
 //= require jwplayer.html5
 //= require jquery.qrcode.min
+//= require events

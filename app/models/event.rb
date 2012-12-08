@@ -4,8 +4,28 @@ class Event < ActiveRecord::Base
   belongs_to :organizer, :class_name => "User"
   has_many :tickets
   
-  validate :attendees_cannot_be_higher_than_capacity
+  validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :presence => true
   
+  # Dates validations
+  validate :dates, if: (:celebrated_at and :selling_deadline)
+  def dates
+    if celebrated_at < Time.current
+      errors.add(:celebrated_at, "Date of event should be in the future")
+    end
+    
+    if selling_deadline < Time.current
+      errors.add(:selling_deadline, "Selling deadline should be in the future")
+    end
+    
+    if selling_deadline > celebrated_at
+      msg = "Celebration date should be later or equal than selling deadline date"
+      errors.add(:celebrated_at, msg)
+      errors.add(:selling_deadline, msg)
+    end
+  end
+
+  # Capacity validation
+  validate :attendees_cannot_be_higher_than_capacity, if: :capacity
   def attendees_cannot_be_higher_than_capacity
     if capacity < total_attendees
       errors.add(:capacity, "Attendees exceed capacity")
