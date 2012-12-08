@@ -86,10 +86,9 @@ ActiveRecord::Schema.define(:version => 20121124143532) do
     t.integer  "attendees"
     t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-    t.boolean  "unpaid",      :default => true
-    t.boolean  "pay_at_door", :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "paid",       :default => false
   end
 
   create_table "users", :force => true do |t|
