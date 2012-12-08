@@ -39,5 +39,9 @@ class Event < ActiveRecord::Base
   def free_capacity
     capacity - total_attendees
   end
+  
+  def public_url
+    '/events/'+id.to_s
+  end
 
 end

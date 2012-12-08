@@ -1,6 +1,8 @@
 %p#notice= notice
 %h2.sectiontitle Event: #{@event.name}
 %dl.dl-horizontal
+  %dt Public url:
+  %dd= link_to 'LINK', @event.public_url, :target => "_blank"
   - if @event.celebrated_at
     %dt Date:
     %dd= @event.celebrated_at
