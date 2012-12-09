@@ -8,7 +8,7 @@
   %dt Attendees:
   %dd= @ticket.attendees
   %dt Paid:
-  %dd= @ticket.paid
+  %dd= @ticket.paid ? 'yes':'no'
   %dt Ticket id:
   %dd= @ticket.id
   %dt QR code:
