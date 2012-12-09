@@ -1,8 +1,8 @@
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
   = f.error_notification
   = f.input :role, :as => :hidden, :input_html => { :value => role }
-  = f.input :name, :autofocus => true, :label => false, :placeholder => "Full Name"
-  = f.input :email, :required => true, :label => false, :placeholder => "Email"
-  = f.input :password, :required => true, :label => false, :placeholder => "Password"
-  = f.input :password_confirmation, :required => true, :label => false, :placeholder => "Confirm password"
-  = f.button :submit, 'Sign up for GoGetix', :class => 'btn-success'
+  = f.input :name, :autofocus => true, :label => false, :placeholder => "Full Name", :input_html => {:class => 'span12'}
+  = f.input :email, :required => true, :label => false, :placeholder => "Email", :input_html => {:class => 'span12'}
+  = f.input :password, :required => true, :label => false, :placeholder => "Password", :input_html => {:class => 'span12'}
+  = f.input :password_confirmation, :required => true, :label => false, :placeholder => "Confirm password", :input_html => {:class => 'span12'}
+  = f.button :submit, 'Sign up for GoGetix', :class => 'btn-success span12'

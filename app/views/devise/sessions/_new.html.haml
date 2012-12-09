@@ -1,7 +1,7 @@
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
   .control-group
-    = f.input :email, label: false, placeholder: "Email", :autofocus => true
-    = f.input :password, label: false, placeholder: "Password"
+    = f.input :email, label: false, placeholder: "Email", :autofocus => true, :input_html => {:class => 'span12'}
+    = f.input :password, label: false, placeholder: "Password", :input_html => {:class => 'span12'}
     = f.button :submit, "Sign in", :class => 'btn-success'
   %small.control-group
     = f.check_box :remember_me, :as => :boolean, :style => "margin-top: -3px;" if devise_mapping.rememberable?
