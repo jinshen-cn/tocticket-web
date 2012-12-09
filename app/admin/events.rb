@@ -11,6 +11,9 @@ ActiveAdmin.register Event do
     column :door_payment
     column :capacity
     column :selling_deadline
+    column :public_url do |event|
+      link_to 'LINK', event.public_url, :target => "_blank"
+    end
     default_actions
   end
   form do |f|
