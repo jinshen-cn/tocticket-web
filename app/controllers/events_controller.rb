@@ -29,6 +29,7 @@ class EventsController < ApplicationController
   # GET /events/new.json
   def new
     @event = Event.new
+    @event.paypal_account = current_user.email
 
     respond_to do |format|
       format.html # new.html.erb

@@ -21,7 +21,7 @@ class Ticket < ActiveRecord::Base
   
   def paypal_url(return_url, notify_url)
     values = {
-      :business => event.organizer.email,
+      :business => event.paypal_account,
       :cmd => '_cart',
       :upload => 1,
       :return => return_url,

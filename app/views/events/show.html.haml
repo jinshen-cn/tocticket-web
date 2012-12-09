@@ -23,6 +23,9 @@
     %dd= @event.selling_deadline
   %dt Attendees:
   %dd #{@event.total_attendees} / #{@event.capacity}
+  - if @event.organizer == current_user
+    %dt Paypal account:
+    %dd= @event.paypal_account
   %dt Door payment:
   %dd= @event.door_payment ? 'yes':'no'
 

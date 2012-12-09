@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
-  attr_accessible :address, :celebrated_at, :door_payment, :info, :name, :price, :selling_deadline, :capacity, :url
+  attr_accessible :address, :celebrated_at, :door_payment, :info, :name, :price, :selling_deadline, :capacity, :url, :paypal_account
   
   belongs_to :organizer, :class_name => "User"
   has_many :tickets
   
-  validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :presence => true
+  validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :presence => true
   
   # Dates validations
   validate :dates, if: (:celebrated_at and :selling_deadline)

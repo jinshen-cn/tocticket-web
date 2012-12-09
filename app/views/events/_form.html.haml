@@ -12,6 +12,7 @@
     = f.input :url, :label => "URL of Event", :placeholder => "Formal URL", :input_html => {:class => 'span6'}
     = f.input :selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}, :label => "Final selling date", :placeholder => "Selling deadline"
     = f.input :capacity, :label => "Capacity of attendees", :placeholder => "Limit of attendees", :input_html => { :step => '10' }
+    = f.input :paypal_account, :label => "Paypal account (email)", :placeholder => "Paypal email", :input_html => {:class => 'span6'}
     = f.input :door_payment, :label => "Is possible pay at the door" do
       = f.select :door_payment, [["No", false], ["Yes", true]], :include_blank => false
 
