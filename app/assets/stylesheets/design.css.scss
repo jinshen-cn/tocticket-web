@@ -5,10 +5,13 @@
 @import "flex-slider";
 @import "font-awesome";
 
+.navbg {
+  background-color: black;
+}
 
 .navbar-inner {
   background-image: none;
-  background-color: white;
+  background-color: black;
   -webkit-box-shadow: none !important;
   -moz-box-shadow: none !important;
   box-shadow: none !important;
