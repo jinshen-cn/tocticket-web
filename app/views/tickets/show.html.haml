@@ -3,6 +3,8 @@
 %p#notice= notice
 
 %dl.dl-horizontal
+  %dt Event:
+  %dd= @event.name
   %dt Attendees:
   %dd= @ticket.attendees
   %dt Paid:
@@ -18,5 +20,6 @@
     %pre= simple_format @ticket.payment_notification.to_yaml
 
 .btn-group
-  = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn btn-success'
+  = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn btn-success' if @event.organizer == current_user
   = link_to 'Back', event_path(@event), :class => 'btn btn-success'
+  = link_to 'Print', "#", :class => 'btn btn-success', :onclick => "window.print();return false;"

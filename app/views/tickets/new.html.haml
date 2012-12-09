@@ -1,4 +1,7 @@
-%h2.sectiontitle New ticket
+- if @event.organizer == current_user
+  %h2.sectiontitle Selling tickets for "#{@event.name}"
+- else
+  %h2.sectiontitle Purchasing tickets for "#{@event.name}"
 
 = render 'form'
 

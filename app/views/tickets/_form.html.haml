@@ -5,6 +5,6 @@
     = f.input :attendees, :label => "Number of tickets"
   .form-actions
     - if @event.organizer == current_user
-      = f.button :submit, :value => "Sell Ticket", :class => "btn btn-success"
+      = f.button :submit, :value => "Sell Tickets", :class => "btn btn-success"
     - else
-      = f.button :submit, :value => "Book Ticket", :class => "btn btn-success"
+      = f.button :submit, :value => "Book Tickets", :class => "btn btn-success"
