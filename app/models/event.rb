@@ -40,8 +40,8 @@ class Event < ActiveRecord::Base
     capacity - total_attendees
   end
   
-  def public_url
-    '/events/'+id.to_s
+  def public_url(root_url="")
+    root_url+'events/'+id.to_s
   end
 
 end

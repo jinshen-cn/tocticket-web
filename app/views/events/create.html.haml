@@ -1,0 +1,18 @@
+%h2.sectiontitle Congratulations!! Here is the URL to sell your tickets:
+
+%h2= link_to 'Public URL for "'+@event.name+'" is '+@event.public_url(root_url), @event.public_url, :target => "_blank"
+
+= link_to 'http://www.facebook.com/sharer/sharer.php?u='+@event.public_url(root_url), :class => 'btn btn-success' do
+  = image_tag "footer_facebook.png"
+  &nbsp;&nbsp;&nbsp;
+  Share on Facebook
+
+= link_to 'http://twitter.com/home?status='+@event.public_url(root_url), :class => 'btn btn-success' do
+  = image_tag "footer_twitter.png"
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  Share on Twitter
+
+%br
+%br
+%br
+= link_to 'Go to Events', events_path, :class => 'btn btn-success'
