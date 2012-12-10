@@ -6,6 +6,12 @@
 @import "font-awesome";
 
 $gogetix_pink: #C71C77;
+header {
+  @media (max-width: 767px) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
 
 .brand img {
   height: 80px;
