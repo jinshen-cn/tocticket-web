@@ -14,7 +14,12 @@ GogetixWeb::Application.routes.draw do
   end
   root :to => "home#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",  :registrations => "users/registrations"  }
+  # Users can delete session even from selector for small screens
+  devise_scope :user do
+    match '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  # Manage users
   resources :users
   # Payment Notifications service
- resources :payment_notifications
+  resources :payment_notifications
 end
