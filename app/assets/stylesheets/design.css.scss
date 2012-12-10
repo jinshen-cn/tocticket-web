@@ -21,3 +21,16 @@
   box-shadow: none !important;
   border-width: 0 0 0px !important;
 }
+
+#main-nav {
+  &.bottom {
+    padding-top: 65px;
+  }
+  a {
+    color: white;
+    text-shadow: none;
+    &:hover {
+      background-color: #C71C77;
+    }
+  }
+}

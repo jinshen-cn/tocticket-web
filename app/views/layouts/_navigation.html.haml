@@ -1,9 +1,8 @@
 = link_to image_tag("logo.png"), root_path, :class => 'brand'
-#main-nav
-  .nav-collapse.collapse
-    %ul.nav.sf-js-enabled.sf-shadow
-      - if user_signed_in?
-        %li= link_to('My Events', events_path) if current_user.has_role? :organizer
-        %li= link_to 'My Tickets', my_tickets_path if current_user.has_role? :attendee
-        %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
-        %li= link_to 'Edit account', edit_user_registration_path
+#main-nav.bottom
+  %ul.nav.nav-pills
+    - if user_signed_in?
+      %li= nav_link 'My Events', events_path if current_user.has_role? :organizer
+      %li= nav_link 'My Tickets', my_tickets_path if current_user.has_role? :attendee
+      %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+      %li= nav_link 'Edit account', edit_user_registration_path
