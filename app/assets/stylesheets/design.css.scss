@@ -42,6 +42,16 @@ header {
       background-color: $gogetix_pink;
     }
   }
+  select {
+    background: $gogetix_pink;
+    color: white;
+    border: black;
+    option {
+      background: $gogetix_pink;
+      color: white;
+      border: black;
+    }
+  }
 }
 
 footer .copyright {
