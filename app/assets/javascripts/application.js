@@ -22,3 +22,4 @@
 //= require jquery.qrcode.min
 //= require design
 //= require events
+//= require home
