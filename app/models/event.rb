@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
   end
   
   def public_url(root_url="")
-    root_url+'events/'+id.to_s
+    '/events/'+id.to_s
   end
 
 end
