@@ -5,7 +5,7 @@ class Event < ActiveRecord::Base
   has_many :tickets
   
   validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :presence => true
-  
+  validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
   # Dates validations
   validate :dates, if: (:celebrated_at and :selling_deadline)
   def dates
@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
     end
     
     if selling_deadline > celebrated_at
-      msg = "Celebration date should be later or equal than selling deadline date"
+      msg = "Day of Event should be later or the same time as the ticket sales deadline"
       errors.add(:celebrated_at, msg)
       errors.add(:selling_deadline, msg)
     end
