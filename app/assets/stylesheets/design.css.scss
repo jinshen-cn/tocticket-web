@@ -6,8 +6,8 @@
 @import "font-awesome";
 
 $gogetix_pink: #C71C77;
-header {
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  header {
     margin-left: -20px;
     margin-right: -20px;
   }
