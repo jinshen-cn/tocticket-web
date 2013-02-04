@@ -17,7 +17,7 @@
       %td= event.celebrated_at
       %td= event.price
       %td= event.selling_deadline
-      %td #{event.total_attendees} / #{event.capacity}
+      %td #{event.ttal_attendees} / #{event.capacity}
       %td= event.door_payment ? 'yes':'no'
       %td
         = link_to edit_event_path(event), :class => 'btn btn-mini btn-success' do
