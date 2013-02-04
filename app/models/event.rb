@@ -25,20 +25,18 @@ class Event < ActiveRecord::Base
   end
 
   # Formatting in and out dates
-  attr_accessible :formatted_celebrated_at, :formatted_selling_deadline
-  def formatted_celebrated_at
-    celebrated_at.strftime(I18n.t('time.formats.default')) if celebrated_at
+  def self.formatted_time_accessor(*names)
+    names.each do |name|
+      attr_accessible "formatted_#{name}"
+      define_method("formatted_#{name}") do
+        self[name].strftime(I18n.t('time.formats.default')) if self[name]
+      end
+      define_method("formatted_#{name}=") do |value|
+        self[name] = DateTime.strptime(value, I18n.t('time.formats.default'))
+      end
+    end
   end
-  def formatted_celebrated_at=(time_str)
-    self.celebrated_at = DateTime.strptime(time_str, I18n.t('time.formats.default'))
-  end
-  def formatted_selling_deadline
-    selling_deadline.strftime(I18n.t('time.formats.default')) if selling_deadline
-  end
-  def formatted_selling_deadline=(time_str)
-    self.selling_deadline = DateTime.strptime(time_str, I18n.t('time.formats.default'))
-  end
-
+  formatted_time_accessor :celebrated_at, :selling_deadline
   # Capacity validation
   validate :attendees_cannot_be_higher_than_capacity, if: :capacity
   def attendees_cannot_be_higher_than_capacity
