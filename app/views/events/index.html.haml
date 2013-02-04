@@ -14,9 +14,9 @@
   - @events.each do |event|
     %tr{:onclick=>"location.href='#{event_path(event)}'", :style=>"cursor:pointer"}
       %td= event.name
-      %td.hide_shorten= event.celebrated_at
+      %td.hide_shorten= l event.celebrated_at
       %td.hide_shorten= event.price
-      %td.hide_shorten= event.selling_deadline
+      %td.hide_shorten= l event.selling_deadline
       %td #{event.total_attendees} / #{event.capacity}
       %td.hide_shorten= event.door_payment ? 'yes':'no'
       %td

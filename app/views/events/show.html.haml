@@ -5,7 +5,7 @@
   %dd= link_to 'LINK', @event.public_url, :target => "_blank"
   - if @event.celebrated_at
     %dt Date:
-    %dd= @event.celebrated_at
+    %dd= l @event.celebrated_at
   - if !@event.address.empty?
     %dt Address:
     %dd= @event.address
@@ -20,7 +20,7 @@
     %dd= @event.url
   - if @event.selling_deadline
     %dt Selling deadline:
-    %dd= @event.selling_deadline
+    %dd= l @event.selling_deadline
   %dt Attendees:
   %dd #{@event.total_attendees} / #{@event.capacity}
   - if @event.organizer == current_user
