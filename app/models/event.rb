@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   attr_accessible :address, :celebrated_at, :door_payment, :info, :name, :price, :selling_deadline, :capacity, :url, :paypal_account
-  
+
   belongs_to :organizer, :class_name => "User"
   has_many :tickets
   
@@ -22,6 +22,21 @@ class Event < ActiveRecord::Base
       errors.add(:celebrated_at, msg)
       errors.add(:selling_deadline, msg)
     end
+  end
+
+  # Formatting in and out dates
+  attr_accessible :formatted_celebrated_at, :formatted_selling_deadline
+  def formatted_celebrated_at
+    celebrated_at.strftime(I18n.t('time.formats.default'))
+  end
+  def formatted_celebrated_at=(time_str)
+    self.celebrated_at = DateTime.strptime(time_str, I18n.t('time.formats.default'))
+  end
+  def formatted_selling_deadline
+    selling_deadline.strftime(I18n.t('time.formats.default'))
+  end
+  def formatted_selling_deadline=(time_str)
+    self.selling_deadline = DateTime.strptime(time_str, I18n.t('time.formats.default'))
   end
 
   # Capacity validation

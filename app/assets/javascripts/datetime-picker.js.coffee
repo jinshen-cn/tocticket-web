@@ -1,4 +1,4 @@
 $(document).ready ->
   $('input.datetime-picker').datetimepicker
-    dateFormat: 'yy-mm-dd'
+    dateFormat: 'mm/dd/yy'
     timeFormat: 'hh:mm tt'
