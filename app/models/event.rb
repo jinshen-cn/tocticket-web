@@ -7,33 +7,33 @@ class Event < ActiveRecord::Base
   validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :presence => true
   validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
   # Dates validations
-  validate :dates, if: (:celebrated_at and :selling_deadline)
+  validate :dates, if: (:formatted_celebrated_at and :formatted_selling_deadline)
   def dates
     if celebrated_at < Time.current
-      errors.add(:celebrated_at, "Date of event should be in the future")
+      errors.add(:formatted_celebrated_at, "Date of event should be in the future")
     end
     
     if selling_deadline < Time.current
-      errors.add(:selling_deadline, "Selling deadline should be in the future")
+      errors.add(:formatted_selling_deadline, "Selling deadline should be in the future")
     end
     
     if selling_deadline > celebrated_at
       msg = "Day of Event should be later or the same time as the ticket sales deadline"
-      errors.add(:celebrated_at, msg)
-      errors.add(:selling_deadline, msg)
+      errors.add(:formatted_celebrated_at, msg)
+      errors.add(:formatted_selling_deadline, msg)
     end
   end
 
   # Formatting in and out dates
   attr_accessible :formatted_celebrated_at, :formatted_selling_deadline
   def formatted_celebrated_at
-    celebrated_at.strftime(I18n.t('time.formats.default'))
+    celebrated_at.strftime(I18n.t('time.formats.default')) if celebrated_at
   end
   def formatted_celebrated_at=(time_str)
     self.celebrated_at = DateTime.strptime(time_str, I18n.t('time.formats.default'))
   end
   def formatted_selling_deadline
-    selling_deadline.strftime(I18n.t('time.formats.default'))
+    selling_deadline.strftime(I18n.t('time.formats.default')) if selling_deadline
   end
   def formatted_selling_deadline=(time_str)
     self.selling_deadline = DateTime.strptime(time_str, I18n.t('time.formats.default'))
