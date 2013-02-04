@@ -3,22 +3,22 @@
 %table.table.table-bordered.table-condensed.table-hover
   %tr
     %th Name
-    %th Date
-    %th Price
-    %th Selling deadline
+    %th.hide_shorten Date
+    %th.hide_shorten Price
+    %th.hide_shorten Selling deadline
     %th Tickets (sold/limit)
-    %th Door payment
+    %th.hide_shorten Door payment
     %th Edit
     %th Delete
 
   - @events.each do |event|
     %tr{:onclick=>"location.href='#{event_path(event)}'", :style=>"cursor:pointer"}
       %td= event.name
-      %td= event.celebrated_at
-      %td= event.price
-      %td= event.selling_deadline
-      %td #{event.ttal_attendees} / #{event.capacity}
-      %td= event.door_payment ? 'yes':'no'
+      %td.hide_shorten= event.celebrated_at
+      %td.hide_shorten= event.price
+      %td.hide_shorten= event.selling_deadline
+      %td #{event.total_attendees} / #{event.capacity}
+      %td.hide_shorten= event.door_payment ? 'yes':'no'
       %td
         = link_to edit_event_path(event), :class => 'btn btn-mini btn-success' do
           %i.icon-edit.icon-white
