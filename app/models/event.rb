@@ -6,6 +6,11 @@ class Event < ActiveRecord::Base
   
   validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :presence => true
   validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
+
+  # Formatting in and out dates
+  include FormatTime
+  formatted_time_accessor :celebrated_at, :selling_deadline
+
   # Dates validations
   validate :dates, if: (:formatted_celebrated_at and :formatted_selling_deadline)
   def dates
@@ -24,19 +29,6 @@ class Event < ActiveRecord::Base
     end
   end
 
-  # Formatting in and out dates
-  def self.formatted_time_accessor(*names)
-    names.each do |name|
-      attr_accessible "formatted_#{name}"
-      define_method("formatted_#{name}") do
-        self[name].strftime(I18n.t('time.formats.default')) if self[name]
-      end
-      define_method("formatted_#{name}=") do |value|
-        self[name] = DateTime.strptime(value, I18n.t('time.formats.default'))
-      end
-    end
-  end
-  formatted_time_accessor :celebrated_at, :selling_deadline
   # Capacity validation
   validate :attendees_cannot_be_higher_than_capacity, if: :capacity
   def attendees_cannot_be_higher_than_capacity
