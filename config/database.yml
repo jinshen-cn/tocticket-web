@@ -1,7 +1,7 @@
 common: &common
   adapter: postgresql
   username: gogetix
-  password: gogetix # from psql setup, see Postgresql
+  password: password # from psql setup, see Postgresql
 
 development:
   <<: *common
