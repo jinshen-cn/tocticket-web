@@ -11,6 +11,10 @@ test: &test
   <<: *common
   database: gogetix_test
 
+staging:
+  <<: *common
+  database: gogetix_staging
+
 production:
   <<: *common
   database: gogetix_production
