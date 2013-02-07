@@ -25,6 +25,28 @@ require "bundler/capistrano"
 set :user, "root"
 set :user_sudo, false
 
+namespace :app do
+  desc "Setup or reset: DB and App_server"
+  task :setup, :roles => :app do
+    deploy.stop
+    deploy.setup
+    deploy.check
+    deploy.update
+    bundle.install
+    thin.setup
+    db.setup
+    deploy.precompile_assets
+    deploy.start
+  end
+  desc "Update from last release: DB and App_server"
+  task :update, :roles => :ap do
+    deploy.update
+    bundle.install
+    deploy.migrate
+    deploy.precompile_assets
+    deploy.restart
+  end
+end
 
 namespace :thin do
   desc "Sets up Thin server environments"
