@@ -213,7 +213,6 @@ GEM
       rack (>= 0.4)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
-    rack-ssl (1.3.2)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -256,6 +255,8 @@ GEM
     ruby_parser (3.0.1)
       sexp_processor (~> 4.1)
     rubyzip (0.9.9)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.2.2)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -331,6 +332,7 @@ DEPENDENCIES
   rolify (>= 3.2.0)
   rspec-rails (>= 2.11.4)
   ruby_parser (>= 2.3.1)
+  rvm-capistrano
   sass-rails (~> 3.2.3)
   simple_form (>= 2.0.4)
   therubyracer (>= 0.10.2)

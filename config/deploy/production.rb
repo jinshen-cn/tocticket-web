@@ -1,2 +1,2 @@
-set :stage, 'production'
-set :deploy_to, "/var/www/#{application}/#{stage}"
+set :thin_servers, 1
+set :thin_port, 3010

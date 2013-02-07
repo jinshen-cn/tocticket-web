@@ -8,9 +8,26 @@ set :application, "gogetix"
 set :scm, :git
 set :repository,  "git@labs.lebrijo.com:gogetix-web.git"
 server "gogetix.com", :app, :web, :db, :primary => true
+set(:deploy_to) {"/var/www/#{application}/#{stage}"} # This makes lazy the load
+
+## rvm
+set :rvm_ruby_string, 'ruby-1.9.3-p327@gogetix-web'
+set :rvm_type, :system
+require "rvm/capistrano"
 
 set :user, "root"
 set :user_sudo, false
+
+
+namespace :thin do
+  desc "Sets up Thin server environments"
+  task :setup, :roles => :app do
+    invoke_command "thin config -C /etc/thin/#{application}-#{stage}.yml -c #{deploy_to}/current -e #{stage} --servers #{thin_servers} --port #{thin_port}"
+  end
+end
+
+
+
 # if you want to clean up old releases on each deploy uncomment this:
 after "deploy:restart", "deploy:cleanup"
 
