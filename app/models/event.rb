@@ -7,6 +7,8 @@ class Event < ActiveRecord::Base
   validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :formatted_celebrated_at, :formatted_selling_deadline, :uri, :presence => true
   validates :uri, :uniqueness => true, :format => { :with => /\A[a-zA-Z0-9\-_]+\z/,
                                                     :message => "Allowed: letters, numbers, '-' and '_'" }
+  validates :url, :uniqueness => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,
+                                                    :message => "Please, introduce a valid URL" }
   validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
 
   # Formatting in and out dates
