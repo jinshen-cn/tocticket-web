@@ -17,12 +17,16 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    @tickets = @event.tickets
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
     end
+  end
+
+  def to_uri
+    @event = Event.find_all_by_uri(params[:uri])[0]
+    render :show
   end
 
   # GET /events/new

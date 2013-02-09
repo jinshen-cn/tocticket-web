@@ -22,4 +22,6 @@ GogetixWeb::Application.routes.draw do
   resources :users
   # Payment Notifications service
   resources :payment_notifications
+  #Custom URI
+  match '/to/:uri' => "events#to_uri"
 end
