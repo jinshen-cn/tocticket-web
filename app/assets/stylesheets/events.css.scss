@@ -1,3 +1,38 @@
-// Place all the styles related to the Events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'global';
+
+h2.event-title {
+  padding: 25px;
+  @include border-radius(6px 6px 0 0);
+  background-color: $gogetix_pink;
+  margin-bottom: 0;
+  a {
+    color:  white;
+  }
+}
+
+.date_place {
+  background-color: yellow;
+  margin: 0;
+  padding: 10px;
+  color: #454545;
+  font-size: 16px;
+  line-height: 22px;
+  @include border-radius(0 0 6px 6px);
+}
+
+.event-details {
+  margin: 10px;
+  color: #454545;
+  font-size: 16px;
+  line-height: 22px;
+  p {
+    padding: 10px;
+  }
+}
+
+.organizer-info {
+  padding: 20px;
+  @include border-radius;
+  border-style: solid;
+  border-color: $gogetix_pink;
+}

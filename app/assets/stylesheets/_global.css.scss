@@ -1,0 +1,8 @@
+// Variables
+$gogetix_pink: #C71C77;
+// Mixins
+@mixin border-radius($border: 6px) {
+  -webkit-border-radius: $border;
+  -moz-border-radius: $border;
+  border-radius: $border;
+}

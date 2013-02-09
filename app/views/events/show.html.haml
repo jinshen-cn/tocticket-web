@@ -1,40 +1,29 @@
 %p#notice= notice
-%h2.sectiontitle Event: #{@event.name}
-%dl.dl-horizontal
-  %dt Public url:
-  %dd= link_to 'LINK', @event.public_url, :target => "_blank"
-  - if @event.celebrated_at
-    %dt Date:
-    %dd= l @event.celebrated_at
-  - if !@event.address.empty?
-    %dt Address:
-    %dd= @event.address
-  - if @event.price
-    %dt Price:
-    %dd= @event.price
+%h2.event-title= link_to @event.name, @event.public_url, :target => "_blank"
+.date_place #{l @event.celebrated_at, :format => :long} at #{@event.address}
+.event-details
+  %p Enjoy the event only for $#{@event.price}, buy tickets until #{l @event.selling_deadline, :format => :long}.
   - if !@event.info.empty?
-    %dt Additional Info:
-    %dd= @event.info
+    %p= @event.info
   - if !@event.url.empty?
-    %dt Url:
-    %dd= @event.url
-  - if @event.selling_deadline
-    %dt Selling deadline:
-    %dd= l @event.selling_deadline
-  %dt Attendees:
-  %dd #{@event.total_attendees} / #{@event.capacity}
-  - if @event.organizer == current_user
-    %dt Paypal account:
-    %dd= @event.paypal_account
-  %dt Door payment:
-  %dd= @event.door_payment ? 'yes':'no'
+    %p= link_to 'More info...', @event.url, :target => "_blank"
 
 - if @event.organizer == current_user
-  %h4 Ticket list
-  = render :partial => "tickets/list", :locals => {tickets: @event.tickets}
-  .btn-group
-    = link_to 'Sell Tickets', new_event_ticket_path(@event), :class => "btn btn-success"
-    = link_to 'Edit', edit_event_path(@event), :class => "btn btn-success"
-    = link_to 'Back', events_path, :class => "btn btn-success"
-- else
-  = link_to 'Purchase a ticket', new_event_ticket_path(@event), :class => "btn btn-success"
+  .organizer-info
+    %h4 Information for Organizer
+    %dl.dl-horizontal
+      %dt Attendees:
+      %dd #{@event.total_attendees} / #{@event.capacity}
+      %dt Paypal account:
+      %dd= @event.paypal_account
+      %dt Door payment:
+      %dd= @event.door_payment ? 'yes':'no'
+
+    %h4 Ticket list
+    = render :partial => "tickets/list", :locals => {tickets: @event.tickets}
+    .btn-group
+      = link_to 'Sell Tickets', new_event_ticket_path(@event), :class => "btn btn-success"
+      = link_to 'Edit', edit_event_path(@event), :class => "btn btn-success"
+      = link_to 'Back', events_path, :class => "btn btn-success"
+  - else
+    = link_to 'Purchase a ticket', new_event_ticket_path(@event), :class => "btn btn-success"

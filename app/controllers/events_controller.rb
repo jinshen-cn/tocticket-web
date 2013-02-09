@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, :except => :show
+  before_filter :authenticate_user!, :except => [:show, :to_uri]
   before_filter :is_event_organizer, :only => [:edit, :update, :destroy]
   
   # GET /events

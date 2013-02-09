@@ -5,3 +5,4 @@ en:
   time:
     formats:
       default: "%m/%d/%Y %I:%M %P"
+      long: "%A, %B %e of %Y at %I:%M %P"
