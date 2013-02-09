@@ -5,7 +5,8 @@ class Event < ActiveRecord::Base
   has_many :tickets
   
   validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :formatted_celebrated_at, :formatted_selling_deadline, :uri, :presence => true
-  validates :uri, :uniqueness => true
+  validates :uri, :uniqueness => true, :format => { :with => /\A[a-zA-Z0-9\-_]+\z/,
+                                                    :message => "Allowed: letters, numbers, '-' and '_'" }
   validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
 
   # Formatting in and out dates

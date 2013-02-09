@@ -26,7 +26,11 @@ class EventsController < ApplicationController
 
   def to_uri
     @event = Event.find_all_by_uri(params[:uri])[0]
-    render :show
+    if @event.nil?
+      render :file => 'public/404.html'
+    else
+      render :show
+    end
   end
 
   # GET /events/new
