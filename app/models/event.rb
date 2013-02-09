@@ -1,10 +1,11 @@
 class Event < ActiveRecord::Base
-  attr_accessible :address, :celebrated_at, :door_payment, :info, :name, :price, :selling_deadline, :capacity, :url, :paypal_account
+  attr_accessible :address, :celebrated_at, :door_payment, :info, :name, :price, :selling_deadline, :capacity, :url, :paypal_account, :uri
 
   belongs_to :organizer, :class_name => "User"
   has_many :tickets
   
-  validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :presence => true
+  validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :formatted_celebrated_at, :formatted_selling_deadline, :uri, :presence => true
+  validates :uri, :uniqueness => true
   validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
 
   # Formatting in and out dates
@@ -46,7 +47,7 @@ class Event < ActiveRecord::Base
   end
   
   def public_url(root_url="")
-    '/events/'+id.to_s
+    '/to/'+ uri
   end
 
 end
