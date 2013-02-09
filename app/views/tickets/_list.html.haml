@@ -11,7 +11,7 @@
       %th Edit
       %th Delete
 
-  - @tickets.each do |ticket|
+  - tickets.each do |ticket|
     %tr
       - if current_user.has_role?(:organizer)
         - if current_user == ticket.user

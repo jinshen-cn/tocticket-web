@@ -1,3 +1,3 @@
 %h2.sectiontitle Listing tickets
 
-= render 'list'
+= render :partial => 'list', :locals => { tickets: @tickets}

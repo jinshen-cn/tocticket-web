@@ -31,7 +31,7 @@
 
 - if @event.organizer == current_user
   %h4 Ticket list
-  = render "tickets/list"
+  = render :partial => "tickets/list", :locals => {tickets: @event.tickets}
   .btn-group
     = link_to 'Sell Tickets', new_event_ticket_path(@event), :class => "btn btn-success"
     = link_to 'Edit', edit_event_path(@event), :class => "btn btn-success"
