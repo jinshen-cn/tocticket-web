@@ -4,10 +4,10 @@ set :default_stage, 'staging'
 require 'capistrano/ext/multistage'
 
 # Application
-set :application, "gogetix"
+set :application, "tocticket"
 set :scm, :git
 set :repository,  "git@labs.lebrijo.com:gogetix-web.git"
-server "gogetix.com", :app, :web, :db, :primary => true
+server "lebrijo.com", :app, :web, :db, :primary => true
 set(:deploy_to) {"/var/www/#{application}/#{stage}"} # This makes lazy the load
 set(:rake_command) {"cd #{current_path} && bundle exec rake RAILS_ENV=#{stage}"}
 
@@ -29,10 +29,10 @@ namespace :app do
   desc "Setup or reset: DB and App_server"
   task :setup, :roles => :app do
     deploy.stop
+    rvm.install_ruby
     deploy.setup
     deploy.check
     deploy.update
-    bundle.install
     thin.setup
     db.setup
     deploy.precompile_assets
@@ -41,7 +41,6 @@ namespace :app do
   desc "Update from last release: DB and App_server"
   task :update, :roles => :ap do
     deploy.update
-    bundle.install
     deploy.migrate
     deploy.precompile_assets
     deploy.restart

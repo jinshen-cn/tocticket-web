@@ -1,23 +1,23 @@
 common: &common
   adapter: postgresql
-  username: gogetix
+  username: tocticket
   password: password # from psql setup, see Postgresql
 
 development:
   <<: *common
-  database: gogetix_development
+  database: tocticket_development
 
 test: &test
   <<: *common
-  database: gogetix_test
+  database: tocticket_test
 
 staging:
   <<: *common
-  database: gogetix_staging
+  database: tocticket_staging
 
 production:
   <<: *common
-  database: gogetix_production
+  database: tocticket_production
 
 cucumber:
   <<: *test

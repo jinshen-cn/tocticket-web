@@ -13,15 +13,15 @@ Role.create([
 
 puts 'SETTING UP DEFAULT USERS LOGIN ...'
 
-organizer = User.new :name => 'Organizer User', :email => 'organizer@gogetix.com', :password => 'please', :password_confirmation => 'please'
+organizer = User.new :name => 'Organizer User', :email => 'organizer@tocticket.com', :password => 'please', :password_confirmation => 'please'
 organizer.add_role :organizer
 organizer.save
 puts 'New Organizer created: ' << organizer.name
 
-attendee = User.new :name => 'Attendee User', :email => 'attendee@gogetix.com', :password => 'please', :password_confirmation => 'please'
+attendee = User.new :name => 'Attendee User', :email => 'attendee@tocticket.com', :password => 'please', :password_confirmation => 'please'
 attendee.add_role :attendee
 attendee.save
 puts 'New Attendee created: ' << attendee.name
 
-admin = AdminUser.create!(:email => 'admin@gogetix.com', :password => 'please', :password_confirmation => 'please')
+admin = AdminUser.create!(:email => 'admin@tocticket.com', :password => 'please', :password_confirmation => 'please')
 puts 'New Admin created: ' <<  admin.email
