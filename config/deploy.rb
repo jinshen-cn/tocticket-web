@@ -36,14 +36,14 @@ namespace :app do
     thin.setup
     db.setup
     deploy.precompile_assets
-    deploy.start
+    thin.start
   end
   desc "Update from last release: DB and App_server"
   task :update, :roles => :ap do
     deploy.update
     deploy.migrate
     deploy.precompile_assets
-    deploy.restart
+    thin.restart
   end
 end
 
@@ -51,6 +51,19 @@ namespace :thin do
   desc "Sets up Thin server environments"
   task :setup, :roles => :app do
     invoke_command "thin config -C #{thin_config_file} -c #{current_path} -e #{stage} --servers #{thin_servers} --port #{thin_port}"
+  end
+  desc "Start server"
+  task :start, :roles => :app do
+    invoke_command "cd #{current_path} && thin start -C #{thin_config_file}"
+  end
+  desc "Stop server"
+  task :stop, :roles => :app do
+    invoke_command "cd #{current_path} && thin stop -C #{thin_config_file}"
+  end
+  desc "Restart server"
+  task :restart, :roles => :app do
+    stop
+    start
   end
 end
 
@@ -72,25 +85,5 @@ namespace :deploy do
   task :precompile_assets, :roles => :app do
     run "#{rake_command} assets:clean"
     run "#{rake_command} assets:precompile"
-  end
-  desc "Stop server"
-  task :stop, :roles => :app do
-
-    invoke_command "service thin stop"
-  end
-
-  desc "Start server"
-  task :start, :roles => :app do
-
-    invoke_command "service thin start"
-  end
-
-  # Need to define this restart ALSO as 'cap deploy' uses it
-  # (Gautam) I dont know how to call tasks within tasks.
-  desc "Restart server"
-  task :restart, :roles => :app do
-
-    invoke_command "service thin stop"
-    invoke_command "service thin start"
   end
 end
