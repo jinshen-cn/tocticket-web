@@ -1,23 +1,24 @@
 .row-fluid
   .span6.bannertext.centered-slogan
-    %h1 Welcome to GoGetix
+    %h1 Welcome to TocTicket
     %p.lead Online Ticketing Without Service Fee's
-  .span6
-    .video-container
-      #promo-video
-      :javascript
-        jwplayer.key = "JecsEjKdu13WIgLAkIFZ844rlWbw+EUSgap/iA==";
-        jwplayer('promo-video').setup({
-          file : '/promo-video.mp4',
-          flashplayer: '/jwplayer.flash.swf',
-          image: '/assets/promo-poster.png',
-          title: 'How it works ..',
-          logo: {
-            file: "/assets/logo.png",
-            link: "http://www.gogetix.com/"
-          },
-          width : '480'
-        });
+  /
+    .span6
+      .video-container
+        #promo-video
+        :javascript
+          jwplayer.key = "JecsEjKdu13WIgLAkIFZ844rlWbw+EUSgap/iA==";
+          jwplayer('promo-video').setup({
+            file : '/promo-video.mp4',
+            flashplayer: '/jwplayer.flash.swf',
+            image: '/assets/promo-poster.png',
+            title: 'How it works ..',
+            logo: {
+              file: "/assets/logo.png",
+              link: "http://www.gogetix.com/"
+            },
+            width : '480'
+          });
 
 .row-fluid
   .span4.featured-boxes
