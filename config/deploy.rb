@@ -39,9 +39,9 @@ namespace :app do
     thin.start
   end
   desc "Update from last release: DB and App_server"
-  task :update, :roles => :ap do
+  task :update, :roles => :app do
     deploy.update
-    deploy.migrate
+    run "#{rake_command} db:migrate"
     deploy.precompile_assets
     thin.restart
   end
