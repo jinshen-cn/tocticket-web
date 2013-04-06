@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
-  attr_accessible :address, :celebrated_at, :door_payment, :info, :name, :price, :selling_deadline, :capacity, :url, :paypal_account, :uri
+  attr_accessible :address, :celebrated_at, :info, :name, :price, :capacity, :url, :paypal_account, :uri
 
   belongs_to :organizer, :class_name => "User"
   has_many :tickets
   
-  validates :name, :address, :price, :celebrated_at, :selling_deadline, :capacity, :paypal_account, :formatted_celebrated_at, :formatted_selling_deadline, :uri, :presence => true
+  validates :name, :address, :price, :celebrated_at, :capacity, :paypal_account, :formatted_celebrated_at, :uri, :presence => true
   validates :uri, :uniqueness => true, :format => { :with => /\A[a-zA-Z0-9\-_]+\z/,
                                                     :message => "Allowed: letters, numbers, '-' and '_'" }
   validates :url, :uniqueness => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,
@@ -13,23 +13,13 @@ class Event < ActiveRecord::Base
 
   # Formatting in and out dates
   include FormatTime
-  formatted_time_accessor :celebrated_at, :selling_deadline
+  formatted_time_accessor :celebrated_at
 
   # Dates validations
-  validate :dates, if: (:formatted_celebrated_at and :formatted_selling_deadline)
+  validate :dates, if: (:formatted_celebrated_at)
   def dates
     if celebrated_at < Time.current
       errors.add(:formatted_celebrated_at, "Date of event should be in the future")
-    end
-    
-    if selling_deadline < Time.current
-      errors.add(:formatted_selling_deadline, "Selling deadline should be in the future")
-    end
-    
-    if selling_deadline > celebrated_at
-      msg = "Day of Event should be later or the same time as the ticket sales deadline"
-      errors.add(:formatted_celebrated_at, msg)
-      errors.add(:formatted_selling_deadline, msg)
     end
   end
 

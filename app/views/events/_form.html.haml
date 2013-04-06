@@ -11,11 +11,8 @@
       = f.number_field :price, :step => '0.05'
     = f.input :info, :label => "Event Details", :placeholder => "Additional info", :input_html => {:class => 'span12', :rows =>'4'}
     = f.input :url, :label => "URL of Event", :placeholder => "Formal URL", :input_html => {:class => 'span6'}
-    = f.input :formatted_selling_deadline, :as => :string, :input_html => {:class => "datetime-picker"}, :label => "Final Selling Date of Tickets", :placeholder => "Selling deadline"
     = f.input :capacity, :label => "Capacity of attendees", :placeholder => "Limit of attendees", :input_html => { :step => '10' }
     = f.input :paypal_account, :label => "Paypal account (email)", :placeholder => "Paypal email", :input_html => {:class => 'span6'}, :hint => 'This is the account where all the ticket sales profit will be paid out to'
-    = f.input :door_payment, :label => "Is possible pay at the door" do
-      = f.select :door_payment, [["No", false], ["Yes", true]], :include_blank => false
 
   .form-actions
     = f.button :submit, :class => "btn btn-success"

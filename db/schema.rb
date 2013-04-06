@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209180346) do
+ActiveRecord::Schema.define(:version => 20130406194326) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -50,17 +50,15 @@ ActiveRecord::Schema.define(:version => 20130209180346) do
     t.string   "name"
     t.datetime "celebrated_at"
     t.text     "address"
-    t.decimal  "price",            :precision => 6, :scale => 2
+    t.decimal  "price",          :precision => 6, :scale => 2
     t.text     "info"
     t.string   "url"
-    t.datetime "selling_deadline"
     t.integer  "capacity"
-    t.boolean  "door_payment"
     t.integer  "organizer_id"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.string   "paypal_account"
-    t.string   "uri",                                            :null => false
+    t.string   "uri",                                          :null => false
   end
 
   add_index "events", ["uri"], :name => "index_events_on_uri", :unique => true

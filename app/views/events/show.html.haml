@@ -2,7 +2,7 @@
 %h2.event-title= link_to @event.name, @event.public_url, :target => "_blank"
 .date_place #{l @event.celebrated_at, :format => :long} at #{@event.address}
 .event-details
-  %p Enjoy the event only for $#{@event.price}, buy tickets until #{l @event.selling_deadline, :format => :long}.
+  %p Enjoy the event only for $#{@event.price}.
   - if !@event.info.empty?
     %p= @event.info
   - if !@event.url.empty?
@@ -16,8 +16,6 @@
       %dd #{@event.total_attendees} / #{@event.capacity}
       %dt Paypal account:
       %dd= @event.paypal_account
-      %dt Door payment:
-      %dd= @event.door_payment ? 'yes':'no'
 
     %h4 Ticket list
     = render :partial => "tickets/list", :locals => {tickets: @event.tickets}
