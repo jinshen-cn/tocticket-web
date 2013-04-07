@@ -17,7 +17,7 @@
         - if current_user == ticket.user
           %td Ticket sold from organizer account
         - else
-          %td= ticket.user.name
+          %td= ticket.email
       - if current_user.has_role?(:attendee)
         %td= ticket.event.name
       %td= ticket.attendees
