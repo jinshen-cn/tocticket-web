@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+      %title= content_for?(:title) ? yield(:title) : "TocTicket Ticket Mail"
+      %meta{:content => content_for?(:description) ? yield(:description) : "TocTicket Ticket Mail", :name => "description"}
+        = stylesheet_link_tag "application", :media => "all"
+  %body
+    = yield
