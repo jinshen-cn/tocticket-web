@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:new, :create, :show]
   before_filter :get_event, :except => :my_tickets
   # GET /my_tickets
   # GET /my_tickets.json
