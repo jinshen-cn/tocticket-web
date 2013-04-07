@@ -1,10 +1,11 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :attendees, :paid, :random_key
+  attr_accessible :attendees, :paid, :random_key, :email
   
   belongs_to :event
   belongs_to :user
   has_one :payment_notification
-  
+
+  validates_presence_of :attendees, :email
   validates :attendees, :numericality => {:greater_than => 0}
   validate :attendees_cannot_exceed_event_capacity, :if => :attendees
   
