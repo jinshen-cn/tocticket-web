@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:new, :create, :show]
+  before_filter :authenticate_user!, :except => [:new, :create, :secure_ticket]
   before_filter :get_event, :except => :my_tickets
   # GET /my_tickets
   # GET /my_tickets.json
@@ -9,6 +9,17 @@ class TicketsController < ApplicationController
     respond_to do |format|
       format.html # my_tickets.html.erb
       format.json { render json: @tickets }
+    end
+  end
+
+  # GET /ticket/:random_key
+  # GET /ticket/:random_key.json
+  def secure_ticket
+    @ticket = Ticket.find_by_id_and_random_key(params[:ticket_id], params[:random_key])
+
+    respond_to do |format|
+      format.html { render 'show' } # show.html.erb
+      format.json { render json: @ticket }
     end
   end
 
@@ -52,7 +63,7 @@ class TicketsController < ApplicationController
         @ticket.save
         redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully created.'
       else
-        redirect_to @ticket.paypal_url(event_ticket_url(@event, @ticket), payment_notifications_url)
+        redirect_to @ticket.paypal_url(secure_ticket_url(@event, @ticket, @ticket.random_key), payment_notifications_url)
       end
     else
       render action: "new"

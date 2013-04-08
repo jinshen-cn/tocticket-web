@@ -8,6 +8,7 @@ GogetixWeb::Application.routes.draw do
     resources :tickets
   end
   match 'my_tickets' => 'tickets#my_tickets', :as => :my_tickets
+  match '/e/:event_id/t/:ticket_id/r/:random_key' => 'tickets#secure_ticket', :as => :secure_ticket
 
   authenticated :user do
     root :to => 'dashboard#index'

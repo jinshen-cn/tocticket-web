@@ -4,4 +4,6 @@
 %p Date: #{@event.celebrated_at}
 %p For #{@ticket.attendees} attendees.
 
+%h2= link_to "Purchased ticket", secure_ticket_url(@event, @ticket, @ticket.random_key)
+
 %p Warning: You should go with the ticket printed to the door
