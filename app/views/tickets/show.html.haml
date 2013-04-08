@@ -14,6 +14,8 @@
   %dt QR code:
   %dd= render 'qr_code'
 
+%p Warning: Ticket should be printed and presented at Event door, where QR code will be regnized.
+
 - if @ticket.paid and @ticket.payment_notification and (@event.organizer == current_user)
   %dt Paypal Payment nofication:
   %dd
