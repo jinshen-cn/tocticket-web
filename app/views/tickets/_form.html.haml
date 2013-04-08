@@ -3,7 +3,7 @@
 
   .form-inputs
     = f.input :attendees, :label => "Number of tickets"
-    = f.input :email, :label => "Email to receive the ticket"
+    = f.input :email, :label => "Email to receive the ticket", :input_html => { :value => "#{current_user.email if current_user}" }
   .form-actions
     - if @event.organizer == current_user
       = f.button :submit, :value => "Sell Tickets", :class => "btn btn-success"
