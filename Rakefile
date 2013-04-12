@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-GogetixWeb::Application.load_tasks
+TocTicket::Application.load_tasks

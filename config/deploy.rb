@@ -6,7 +6,7 @@ require 'capistrano/ext/multistage'
 # Application
 set :application, "tocticket"
 set :scm, :git
-set :repository,  "git@labs.lebrijo.com:gogetix-web.git"
+set :repository,  "git@labs.lebrijo.com:tocticket-web.git"
 server "lebrijo.com", :app, :web, :db, :primary => true
 set(:deploy_to) {"/var/www/#{application}/#{stage}"} # This makes lazy the load
 set(:rake_command) {"cd #{current_path} && bundle exec rake RAILS_ENV=#{stage}"}
@@ -16,7 +16,7 @@ set :thin_config_path, "/etc/thin"
 set(:thin_config_file) {"#{thin_config_path}/#{application}-#{stage}.yml"}
 
 ## rvm
-set :rvm_ruby_string, 'ruby-1.9.3-p327@gogetix-web'
+set :rvm_ruby_string, 'ruby-1.9.3-p327@tocticket-web'
 set :rvm_type, :system
 require "rvm/capistrano"
 

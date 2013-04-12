@@ -1,4 +1,4 @@
-GogetixWeb::Application.routes.draw do
+TocticketWeb::Application.routes.draw do
   
   ActiveAdmin.routes(self)
 

@@ -38,15 +38,15 @@
     color: white;
     text-shadow: none;
     &:hover {
-      background-color: $gogetix_pink;
+      background-color: $tocticket_pink;
     }
   }
   select {
-    background: $gogetix_pink;
+    background: $tocticket_pink;
     color: white;
     border: black;
     option {
-      background: $gogetix_pink;
+      background: $tocticket_pink;
       color: white;
       border: black;
     }
@@ -54,6 +54,6 @@
 }
 
 footer .copyright {
-  color: $gogetix_pink;
-  a.link {color: $gogetix_pink;}
+  color: $tocticket_pink;
+  a.link {color: $tocticket_pink;}
 }

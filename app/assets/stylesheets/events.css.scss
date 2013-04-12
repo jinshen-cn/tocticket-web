@@ -3,7 +3,7 @@
 h2.event-title {
   padding: 25px;
   @include border-radius(6px 6px 0 0);
-  background-color: $gogetix_pink;
+  background-color: $tocticket_pink;
   margin-bottom: 0;
   a {
     color:  white;
@@ -34,5 +34,5 @@ h2.event-title {
   padding: 20px;
   @include border-radius;
   border-style: solid;
-  border-color: $gogetix_pink;
+  border-color: $tocticket_pink;
 }
