@@ -36,7 +36,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     @event.organizer = current_user
 
-    unless @event.savee
+    unless @event.save
       render action: "new"
     end
   end
