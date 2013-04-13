@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-TocTicket::Application.load_tasks
+TocticketWeb::Application.load_tasks
