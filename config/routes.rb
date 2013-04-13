@@ -5,7 +5,9 @@ TocticketWeb::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :events do
-    resources :tickets
+    resources :tickets, :except => [:edit, :destroy] do
+      match '/detail' => 'tickets#detail', :as => :detail
+    end
   end
   match 'my_tickets' => 'tickets#my_tickets', :as => :my_tickets
   match '/e/:event_id/t/:ticket_id/r/:random_key' => 'tickets#secure_ticket', :as => :secure_ticket

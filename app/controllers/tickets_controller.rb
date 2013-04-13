@@ -12,6 +12,11 @@ class TicketsController < ApplicationController
     render 'show'
   end
 
+  # GET /events/:event_id/tickets/:ticket_id/detail
+  def detail
+    @ticket = Ticket.find(params[:ticket_id])
+  end
+
   # GET /events/:event_id/tickets/1
   def show
     @ticket = Ticket.find(params[:id])
@@ -20,11 +25,6 @@ class TicketsController < ApplicationController
   # GET /events/:event_id/tickets/new
   def new
     @ticket = Ticket.new
-  end
-
-  # GET /events/:event_id/tickets/1/edit
-  def edit
-    @ticket = Ticket.find(params[:id])
   end
 
   # POST /events/:event_id/tickets
@@ -54,13 +54,6 @@ class TicketsController < ApplicationController
       else
         render action: "edit"
       end
-  end
-
-  # DELETE /events/:event_id/tickets/1
-  def destroy
-    @ticket = Ticket.find(params[:id])
-    @ticket.destroy
-    redirect_to event_url(@event)
   end
 
   private
