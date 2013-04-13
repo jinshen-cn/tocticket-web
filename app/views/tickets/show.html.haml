@@ -7,19 +7,25 @@
   %dd= @event.name
   %dt Attendees:
   %dd= @ticket.attendees
-  %dt Paid:
-  %dd= @ticket.paid ? 'yes':'no'
   %dt Ticket id:
   %dd= @ticket.id
   %dt QR code:
   %dd= render 'qr_code'
 
-%p Warning: Ticket should be printed and presented at Event door, where QR code will be regnized.
+  - if current_user == @event.organizer
+    %dt Paid:
+    %dd= @ticket.paid ? 'yes':'no'
+    %dt Checked:
+    %dd= @ticket.checked ? 'yes':'no'
+    - if @ticket.checked?
+      %dt Checked date:
+      %dd= l @ticket.updated_at, :format => :long
+    - if @ticket.paid and @ticket.payment_notification
+      %dt Paypal Payment nofication:
+      %dd
+        %pre= simple_format @ticket.payment_notification.to_yaml
 
-- if @ticket.paid and @ticket.payment_notification and (@event.organizer == current_user)
-  %dt Paypal Payment nofication:
-  %dd
-    %pre= simple_format @ticket.payment_notification.to_yaml
+%p Warning: Ticket should be printed and presented at Event door, where QR code will be regnized.
 
 .btn-group
   = link_to 'Edit', edit_event_ticket_path(@event, @ticket), :class => 'btn btn-success' if @event.organizer == current_user

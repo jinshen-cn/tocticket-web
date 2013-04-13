@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :attendees, :paid, :random_key, :email
+  attr_accessible :attendees, :paid, :random_key, :email, :checked
   
   belongs_to :event
   belongs_to :user
