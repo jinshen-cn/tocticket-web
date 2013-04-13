@@ -25,4 +25,10 @@ TocticketWeb::Application.routes.draw do
   resources :payment_notifications
   #Custom URI
   match '/to/:uri' => "events#to_uri"
+  #Rest API
+  namespace :api do
+    namespace :v1  do
+      resources :tokens,:only => [:create, :destroy]
+    end
+  end
 end
