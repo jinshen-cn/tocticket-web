@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
     @tickets = Ticket.where("user_id=?",current_user.id)
   end
 
-  # GET /ticket/:random_key
+  # GET /e/:event_id/t/:ticket_id/r/:random_key
   def secure_ticket
     @ticket = Ticket.find_by_id_and_random_key(params[:ticket_id], params[:random_key])
     render 'show'
