@@ -4,10 +4,6 @@ class Api::V1::TokensController  < ApplicationController
   def create
     email = params[:email]
     password = params[:password]
-    if request.format != :json
-      render :status=>406, :json=>{:message=>"The request must be json"}
-      return
-    end
 
     if email.nil? or password.nil?
       render :status=>400,

@@ -1,4 +1,4 @@
 #qrcode
 
 :javascript
-  $('#qrcode').qrcode("#{@ticket.random_key}");
+  $('#qrcode').qrcode("#{@ticket.id}/#{@ticket.random_key}");
