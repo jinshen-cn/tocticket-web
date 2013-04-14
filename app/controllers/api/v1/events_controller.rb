@@ -3,7 +3,6 @@ class Api::V1::EventsController < ApplicationController
 
   # GET /events.json
   def index
-    @events = Event.where("organizer_id=?",current_user.id)
-    render json: @events
+    render json: current_user.events
   end
 end

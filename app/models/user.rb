@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
   
   # Relations with model
-  has_many :events
+  has_many :events, :foreign_key => "organizer_id"
   has_many :tickets
   
   def role=(role_name)
