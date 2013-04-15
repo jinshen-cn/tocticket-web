@@ -3,7 +3,7 @@ ActiveAdmin.register Ticket do
     selectable_column
     column :id
     column :user do |ticket|
-      ticket.user.name
+      ticket.user.name unless ticket.user.nil?
     end
     column :event do |ticket|
       ticket.event.name
