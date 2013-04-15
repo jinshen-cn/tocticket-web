@@ -9,6 +9,8 @@ class Api::V1::TicketsController < ApplicationController
       render :status=>404, :json=>{:message=>"Ticket not found."}
     elsif @ticket.checked?
       render :status=>409, :json=>{:message=>"Ticket checked on #{l @ticket.updated_at, :format => :long}."}
+    elsif !@ticket.paid?
+      render :status=>409, :json=>{:message=>"Ticket NOT paid."}
     else
       @ticket.checked = true
       @ticket.save
