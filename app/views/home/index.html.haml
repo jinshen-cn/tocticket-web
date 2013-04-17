@@ -1,7 +1,7 @@
 .row-fluid
   .span6.bannertext.centered-slogan
-    %h1= t('home.welcome')
-    %p.lead Online Ticketing Management System
+    %h1= t('home.header')
+    %p.lead= t('home.subtitle')
   /
     .span6
       .video-container
@@ -23,13 +23,14 @@
 .row-fluid
   .span4.featured-boxes
     .feature-inner
-      %h4 Create an Event:
+      %h4= t('home.create_event')
       = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
   .span4.featured-boxes
     .feature-inner
-      %h4 Log in to manage your event:
+      %h4= t('home.login_to_manage')
       = render 'devise/sessions/new'
-  .span4.featured-boxes
-    .feature-inner
-      %h4 Already attending an event?
-      = link_to 'Print your tickets', new_user_session_path, :class => 'btn btn-success'
+  /
+    .span4.featured-boxes
+      .feature-inner
+        %h4= t('home.already_attending')
+        = link_to t('home.print_tickets'), new_user_session_path, :class => 'btn btn-success'

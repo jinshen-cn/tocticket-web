@@ -1,3 +1,11 @@
 es:
+
+  placeholder:
+    full_name:           "Nombre completo"
+    email:               "Email"
+    password:            "Contraseña"
+    confirm_password:    "Confirme contraseña"
+    sign_up:             "Registrate"
+
   home:
     welcome:    "Bienvenido a TocTicket"

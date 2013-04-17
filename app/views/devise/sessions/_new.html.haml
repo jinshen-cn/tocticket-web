@@ -1,9 +1,9 @@
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
   .control-group
-    = f.input :email, label: false, placeholder: "Email", :autofocus => true, :input_html => {:class => 'span12'}
-    = f.input :password, label: false, placeholder: "Password", :input_html => {:class => 'span12'}
-    = f.button :submit, "Sign in", :class => 'btn-success'
+    = f.input :email, label: false, placeholder: t('placeholder.email'), :autofocus => true, :input_html => {:class => 'span12'}
+    = f.input :password, label: false, placeholder: t('placeholder.password'), :input_html => {:class => 'span12'}
+    = f.button :submit, t('devise.sign_in'), :class => 'btn-success'
   %small.control-group
     = f.check_box :remember_me, :as => :boolean, :style => "margin-top: -3px;" if devise_mapping.rememberable?
     Remember me · 
-    = link_to "Forgot password?", new_password_path(resource_name)
+    = link_to t('devise.forgot_password'), new_password_path(resource_name)

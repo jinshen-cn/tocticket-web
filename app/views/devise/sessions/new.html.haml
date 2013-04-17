@@ -1,11 +1,11 @@
 .row-fluid
   .span4.featured-boxes
     .feature-inner
-      %h4 Login
+      %h4= t('devise.sessions.login')
       = render 'new'
   .span3.featured-boxes
     .feature-inner
-      %h4 Sign up as attendee
+      %h4= t('devise.sessions.sign_up_as_attendee')
       = render :partial => 'devise/registrations/new', :locals => {:role => :attendee}
   .span3.featured-boxes
     %br
@@ -14,8 +14,8 @@
       = link_to user_omniauth_authorize_path(:facebook), :class => 'btn btn-success btn-block' do
         = image_tag "footer_facebook.png"
         &nbsp;&nbsp;&nbsp;
-        Sign in/up with Facebook
+        = t('devise.sessions.sign_facebook')
       = link_to user_omniauth_authorize_path(:twitter), :class => 'btn btn-success btn-block' do
         = image_tag "footer_twitter.png"
         &nbsp;&nbsp;&nbsp;&nbsp;
-        Sign in/up with Twitter
+        = t('devise.sessions.sign_twitter')

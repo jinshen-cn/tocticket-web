@@ -6,5 +6,45 @@ en:
     formats:
       default: "%m/%d/%Y %I:%M %P"
       long: "%A, %B %e of %Y at %I:%M %P"
+
+  update:                "Update"
+  back:                  "Back"
+  confirm_msg:           "Are you sure?"
+
+  placeholder:
+    full_name:           "Full Name"
+    email:               "Email"
+    password:            "Password"
+    confirm_password:    "Confirm password"
+    type_new_pass:       "Type new password"
+    confirm_new_pass:    "Confirm new password"
+
+  devise:
+    sign_in:             "Sign in"
+    sign_up:             "Sign up"
+    forgot_password:     "Forgot password?"
+
+    sessions:
+      login:               "Login"
+      sign_up_as_attendee: "Sign up as attendee"
+      sign_facebook:       "Sign in/up with Facebook"
+      sign_twitter:        "Sign in/up with Twitter"
+    shared:
+      didnt_receive_conf:  "Didn't receive confirmation instructions?"
+      didnt_receive_unlock: "Didn't receive unlock instructions?"
+      sing_in_provider:    "Sign in with %{provider}"
+    registrations:
+      unhappy:             "Unhappy? Cancel my account"
+      edit_account:        "Edit your account"
+      change_pass:         "To change password into new password:"
+      cancel_button:       "Cancel my account"
+      write_mail:          "Please, write your mail"
+      twitter_sign_up:     "Twitter sign up"
+
   home:
-    welcome:      "Welcome to TocTicket"
+    header:               "Welcome to TocTicket"
+    subtitle:             "Online Ticketing Management System"
+    create_event:         "Create an Event:"
+    login_to_manage:      "Log in to manage your event:"
+    already_attending:    "Already attending an event?"
+    print_tickets:        "Print your tickets"
