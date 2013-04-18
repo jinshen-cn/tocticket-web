@@ -19,6 +19,15 @@ en:
   price:                 "Price"
   more_info:             "More info..."
 
+  layouts:
+    navigation:
+      my_events:         "My Events"
+      my_tickets:        "My Tickets"
+      logout:            "Logout"
+      edit_account:      "Edit Account"
+    email_title:         "TocTicket Ticket Mail"
+    app_title:
+
   devise:
     sign_in:             "Sign in"
     sign_up:             "Sign up"
