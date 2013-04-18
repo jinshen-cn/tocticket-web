@@ -113,6 +113,11 @@ en:
       my_events:           "My Events"
       sold_limit:          "Tickets (sold/limit)"
       new_event:           "New Event"
+    error:
+      custom_uri:          "Allowed: letters, numbers, '-' and '_'"
+      bad_url:             "Please, introduce a valid URL"
+      date_future:         "Date of event should be in the future"
+      capacity:            "Attendees exceed capacity"
 
   tickets:
     event_name:          "Event name"
@@ -136,4 +141,5 @@ en:
       create_date:         "Creation date"
       checked_date:        "Checked date"
       paypal_notification: "Paypal Payment nofication"
-    list:
+    error:
+      exceed_capacity:     "Only %{free_capacity.to_s} attendees free to sell"

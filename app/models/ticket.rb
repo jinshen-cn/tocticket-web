@@ -11,7 +11,7 @@ class Ticket < ActiveRecord::Base
   
   def attendees_cannot_exceed_event_capacity
     if event.capacity < event.total_attendees + attendees
-      errors.add(:attendees, "Only " + event.free_capacity.to_s + " attendees free to sell")
+      errors.add(:attendees, I18n.t('tickets.error.exceed_capacity'))
     end
   end
   
