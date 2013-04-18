@@ -5,6 +5,6 @@ class TicketMailer < ActionMailer::Base
   def ticket_email(ticket)
     @ticket = ticket
     @event = ticket.event
-    mail(to: ticket.email, subject: "Ticket purchased for the Event: " + ticket.event.name)
+    mail(to: ticket.email, subject: t("tickets.email.subject", event_name:ticket.event.name))
   end
 end

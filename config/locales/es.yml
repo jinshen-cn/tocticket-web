@@ -135,6 +135,7 @@ es:
 
     warning:             "Aviso: La entrada debe ser imprimida y presentada en la puerta del Evento, donde el código QR será escaneado."
     email:
+      subject:             "Entrada comprada para el evento: %{event_name}"
       header:              "Correo de verificación"
       attendees_number:    "Para %{number} asistentes."
       purchased_ticket:    "Entrada vendida"

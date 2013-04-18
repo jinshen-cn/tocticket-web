@@ -138,6 +138,7 @@ en:
 
     warning:             "Warning: Ticket should be printed and presented at Event door, where QR code will be scanned."
     email:
+      subject:             "Ticket purchased for the Event: %{event_name}"
       header:              "Verification mail"
       attendees_number:    "For %{number} attendees."
       purchased_ticket:    "Purchased ticket"
