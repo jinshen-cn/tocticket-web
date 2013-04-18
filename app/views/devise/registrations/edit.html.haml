@@ -1,11 +1,11 @@
 %h4= t('devise.registrations.edit_account')
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f|
   = f.error_notification
-  = f.input :name, :autofocus => true, :label => false, :placeholder => t('placeholder.full_name')
-  = f.input :email, :required => true, :label => false, :placeholder => t('placeholder.email')
+  = f.input :name, :autofocus => true, :label => false, :placeholder => t('devise.placeholder.full_name')
+  = f.input :email, :required => true, :label => false, :placeholder => t('devise.placeholder.email')
   - if @user.provider.blank?
-    = f.input :password, :label => t('devise.registrations.change_pass'), :autocomplete => "off", :required => false, :placeholder => t('placeholder.type_new_pass')
-    = f.input :password_confirmation, :required => false, :label => false, :placeholder => t('placeholder.confirm_new_pass')
+    = f.input :password, :label => t('devise.registrations.change_pass'), :autocomplete => "off", :required => false, :placeholder => t('devise.placeholder.type_new_pass')
+    = f.input :password_confirmation, :required => false, :label => false, :placeholder => t('devise.placeholder.confirm_new_pass')
   = f.button :submit, t(:update), :class => 'btn-primary'
 %h4= t('devise.registrations.unhappy')
 %p= link_to t('devise.registrations.cancel_button'), registration_path(resource_name), :data => { :confirm => t(:confirm_msg) }, :method => :delete, :class => 'btn btn-danger'

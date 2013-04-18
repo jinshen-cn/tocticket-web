@@ -1,27 +1,27 @@
 %p#notice= notice
 %h2.event-title= link_to @event.name, @event.public_url, :target => "_blank"
-.date_place #{l @event.celebrated_at, :format => :long} at #{@event.address}
+.date_place= t('events.show.date_place', date: l(@event.celebrated_at, :format => :long), place:@event.address)
 .event-details
-  %p Enjoy the event only for $#{@event.price}.
+  %p= t('events.show.price', price: @event.price)
   - if !@event.info.empty?
     %p= @event.info
   - if !@event.url.empty?
-    %p= link_to 'More info...', @event.url, :target => "_blank"
+    %p= link_to t(:more_info), @event.url, :target => "_blank"
 
 - if @event.organizer == current_user
   .organizer-info
-    %h4 Information for Organizer
+    %h4= t('events.show.organizer_info')
     %dl.dl-horizontal
-      %dt Attendees:
+      %dt= t('events.show.attendees')
       %dd #{@event.total_attendees} / #{@event.capacity}
-      %dt Paypal account:
+      %dt= t('events.show.paypal_account')
       %dd= @event.paypal_account
 
-    %h4 Ticket list
+    %h4= t('events.show.ticket_list')
     = render :partial => "tickets/list", :locals => {tickets: @event.tickets}
     .btn-group
-      = link_to 'Sell Tickets', new_event_ticket_path(@event), :class => "btn btn-success"
-      = link_to 'Edit', edit_event_path(@event), :class => "btn btn-success"
-      = link_to 'Back', events_path, :class => "btn btn-success"
+      = link_to t('events.show.sell_tickets'), new_event_ticket_path(@event), :class => "btn btn-success"
+      = link_to t(:edit), edit_event_path(@event), :class => "btn btn-success"
+      = link_to t(:back), events_path, :class => "btn btn-success"
   - else
-    = link_to 'Purchase a ticket', new_event_ticket_path(@event), :class => "btn btn-success"
+    = link_to t('events.show.purchase_tickets'), new_event_ticket_path(@event), :class => "btn btn-success"

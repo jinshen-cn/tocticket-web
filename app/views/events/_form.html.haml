@@ -2,17 +2,17 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :name, :label => "Event Name", :placeholder => "Name of Event", :input_html => {:class => 'span12'}
-    = f.input :uri, :label => "Custom URI", :placeholder => "http://www.tockticket.com/to/...", :input_html => {:class => 'span12'}
-    = f.input :formatted_celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => "Date of event", :placeholder => "Date of Event"
-    = f.input :address, :label => "Address", :placeholder => "Address", :input_html => {:class => 'span12', :rows =>'4'}
-    = f.input :price, :label => "Price of Tickets", :wrapper => 'prepend' do
+    = f.input :name, :label => t('events.form.event_name'), :placeholder => t('events.form.event_name_ph'), :input_html => {:class => 'span12'}
+    = f.input :uri, :label => t('events.form.custom_uri'), :placeholder => t('events.form.custom_uri_ph'), :input_html => {:class => 'span12'}
+    = f.input :formatted_celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => t('events.form.event_date'), :placeholder => t('events.form.event_date_ph')
+    = f.input :address, :label => t('events.form.address'), :placeholder => t('events.form.address_ph'), :input_html => {:class => 'span12', :rows =>'4'}
+    = f.input :price, :label => t('events.form.price'), :wrapper => 'prepend' do
       = content_tag :span, "$", :class => "add-on"
       = f.number_field :price, :step => '0.05'
-    = f.input :info, :label => "Event Details", :placeholder => "Additional info", :input_html => {:class => 'span12', :rows =>'4'}
-    = f.input :url, :label => "URL of Event", :placeholder => "Formal URL", :input_html => {:class => 'span6'}
-    = f.input :capacity, :label => "Capacity of attendees", :placeholder => "Limit of attendees", :input_html => { :step => '10' }
-    = f.input :paypal_account, :label => "Paypal account (email)", :placeholder => "Paypal email", :input_html => {:class => 'span6'}, :hint => 'This is the account where all the ticket sales profit will be paid out to'
+    = f.input :info, :label => t('events.form.details'), :placeholder => t('events.form.details_ph'), :input_html => {:class => 'span12', :rows =>'4'}
+    = f.input :url, :label => t('events.form.url'), :placeholder => t('events.form.url_ph'), :input_html => {:class => 'span6'}
+    = f.input :capacity, :label => t('events.form.capacity'), :placeholder => t('events.form.capacity_ph'), :input_html => { :step => '10' }
+    = f.input :paypal_account, :label => t('events.form.paypal_account'), :placeholder => t('events.form.paypal_account_ph'), :input_html => {:class => 'span6'}, :hint => t('events.form.paypal_account_hint')
 
   .form-actions
     = f.button :submit, :class => "btn btn-success"

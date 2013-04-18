@@ -1,6 +1,6 @@
-%h2.sectiontitle Editing event
+%h2.sectiontitle= t('events.edit_header')
 
 = render 'form'
 .btn-group
-  = link_to 'Show', @event, :class => "btn btn-success"
-  = link_to 'Back', events_path, :class => "btn btn-success"
+  = link_to t(:show), @event, :class => "btn btn-success"
+  = link_to t(:back), events_path, :class => "btn btn-success"

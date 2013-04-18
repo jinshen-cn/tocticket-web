@@ -10,19 +10,27 @@ en:
   update:                "Update"
   back:                  "Back"
   confirm_msg:           "Are you sure?"
-
-  placeholder:
-    full_name:           "Full Name"
-    email:               "Email"
-    password:            "Password"
-    confirm_password:    "Confirm password"
-    type_new_pass:       "Type new password"
-    confirm_new_pass:    "Confirm new password"
+  submit:                "Submit"
+  show:                  "Show"
+  edit:                  "Edit"
+  delete:                "Delete"
+  name:                  "Name"
+  date:                  "Date"
+  price:                 "Price"
+  more_info:             "More info..."
 
   devise:
     sign_in:             "Sign in"
     sign_up:             "Sign up"
     forgot_password:     "Forgot password?"
+
+    placeholder:
+      full_name:           "Full Name"
+      email:               "Email"
+      password:            "Password"
+      confirm_password:    "Confirm password"
+      type_new_pass:       "Type new password"
+      confirm_new_pass:    "Confirm new password"
 
     sessions:
       login:               "Login"
@@ -40,6 +48,47 @@ en:
       cancel_button:       "Cancel my account"
       write_mail:          "Please, write your mail"
       twitter_sign_up:     "Twitter sign up"
+
+  events:
+    edit_header:           "Editing Event"
+    new_header:            "New event"
+    form:
+      event_name:          "Event Name"
+      event_name_ph:       "Name of Event"
+      custom_uri:          "Custom URI"
+      custom_uri_ph:       "http://www.tockticket.com/to/..."
+      event_date:          "Date of event"
+      event_date_ph:       "Date of Event"
+      address:             "Address"
+      address_ph:          "Address"
+      price:               "Price of Tickets"
+      details:             "Event Details"
+      details_ph:          "Additional info"
+      url:                 "URL of Event"
+      url_ph:              "Formal URL"
+      capacity:            "Capacity of attendees"
+      capacity_ph:         "Limit of attendees"
+      paypal_account:      "Paypal account (email)"
+      paypal_account_ph:   "Paypal email"
+      paypal_account_hint: "This is the account where all the ticket sales profit will be paid out to"
+    create:
+      congrats:            "Congratulations!! Here is the URL to sell your tickets:"
+      public_url:          "Public URL for '%{name}' is %{url}"
+      share_on:            "Share on %{network}"
+      got_to_events:       "Go to Events"
+    show:
+      date_place:          "%{date} at %{place}"
+      price:               "Enjoy the event only for $%{price}."
+      organizer_info:      "Information for Organizer"
+      attendees:           "Attendees:"
+      paypal_account:      "Paypal account:"
+      ticket_list:         "Ticket list"
+      sell_tickets:        "Sell Tickets"
+      purchase_tickets:    "Purchase a ticket"
+    index:
+      my_events:           "My Events"
+      sold_limit:          "Tickets (sold/limit)"
+      new_event:           "New Event"
 
   home:
     header:               "Welcome to TocTicket"

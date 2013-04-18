@@ -1,18 +1,18 @@
-%h2.sectiontitle Congratulations!! Here is the URL to sell your tickets:
+%h2.sectiontitle= t('events.create.congrats')
 
-%h2= link_to 'Public URL for "'+@event.name+'" is '+@event.public_url(root_url), @event.public_url, :target => "_blank"
+%h2= link_to t('events.create.public_url', name: @event.name, url: @event.public_url(root_url)), @event.public_url, :target => "_blank"
 
 = link_to 'http://www.facebook.com/sharer/sharer.php?u='+@event.public_url(root_url), :class => 'btn btn-success' do
   = image_tag "footer_facebook.png"
   &nbsp;&nbsp;&nbsp;
-  Share on Facebook
+  = t('events.create.share_on', network: "Facebook")
 
 = link_to 'http://twitter.com/home?status='+@event.public_url(root_url), :class => 'btn btn-success' do
   = image_tag "footer_twitter.png"
   &nbsp;&nbsp;&nbsp;&nbsp;
-  Share on Twitter
+  = t('events.create.share_on', network: "Twitter")
 
 %br
 %br
 %br
-= link_to 'Go to Events', events_path, :class => 'btn btn-success'
+= link_to t('events.create.got_to_events'), events_path, :class => 'btn btn-success'

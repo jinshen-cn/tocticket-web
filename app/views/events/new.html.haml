@@ -1,5 +1,5 @@
-%h2.sectiontitle New event
+%h2.sectiontitle= t('events.new_header')
 
 = render 'form'
 
-= link_to 'Back', events_path, :class => 'btn btn-success'
+= link_to t(:back), events_path, :class => 'btn btn-success'
