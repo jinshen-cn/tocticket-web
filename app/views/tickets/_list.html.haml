@@ -1,15 +1,15 @@
 %table.table.table-bordered.table-condensed.table-hover
   %tr
     - if current_user.has_role?(:organizer)
-      %th Attendee
+      %th= t :attendee
     - if current_user.has_role?(:attendee)
-      %th Event
-    %th Attendees
-    %th Paid
-    %th Checked
-    %th Print
+      %th= t :event
+    %th= t(:attendee).pluralize
+    %th= t :paid
+    %th= t :checked
+    %th= t :print
     - if current_user.has_role?(:organizer)
-      %th Detail
+      %th= t :detail
 
   - tickets.each do |ticket|
     %tr
@@ -21,8 +21,8 @@
       - if current_user.has_role?(:attendee)
         %td= ticket.event.name
       %td= ticket.attendees
-      %td= ticket.paid ? 'yes':'no'
-      %td= ticket.checked ? 'yes':'no'
+      %td= ticket.paid ? t(:yes) : t(:no)
+      %td= ticket.checked ? t(:yes) : t(:no)
       %td
         = link_to event_ticket_path(ticket.event,ticket), :class => 'btn btn-mini btn-success' do
           %i.icon-print.icon-white

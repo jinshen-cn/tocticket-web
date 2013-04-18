@@ -3,25 +3,25 @@
 %dl.dl-horizontal
   = render :partial => "printed_ticket_data"
 
-  %dt Ticket id:
+  %dt= t('tickets.detail.ticket_id')
   %dd= @ticket.id
-  %dt Random key:
+  %dt= t('tickets.detail.random_key')
   %dd= @ticket.random_key
-  %dt Paid:
-  %dd= @ticket.paid ? 'yes':'no'
+  %dt= t(:paid)
+  %dd= @ticket.paid ? t(:yes) : t(:no)
   - if @ticket.paid?
-    %dt Creation date:
+    %dt= t('tickets.detail.create_date')
     %dd= l @ticket.created_at, :format => :long
-  %dt Checked:
-  %dd= @ticket.checked ? 'yes':'no'
+  %dt= t(:checked)
+  %dd= @ticket.checked ? t(:yes) : t(:no)
   - if @ticket.checked?
-    %dt Checked date:
+    %dt= t('tickets.detail.checked_date')
     %dd= l @ticket.updated_at, :format => :long
   - if @ticket.paid and @ticket.payment_notification
-    %dt Paypal Payment nofication:
+    %dt= t('tickets.detail.paypal_notification')
     %dd
       %pre= simple_format @ticket.payment_notification.to_yaml
 
 .btn-group
-  = link_to 'Back', event_path(@event), :class => 'btn btn-success'
-  = link_to 'Print', "#", :class => 'btn btn-success', :onclick => "window.print();return false;"
+  = link_to t(:back), event_path(@event), :class => 'btn btn-success'
+  = link_to t(:print), "#", :class => 'btn btn-success', :onclick => "window.print();return false;"

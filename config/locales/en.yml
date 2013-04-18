@@ -4,11 +4,17 @@
 en:
   time:
     formats:
-      default: "%m/%d/%Y %I:%M %P"
-      long: "%A, %B %e of %Y at %I:%M %P"
+      default:           "%m/%d/%Y %I:%M %P"
+      long:              "%A, %B %e of %Y at %I:%M %P"
 
+  attendee:              "Attendee"
+  event:                 "Event"
+  paid:                  "Paid"
+  checked:               "Checked"
+  detail:                "Detail"
   update:                "Update"
   back:                  "Back"
+  print:                 "Print"
   confirm_msg:           "Are you sure?"
   submit:                "Submit"
   show:                  "Show"
@@ -18,6 +24,8 @@ en:
   date:                  "Date"
   price:                 "Price"
   more_info:             "More info..."
+  yes:                   "yes"
+  no:                    "no"
 
   layouts:
     navigation:
@@ -26,7 +34,15 @@ en:
       logout:            "Logout"
       edit_account:      "Edit Account"
     email_title:         "TocTicket Ticket Mail"
-    app_title:
+    app_title:           "TocTicket Web"
+
+  home:
+    header:               "Welcome to TocTicket"
+    subtitle:             "Online Ticketing Management System"
+    create_event:         "Create an Event:"
+    login_to_manage:      "Log in to manage your event:"
+    already_attending:    "Already attending an event?"
+    print_tickets:        "Print your tickets"
 
   devise:
     sign_in:             "Sign in"
@@ -89,8 +105,7 @@ en:
       date_place:          "%{date} at %{place}"
       price:               "Enjoy the event only for $%{price}."
       organizer_info:      "Information for Organizer"
-      attendees:           "Attendees:"
-      paypal_account:      "Paypal account:"
+      paypal_account:      "Paypal account"
       ticket_list:         "Ticket list"
       sell_tickets:        "Sell Tickets"
       purchase_tickets:    "Purchase a ticket"
@@ -99,10 +114,26 @@ en:
       sold_limit:          "Tickets (sold/limit)"
       new_event:           "New Event"
 
-  home:
-    header:               "Welcome to TocTicket"
-    subtitle:             "Online Ticketing Management System"
-    create_event:         "Create an Event:"
-    login_to_manage:      "Log in to manage your event:"
-    already_attending:    "Already attending an event?"
-    print_tickets:        "Print your tickets"
+  tickets:
+    event_name:          "Event name"
+    attendees_number:    "Number of attendees"
+    email:               "Email to receive the ticket"
+    qr_code:             "QR code"
+
+    warning:             "Warning: Ticket should be printed and presented at Event door, where QR code will be scanned."
+    email:
+      header:              "Verification mail"
+      attendees_number:    "For %{number} attendees."
+      purchased_ticket:    "Purchased ticket"
+    form:
+      sell:                "Sell Tickets"
+      purchase:            "Purchase Tickets"
+    new_header:            "%{verb} tickets for '%{event_name}'"
+    list_header:           "Listing tickets"
+    detail:
+      ticket_id:           "Ticket id"
+      random_key:          "Random key"
+      create_date:         "Creation date"
+      checked_date:        "Checked date"
+      paypal_notification: "Paypal Payment nofication"
+    list:

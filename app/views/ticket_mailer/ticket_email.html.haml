@@ -1,9 +1,9 @@
-%h3 Verification mail
+%h3= t('tickets.email.header')
 
-%p Event: #{@event.name}
-%p Date: #{@event.celebrated_at}
-%p For #{@ticket.attendees} attendees.
+%p= t(:name) +  ": " + @event.name
+%p= t(:date) +  ": " + @event.celebrated_at
+%p= t('tickets.email.attendees_number', number: @ticket.attendees)
 
-%h2= link_to "Purchased ticket", secure_ticket_url(@event, @ticket, @ticket.random_key)
+%h2= link_to t('tickets.email.purchased_ticket'), secure_ticket_url(@event, @ticket, @ticket.random_key)
 
-%p Warning: You should go with the ticket printed to the door
+%p= t('tickets.warning')

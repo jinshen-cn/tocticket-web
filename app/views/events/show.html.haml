@@ -12,7 +12,7 @@
   .organizer-info
     %h4= t('events.show.organizer_info')
     %dl.dl-horizontal
-      %dt= t('events.show.attendees')
+      %dt= t(:attendee).pluralize
       %dd #{@event.total_attendees} / #{@event.capacity}
       %dt= t('events.show.paypal_account')
       %dd= @event.paypal_account

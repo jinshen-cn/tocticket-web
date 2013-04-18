@@ -5,8 +5,8 @@
 %dl.dl-horizontal
   = render :partial => "printed_ticket_data"
 
-%p Warning: Ticket should be printed and presented at Event door, where QR code will be regnized.
+%p= t('tickets.warning')
 
 .btn-group
-  = link_to 'Back', event_path(@event), :class => 'btn btn-success'
-  = link_to 'Print', "#", :class => 'btn btn-success', :onclick => "window.print();return false;"
+  = link_to t(:back), event_path(@event), :class => 'btn btn-success'
+  = link_to t(:print), "#", :class => 'btn btn-success', :onclick => "window.print();return false;"
