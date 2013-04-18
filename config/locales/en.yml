@@ -73,6 +73,12 @@ en:
       cancel_button:       "Cancel my account"
       write_mail:          "Please, write your mail"
       twitter_sign_up:     "Twitter sign up"
+    message:
+      no_authorize:        "Not authorized as an administrator."
+      user_update:         "User updated."
+      cant_update:         "Unable to update user."
+      user_delete:         "User deleted."
+      cant_delete:         "Can't delete yourself."
 
   events:
     edit_header:           "Editing Event"
@@ -113,11 +119,13 @@ en:
       my_events:           "My Events"
       sold_limit:          "Tickets (sold/limit)"
       new_event:           "New Event"
-    error:
+    message:
       custom_uri:          "Allowed: letters, numbers, '-' and '_'"
       bad_url:             "Please, introduce a valid URL"
       date_future:         "Date of event should be in the future"
       capacity:            "Attendees exceed capacity"
+      success_update:      "Event was successfully updated."
+      no_authorize:        "You have to be the event organizer to edit this event."
 
   tickets:
     event_name:          "Event name"
@@ -141,5 +149,19 @@ en:
       create_date:         "Creation date"
       checked_date:        "Checked date"
       paypal_notification: "Paypal Payment nofication"
-    error:
+    message:
       exceed_capacity:     "Only %{free_capacity.to_s} attendees free to sell"
+      success_create:      "Ticket was successfully created."
+      success_update:      "Ticket was successfully updated."
+
+  api:
+    v1:
+      token:
+        incomplete_req:    "The request must contain the user email and password."
+        invalid_req:       "Invalid email or password."
+        invalid:           "Invalid token."
+      event:
+      ticket:
+        not_found:        "Ticket not found."
+        checked_on:       "Ticket checked on %{date}."
+        not_paid:         "Ticket NOT paid."

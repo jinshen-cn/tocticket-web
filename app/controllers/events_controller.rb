@@ -45,7 +45,7 @@ class EventsController < ApplicationController
   # PUT /events/1
   def update
       if @event.update_attributes(params[:event])
-        redirect_to @event, notice: 'Event was successfully updated.'
+        redirect_to @event, notice: t('events.message.success_update')
       else
         render action: "edit"
       end
@@ -62,7 +62,7 @@ class EventsController < ApplicationController
   def is_event_organizer
     @event = Event.find(params[:id])
     unless current_user == @event.organizer
-      redirect_to @event, alert: 'You have to be the event organizer to edit this event.'
+      redirect_to @event, alert: t('events.message.no_authorize')
     end
   end
 end

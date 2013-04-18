@@ -37,7 +37,7 @@ class TicketsController < ApplicationController
       if @event.organizer == current_user
         @ticket.paid = true
         @ticket.save
-        redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully created.'
+        redirect_to event_ticket_url(@event, @ticket), notice: t('tickets.message.success_create')
       else
         redirect_to @ticket.paypal_url(secure_ticket_url(@event, @ticket, @ticket.random_key), payment_notifications_url)
       end
@@ -50,7 +50,7 @@ class TicketsController < ApplicationController
   def update
     @ticket = Ticket.find(params[:id])
       if @ticket.update_attributes(params[:ticket])
-        redirect_to event_ticket_url(@event, @ticket), notice: 'Ticket was successfully updated.'
+        redirect_to event_ticket_url(@event, @ticket), notice: t('tickets.message.success_update')
       else
         render action: "edit"
       end
