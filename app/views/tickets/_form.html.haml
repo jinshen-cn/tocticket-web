@@ -3,9 +3,9 @@
 
   .form-inputs
     = f.input :attendees, :label => t('tickets.attendees_number')
-    = f.input :email, :label => t('tickets.email'), :input_html => { :value => "#{current_user.email if current_user}" }
+    = f.input :email, :label => t('tickets.target_email'), :input_html => { :value => "#{current_user.email if current_user}" }
   .form-actions
     - if @event.organizer == current_user
-      = f.button :submit, :value => t('tickets.form.sell'), :class => "btn btn-success"
+      = f.button :submit, :value => t('tickets.sell'), :class => "btn btn-success"
     - else
-      = f.button :submit, :value => t('tickets.form.purchase'), :class => "btn btn-success"
+      = f.button :submit, :value => t('tickets.purchase'), :class => "btn btn-success"

@@ -2,14 +2,162 @@ es:
   time:
     formats:
       default:           "%m/%d/%Y %I:%M %P"
-      long:              "%A, %B %e of %Y at %I:%M %P"
+      long:              "%A, %e de %B de %Y a las %I:%M %P"
 
-  placeholder:
-    full_name:           "Nombre completo"
-    email:               "Email"
-    password:            "Contraseña"
-    confirm_password:    "Confirme contraseña"
-    sign_up:             "Registrate"
+  attendee:              "Asistente"
+  event:                 "Evento"
+  paid:                  "Pagado"
+  checked:               "Chequeado"
+  detail:                "Detalle"
+  update:                "Actualizar"
+  back:                  "Atrás"
+  print:                 "Imprimir"
+  confirm_msg:           "Estás seguro?"
+  submit:                "Enviar"
+  show:                  "Mostrar"
+  edit:                  "Editar"
+  delete:                "Borrar"
+  name:                  "Nombre"
+  date_title:            "Fecha"
+  price:                 "Precio"
+  more_info:             "Más información..."
+  yes:                   "sí"
+  no:                    "no"
+
+  layouts:
+    navigation:
+      my_events:         "Mis Eventos"
+      my_tickets:        "Mis Entradas"
+      logout:            "Cerrar Sesión"
+      edit_account:      "Editar Cuenta"
+    email_title:         "Correo de entrega de Entradas de TocTicket"
+    app_title:           "TocTicket Web"
 
   home:
-    welcome:    "Bienvenido a TocTicket"
+    header:               "Bienvenido a TocTicket"
+    subtitle:             "Sistema on-line de gestión de Entradas a Eventos"
+    create_event:         "Crear un Evento:"
+    login_to_manage:      "Accede para gestionar tus Eventos:"
+    already_attending:    "Ya vas a asistir a un Evento?"
+    print_tickets:        "Imprime tus entradas"
+
+  devise:
+    sign_in:             "Iniciar sesión"
+    sign_up:             "Registrarse"
+    remember_me:         "Recordar contraseña"
+    forgot_password:     "Olvidaste tu contraseña?"
+
+    placeholder:
+      full_name:           "Nombre completo"
+      email:               "Correo electrónico"
+      password:            "Contraseña"
+      confirm_password:    "Confirma tu contraseña"
+      type_new_pass:       "Escribe tu nueva contraseña"
+      confirm_new_pass:    "Confirma tu nueva contraseña"
+
+    sessions:
+      login:               "Iniciar sesión"
+      sign_up_as_attendee: "Registraté como Asistente"
+      sign_facebook:       "Registraté/Accede con Facebook"
+      sign_twitter:        "Registraté/Accede con Twitter"
+    shared:
+      didnt_receive_conf:  "No recibiste las instrucciones de confirmación?"
+      didnt_receive_unlock: "No recibiste las instrucciones de desbloqueo?"
+      sing_in_provider:    "Accede con %{provider}"
+    registrations:
+      unhappy:             "Disconforme? Cancela mi cuenta"
+      edit_account:        "Edita tu cuenta"
+      change_pass:         "PAra cambiar tu actual contraseña:"
+      cancel_button:       "Cancela mi cuenta"
+      write_mail:          "Por favor, escribe tu correo electrónico"
+      twitter_sign_up:     "Registrame con Twitter"
+    message:
+      no_authorize:        "No autorizado como administrador."
+      user_update:         "Usuario modificado."
+      cant_update:         "No es posible modificar el usuario."
+      user_delete:         "Usuario borrado."
+      cant_delete:         "No puedes eliminarte a ti mismo."
+
+  events:
+    edit_header:           "Editar Evento"
+    new_header:            "Nuevo Evento"
+    form:
+      event_name:          "Nombre del Evento"
+      event_name_ph:       "Nombre del Evento"
+      custom_uri:          "URL al gusto"
+      custom_uri_ph:       "http://www.tockticket.com/to/..."
+      event_date:          "Fecha del Evento"
+      event_date_ph:       "Fecha del Evento"
+      address:             "Dirección"
+      address_ph:          "Dirección"
+      price:               "Precio de las Entradas"
+      details:             "Detalles del Evento"
+      details_ph:          "Información adicional"
+      url:                 "URL del evento"
+      url_ph:              "Otra URL"
+      capacity:            "Capacidad de asistentes"
+      capacity_ph:         "Límite de asistentes"
+      paypal_account:      "Cuenta de Paypal (email)"
+      paypal_account_ph:   "Paypal email"
+      paypal_account_hint: "Esta es la cuenta donde será ingresado el pago de las entradas"
+    create:
+      congrats:            "Enhorabuena!! Aquí tienes la URL para vender entradas:"
+      public_url:          "La URL pública para '%{name}' es %{url}"
+      share_on:            "Compartir con %{network}"
+      got_to_events:       "Ir a Eventos"
+    show:
+      date_place:          "%{date} en %{place}"
+      price:               "Disfruta del evento por solo $%{price}."
+      organizer_info:      "Información para el Organizador"
+      paypal_account:      "Cuenta de Paypal"
+      ticket_list:         "Lista de Entradas"
+      sell_tickets:        "Vender Entradas"
+      purchase_tickets:    "Comprar Entradas"
+    index:
+      my_events:           "Mis Eventos"
+      sold_limit:          "Entradas (vendidas/límite)"
+      new_event:           "Nuevo Evento"
+    message:
+      custom_uri:          "Permitimos: letras, números, '-' y '_'"
+      bad_url:             "Por favor, introduce una URL válida."
+      date_future:         "La fecha del Evento debe ser en el futuro"
+      capacity:            "El número de asistentes introducido excede la capacidad"
+      success_update:      "Evento modificado correctamente."
+      no_authorize:        "Debes ser el Organizador del Evento para acceder a él."
+
+  tickets:
+    event_name:          "Nombre del Evento"
+    attendees_number:    "Número de Asistentes"
+    target_email:        "Correo en el que recibir la Entrada"
+    qr_code:             "Código QR"
+    sell:                "Vender Entradas"
+    purchase:            "Comprar Entradas"
+
+    warning:             "Aviso: La entrada debe ser imprimida y presentada en la puerta del Evento, donde el código QR será escaneado."
+    email:
+      header:              "Correo de verificación"
+      attendees_number:    "Para %{number} asistentes."
+      purchased_ticket:    "Entrada vendida"
+    list_header:           "Listado de Entradas"
+    detail:
+      ticket_id:           "ID de la Entrada"
+      random_key:          "Clave aleatoria"
+      create_date:         "Fecha de Creación"
+      checked_date:        "Fecha de Chequeo"
+      paypal_notification: "Notificación de pago de Paypal"
+    message:
+      exceed_capacity:     "Solo %{free_capacity} entradas libres a la venta"
+      success_create:      "Entrada creada correctamente."
+      success_update:      "Entrada modificada correctamente."
+
+  api:
+    v1:
+      token:
+        incomplete_req:    "La petición debe contener correo y contraseña."
+        invalid_req:       "Correo o contraseña inválidos."
+        invalid:           "Token inválido."
+      event:
+      ticket:
+        not_found:        "Entrada no encontrada."
+        checked_on:       "Entrada chequeada el %{date}."
+        not_paid:         "Entrada NO pagada."

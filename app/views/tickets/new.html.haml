@@ -1,8 +1,8 @@
 - if @event.organizer == current_user
-  %h2.sectiontitle= t('tickets.new_header', verb: "Selling", event_name: @event.name)
+  %h2.sectiontitle= t('tickets.sell')
 - else
-  %h2.sectiontitle= t('tickets.new_header', verb: "Purchasing", event_name: @event.name)
-
+  %h2.sectiontitle= t('tickets.purchase')
+%h3= @event.name
 = render 'form'
 
 = link_to t(:back), event_path(@event), :class => 'btn btn-success'

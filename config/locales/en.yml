@@ -38,7 +38,7 @@ en:
 
   home:
     header:               "Welcome to TocTicket"
-    subtitle:             "Online Ticketing Management System"
+    subtitle:             "Online Ticketing Management System for Events"
     create_event:         "Create an Event:"
     login_to_manage:      "Log in to manage your event:"
     already_attending:    "Already attending an event?"
@@ -47,6 +47,7 @@ en:
   devise:
     sign_in:             "Sign in"
     sign_up:             "Sign up"
+    remember_me:         "Remember me"
     forgot_password:     "Forgot password?"
 
     placeholder:
@@ -130,18 +131,16 @@ en:
   tickets:
     event_name:          "Event name"
     attendees_number:    "Number of attendees"
-    email:               "Email to receive the ticket"
+    target_email:               "Email to receive the ticket"
     qr_code:             "QR code"
+    sell:                "Sell Tickets"
+    purchase:            "Purchase Tickets"
 
     warning:             "Warning: Ticket should be printed and presented at Event door, where QR code will be scanned."
     email:
       header:              "Verification mail"
       attendees_number:    "For %{number} attendees."
       purchased_ticket:    "Purchased ticket"
-    form:
-      sell:                "Sell Tickets"
-      purchase:            "Purchase Tickets"
-    new_header:            "%{verb} tickets for '%{event_name}'"
     list_header:           "Listing tickets"
     detail:
       ticket_id:           "Ticket id"
@@ -150,7 +149,7 @@ en:
       checked_date:        "Checked date"
       paypal_notification: "Paypal Payment nofication"
     message:
-      exceed_capacity:     "Only %{free_capacity.to_s} attendees free to sell"
+      exceed_capacity:     "Only %{free_capacity} attendees free to sell"
       success_create:      "Ticket was successfully created."
       success_update:      "Ticket was successfully updated."
 

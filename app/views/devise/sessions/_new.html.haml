@@ -5,5 +5,5 @@
     = f.button :submit, t('devise.sign_in'), :class => 'btn-success'
   %small.control-group
     = f.check_box :remember_me, :as => :boolean, :style => "margin-top: -3px;" if devise_mapping.rememberable?
-    Remember me · 
+    #{t('devise.remember_me')} ·
     = link_to t('devise.forgot_password'), new_password_path(resource_name)
