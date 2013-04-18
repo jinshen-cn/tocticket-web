@@ -21,7 +21,7 @@ en:
   edit:                  "Edit"
   delete:                "Delete"
   name:                  "Name"
-  date:                  "Date"
+  date_title:            "Date"
   price:                 "Price"
   more_info:             "More info..."
   yes:                   "yes"
