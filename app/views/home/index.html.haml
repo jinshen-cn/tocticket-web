@@ -2,6 +2,10 @@
   .span8.bannertext.centered-slogan
     %h1= t('home.header')
     %p.lead= t('home.subtitle')
+    %ol
+      %li= t('home.feat_1')
+      %li= t('home.feat_2')
+      %li= t('home.feat_3')
   /
     .span6
       .video-container
@@ -20,17 +24,24 @@
             width : '480'
           });
 
-.row-fluid
-  .span4.featured-boxes
-    .feature-inner
-      %h4= t('home.create_event')
-      = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
-  .span4.featured-boxes
-    .feature-inner
-      %h4= t('home.login_to_manage')
-      = render 'devise/sessions/new'
-  /
-    .span4.featured-boxes
+  .span4
+    .featured-boxes
       .feature-inner
-        %h4= t('home.already_attending')
-        = link_to t('home.print_tickets'), new_user_session_path, :class => 'btn btn-success'
+        %h4= t('home.login_to_manage')
+        = render 'devise/sessions/new'
+    .featured-boxes
+      .feature-inner
+        %h4= t('home.create_event')
+        = render :partial => 'devise/registrations/new', :locals => {:role => :organizer}
+    .featured-boxes
+      .feature-inner
+        %h4= t('home.android_app')
+        = link_to 'https://play.google.com/store/apps/details?id=tocticket.mob', {class: "btn btn-success pull-right", style: "margin: 20px 0;"} do
+          = image_tag "footer_android.png"
+          &nbsp;
+          = t(:install)
+    /
+      .span4.featured-boxes
+        .feature-inner
+          %h4= t('home.already_attending')
+          = link_to t('home.print_tickets'), new_user_session_path, :class => 'btn btn-success'

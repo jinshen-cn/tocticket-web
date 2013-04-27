@@ -2,7 +2,7 @@
   .control-group
     = f.input :email, label: false, placeholder: t('devise.placeholder.email'), :autofocus => true, :input_html => {:class => 'span12'}
     = f.input :password, label: false, placeholder: t('devise.placeholder.password'), :input_html => {:class => 'span12'}
-    = f.button :submit, t('devise.sign_in'), :class => 'btn-success'
+    = f.button :submit, t('devise.sign_in'), :class => 'btn-success pull-right'
   %small.control-group
     = f.check_box :remember_me, :as => :boolean, :style => "margin-top: -3px;" if devise_mapping.rememberable?
     #{t('devise.remember_me')} ·

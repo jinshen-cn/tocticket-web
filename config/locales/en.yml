@@ -20,6 +20,7 @@ en:
   show:                  "Show"
   edit:                  "Edit"
   delete:                "Delete"
+  install:               "Install"
   name:                  "Name"
   date_title:            "Date"
   price:                 "Price"
@@ -39,8 +40,12 @@ en:
   home:
     header:               "Welcome to TocTicket"
     subtitle:             "Online Ticketing Management System for Events"
-    create_event:         "Create an Event:"
-    login_to_manage:      "Log in to manage your event:"
+    feat_1:               "Events Publishing"
+    feat_2:               "Tickets Selling"
+    feat_3:               "Access Control"
+    create_event:         "New to TocTicket? Sign up"
+    login_to_manage:      "Log in to manage your Events"
+    android_app:          "Access Control Android App"
     already_attending:    "Already attending an event?"
     print_tickets:        "Print your tickets"
 

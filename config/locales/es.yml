@@ -17,6 +17,7 @@ es:
   show:                  "Mostrar"
   edit:                  "Editar"
   delete:                "Borrar"
+  install:               "Instalar"
   name:                  "Nombre"
   date_title:            "Fecha"
   price:                 "Precio"
@@ -36,14 +37,18 @@ es:
   home:
     header:               "Bienvenido a TocTicket"
     subtitle:             "Sistema on-line de gestión de Entradas a Eventos"
-    create_event:         "Crear un Evento:"
-    login_to_manage:      "Accede para gestionar tus Eventos:"
+    feat_1:               "Publicar Eventos"
+    feat_2:               "Vender Tickets"
+    feat_3:               "Control de Acceso"
+    create_event:         "¿Eres nuevo en TocTicket? Regístrate"
+    login_to_manage:      "Accede para gestionar tus Eventos"
+    android_app:          "Android App para Control de Acceso"
     already_attending:    "Ya vas a asistir a un Evento?"
     print_tickets:        "Imprime tus entradas"
 
   devise:
     sign_in:             "Iniciar sesión"
-    sign_up:             "Registrarse"
+    sign_up:             "Regístrate"
     remember_me:         "Recordar contraseña"
     forgot_password:     "Olvidaste tu contraseña?"
 
