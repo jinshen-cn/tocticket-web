@@ -1,5 +1,8 @@
 TocticketWeb::Application.routes.draw do
   
+  resources :ticket_types
+
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

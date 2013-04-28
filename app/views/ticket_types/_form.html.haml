@@ -1,0 +1,10 @@
+= simple_form_for(@ticket_type) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :price
+    = f.input :capacity
+
+  .form-actions
+    = f.button :submit

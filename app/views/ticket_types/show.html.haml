@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @ticket_type.name
+%p
+  %b Price:
+  = @ticket_type.price
+%p
+  %b Capacity:
+  = @ticket_type.capacity
+
+= link_to 'Edit', edit_ticket_type_path(@ticket_type)
+\|
+= link_to 'Back', ticket_types_path
