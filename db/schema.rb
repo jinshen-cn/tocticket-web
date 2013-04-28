@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130413200313) do
+ActiveRecord::Schema.define(:version => 20130428113252) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -50,15 +50,13 @@ ActiveRecord::Schema.define(:version => 20130413200313) do
     t.string   "name"
     t.datetime "celebrated_at"
     t.text     "address"
-    t.decimal  "price",          :precision => 6, :scale => 2
     t.text     "info"
     t.string   "url"
-    t.integer  "capacity"
     t.integer  "organizer_id"
-    t.datetime "created_at",                                   :null => false
-    t.datetime "updated_at",                                   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "paypal_account"
-    t.string   "uri",                                          :null => false
+    t.string   "uri",            :null => false
   end
 
   add_index "events", ["uri"], :name => "index_events_on_uri", :unique => true
@@ -83,16 +81,23 @@ ActiveRecord::Schema.define(:version => 20130413200313) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "ticket_types", :force => true do |t|
+    t.string  "name"
+    t.decimal "price",    :precision => 6, :scale => 2
+    t.integer "capacity"
+    t.integer "event_id"
+  end
+
   create_table "tickets", :force => true do |t|
     t.string   "random_key"
     t.integer  "attendees"
-    t.integer  "event_id"
     t.integer  "user_id"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "paid",       :default => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.boolean  "paid",           :default => false
     t.string   "email"
-    t.boolean  "checked",    :default => false
+    t.boolean  "checked",        :default => false
+    t.integer  "ticket_type_id"
   end
 
   create_table "users", :force => true do |t|

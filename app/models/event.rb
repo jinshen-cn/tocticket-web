@@ -2,7 +2,8 @@ class Event < ActiveRecord::Base
   attr_accessible :address, :celebrated_at, :info, :name, :price, :capacity, :url, :paypal_account, :uri
 
   belongs_to :organizer, :class_name => "User"
-  has_many :tickets
+  has_many :ticket_types
+  has_many :tickets, :through => :ticket_types
   
   validates :name, :address, :price, :celebrated_at, :capacity, :paypal_account, :formatted_celebrated_at, :uri, :presence => true
   validates :uri, :uniqueness => true, :format => { :with => /\A[a-zA-Z0-9\-_]+\z/,

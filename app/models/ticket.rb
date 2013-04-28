@@ -1,7 +1,8 @@
 class Ticket < ActiveRecord::Base
   attr_accessible :attendees, :paid, :random_key, :email, :checked
   
-  belongs_to :event
+  belongs_to :ticket_type
+  has_one :event, :trough => :ticket_type
   belongs_to :user
   has_one :payment_notification
 
