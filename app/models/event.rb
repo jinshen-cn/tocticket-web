@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :address, :celebrated_at, :info, :name, :price, :capacity, :url, :paypal_account, :uri
+  attr_accessible :address, :celebrated_at, :info, :name, :url, :paypal_account, :uri
 
   belongs_to :organizer, :class_name => "User"
   has_many :ticket_types
@@ -10,7 +10,6 @@ class Event < ActiveRecord::Base
                                                     :message => I18n.t('events.message.custom_uri') }
   validates :url, :uniqueness => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,
                                                     :message => I18n.t('events.message.bad_url') }
-  validates :price, :capacity, :numericality => { :greater_than_or_equal_to => 0 }
 
   # Formatting in and out dates
   include FormatTime
@@ -24,20 +23,16 @@ class Event < ActiveRecord::Base
     end
   end
 
-  # Capacity validation
-  validate :attendees_cannot_be_higher_than_capacity, if: :capacity
-  def attendees_cannot_be_higher_than_capacity
-    if capacity < total_attendees
-      errors.add(:capacity, I18n.t('events.message.capacity'))
-    end
-  end
-
   def total_attendees
     self.tickets.inject(0) { |result, ticket| result + ticket.attendees}
   end
-  
+
+  def total_capacity
+    self.ticket_types.inject(0) { |result, ticket_type| result + ticket_type.capacity}
+  end
+
   def free_capacity
-    capacity - total_attendees
+    total_capacity - total_attendees
   end
   
   def public_url(root_url="")
