@@ -113,6 +113,8 @@ es:
     show:
       date_place:          "%{date} en %{place}"
       price:               "Disfruta del evento por solo $%{price}."
+      price:               "Disfruta del evento por:"
+      ticket_type_price:   "%{type} tickets por solo $%{price} cada asistente"
       organizer_info:      "Información para el Organizador"
       paypal_account:      "Cuenta de Paypal"
       ticket_list:         "Lista de Entradas"

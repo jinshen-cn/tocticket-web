@@ -2,10 +2,13 @@
 %h2.event-title= link_to @event.name, @event.public_url, :target => "_blank"
 .date_place= t('events.show.date_place', date: l(@event.celebrated_at, :format => :long), place:@event.address)
 .event-details
-  %p= t('events.show.price', price: @event.price)
-  - if !@event.info.empty?
+  %p= t('events.show.price')
+  %ul
+    - @event.ticket_types.each do |type|
+      %li= t('events.show.ticket_type_price', type: type.name, price: type.price)
+  - if !@event.info.nil?
     %p= @event.info
-  - if !@event.url.empty?
+  - if !@event.url.nil?
     %p= link_to t(:more_info), @event.url, :target => "_blank"
 
 - if @event.organizer == current_user
@@ -13,7 +16,7 @@
     %h4= t('events.show.organizer_info')
     %dl.dl-horizontal
       %dt= t(:attendee).pluralize
-      %dd #{@event.total_attendees} / #{@event.capacity}
+      %dd #{@event.total_attendees} / #{@event.total_capacity}
       %dt= t('events.show.paypal_account')
       %dd= @event.paypal_account
 

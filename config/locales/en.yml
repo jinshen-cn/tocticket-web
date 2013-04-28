@@ -115,7 +115,8 @@ en:
       got_to_events:       "Go to Events"
     show:
       date_place:          "%{date} at %{place}"
-      price:               "Enjoy the event only for $%{price}."
+      price:               "Enjoy the event for:"
+      ticket_type_price:   "%{type} tickets only for $%{price} per attendee"
       organizer_info:      "Information for Organizer"
       paypal_account:      "Paypal account"
       ticket_list:         "Ticket list"
