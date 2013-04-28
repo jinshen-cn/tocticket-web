@@ -1,6 +1,55 @@
 %h2.sectiontitle= t('events.edit_header')
 
-= render 'form'
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active
+      = link_to "Basic data", '#basic', {"data-toggle" => "tab"}
+    %li
+      = link_to "Prices", '#prices', {"data-toggle" => "tab"}
+    %li
+      = link_to "Publish Info", '#publish', {"data-toggle" => "tab"}
+    %li
+      = link_to "Custom Fields", '#fields', {"data-toggle" => "tab"}
+    %li
+      = link_to "Reports", '#reports', {"data-toggle" => "tab"}
+  .tab-content
+    #basic.tab-pane.active
+      = simple_form_for(@event, :html => {:class => 'form-vertical' }) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :name, :label => t('events.form.event_name'), :placeholder => t('events.form.event_name_ph'), :input_html => {:class => 'span12'}
+          = f.input :formatted_celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => t('events.form.event_date'), :placeholder => t('events.form.event_date_ph')
+          = f.input :address, :label => t('events.form.address'), :placeholder => t('events.form.address_ph'), :input_html => {:class => 'span12', :rows =>'4'}
+          = f.input :info, :label => t('events.form.details'), :placeholder => t('events.form.details_ph'), :input_html => {:class => 'span12', :rows =>'4'}
+        .form-actions
+          = f.button :submit, :class => "btn btn-success"
+
+    #prices.tab-pane
+      = render :partial => 'ticket_types/list', :locals => {:ticket_types => @event.ticket_types}
+
+      = simple_form_for(@event, :html => {:class => 'form-vertical' }) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :paypal_account, :label => t('events.form.paypal_account'), :placeholder => t('events.form.paypal_account_ph'), :input_html => {:class => 'span6'}, :hint => t('events.form.paypal_account_hint')
+
+        .form-actions
+          = f.button :submit, :class => "btn btn-success"
+
+    #publish.tab-pane
+      = simple_form_for(@event, :html => {:class => 'form-vertical' }) do |f|
+        = f.error_notification
+        .form-inputs
+          = f.input :uri, :label => t('events.form.custom_uri'), :placeholder => t('events.form.custom_uri_ph'), :input_html => {:class => 'span12'}
+          = f.input :url, :label => t('events.form.url'), :placeholder => t('events.form.url_ph'), :input_html => {:class => 'span6'}
+        .form-actions
+          = f.button :submit, :class => "btn btn-success"
+
+    #fields.tab-pane
+      fields
+    #reports.tab-pane
+      reports
+
 .btn-group
   = link_to t(:show), @event, :class => "btn btn-success"
   = link_to t(:back), events_path, :class => "btn btn-success"
