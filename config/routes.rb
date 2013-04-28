@@ -1,13 +1,11 @@
 TocticketWeb::Application.routes.draw do
-  
-  resources :ticket_types
-
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :events do
+    resources :ticket_types
     resources :tickets, :except => [:edit, :destroy] do
       match '/detail' => 'tickets#detail', :as => :detail
     end

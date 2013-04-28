@@ -1,10 +1,16 @@
-= simple_form_for(@ticket_type) do |f|
-  = f.error_notification
+.modal-header
+  %button.close{ type: "button", "data-dismiss" => "modal", "aria-hidden" => "true" } x
+  %h3 Ticket Type
+.modal-body
+  = simple_form_for [@event, ticket_type] do |f|
+    = f.error_notification
 
-  .form-inputs
-    = f.input :name
-    = f.input :price
-    = f.input :capacity
+    .form-inputs
+      = f.input :name
+      = f.input :price, :label => t('events.form.price'), :wrapper => 'prepend' do
+        = content_tag :span, "$", :class => "add-on"
+        = f.number_field :price, :step => '0.05'
+      = f.input :capacity, :label => t('events.form.capacity'), :placeholder => t('events.form.capacity_ph'), :input_html => { :step => '10' }
 
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.button :submit, :class => "btn btn-success"

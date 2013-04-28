@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  $(document).on 'click', '#prices .new-ticket-type', (e) ->
+    target = "#type-form"
+    $(target).load($(this).data("url"), null, (response,status,xhr) ->
+      if status == 'error'
+        $(target).html('<div align="center">An error has occurred!</div>')
+    )

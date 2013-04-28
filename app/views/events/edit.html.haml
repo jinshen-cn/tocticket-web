@@ -26,7 +26,7 @@
 
     #prices.tab-pane
       = render :partial => 'ticket_types/list', :locals => {:ticket_types => @event.ticket_types}
-
+      %hr
       = simple_form_for(@event, :html => {:class => 'form-vertical' }) do |f|
         = f.error_notification
 
@@ -46,10 +46,6 @@
           = f.button :submit, :class => "btn btn-success"
 
     #fields.tab-pane
-      fields
+      fields TODO
     #reports.tab-pane
-      reports
-
-.btn-group
-  = link_to t(:show), @event, :class => "btn btn-success"
-  = link_to t(:back), events_path, :class => "btn btn-success"
+      reports TODO

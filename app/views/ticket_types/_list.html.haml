@@ -1,13 +1,19 @@
-= link_to 'New Ticket type', new_ticket_type_path, :class => 'btn btn-success'
+= link_to 'New Ticket type', "#", {class: 'btn btn-success new-ticket-type', "data-toggle" => "modal", "data-target" => "#type-form", "data-url" => "#{new_event_ticket_type_path(@event)}"}
 .spacer
 %table.table.table-bordered.table-condensed.table-hover
   %tr
     %th= t :name
     %th= t :price
     %th= t :capacity
+    %th= t :delete
 
   - ticket_types.each do |ticket_type|
-    %tr{:onclick=>"location.href='#{ticket_type_path(ticket_type)}'", :style=>"cursor:pointer"}
+    %tr.new-ticket-type{"data-toggle" => "modal", "data-target" => "#type-form", "data-url" => "#{edit_event_ticket_type_path(@event, ticket_type)}", :style=>"cursor:pointer"}
       %td= ticket_type.name
       %td= ticket_type.price
       %td= ticket_type.capacity
+      %td
+        = link_to event_ticket_type_path(ticket_type.event, ticket_type), method: :delete, data: { confirm: t(:confirm_msg) }, :class => 'btn btn-mini btn-success' do
+          %i.icon-trash.icon-white
+
+#type-form.modal.hide.fade
