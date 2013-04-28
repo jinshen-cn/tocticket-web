@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @event.paypal_account = current_user.email
+    @event.ticket_types[0] = TicketType.new
   end
 
   # GET /events/1/edit
@@ -36,6 +36,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.organizer = current_user
+    @event.paypal_account = current_user.email
+    @event.set_default_custom_uri
 
     unless @event.save
       render action: "new"

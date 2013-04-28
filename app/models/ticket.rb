@@ -2,7 +2,7 @@ class Ticket < ActiveRecord::Base
   attr_accessible :attendees, :paid, :random_key, :email, :checked
   
   belongs_to :ticket_type
-  has_one :event, :trough => :ticket_type
+  has_one :event, :through => :ticket_type
   belongs_to :user
   has_one :payment_notification
 
@@ -20,7 +20,7 @@ class Ticket < ActiveRecord::Base
   def default_values
     self.random_key ||= SecureRandom.hex(16)
   end
-  
+
   def paypal_url(return_url, notify_url)
     values = {
       :business => event.paypal_account,

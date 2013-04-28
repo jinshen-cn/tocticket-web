@@ -1,5 +1,20 @@
 %h2.sectiontitle= t('events.new_header')
 
-= render 'form'
+= simple_form_for(@event, :html => {:class => 'form-vertical' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name, :label => t('events.form.event_name'), :placeholder => t('events.form.event_name_ph'), :input_html => {:class => 'span12'}
+    = f.input :formatted_celebrated_at, :as => :string, :input_html => {:class => "datetime-picker"}, :label => t('events.form.event_date'), :placeholder => t('events.form.event_date_ph')
+    = f.input :address, :label => t('events.form.address'), :placeholder => t('events.form.address_ph'), :input_html => {:class => 'span12', :rows =>'4'}
+    = f.fields_for :ticket_types, @event.ticket_types[0] do |standard|
+      = standard.input :name, :as => :hidden, :input_html => { :value => "Standard" }
+      = standard.input :price, :label => t('events.form.price'), :wrapper => 'prepend' do
+        = content_tag :span, "$", :class => "add-on"
+        = standard.number_field :price, :step => '0.05'
+      = standard.input :capacity, :label => t('events.form.capacity'), :placeholder => t('events.form.capacity_ph'), :input_html => { :step => '10' }
+
+  .form-actions
+    = f.button :submit, :class => "btn btn-success"
 
 = link_to t(:back), events_path, :class => 'btn btn-success'
