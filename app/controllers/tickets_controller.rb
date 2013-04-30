@@ -30,7 +30,6 @@ class TicketsController < ApplicationController
   # POST /events/:event_id/tickets
   def create
     @ticket = Ticket.new(params[:ticket])
-    @ticket.event = @event
     @ticket.user = current_user
 
     if @ticket.save

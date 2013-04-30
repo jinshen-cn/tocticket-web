@@ -135,6 +135,7 @@ es:
   tickets:
     event_name:          "Nombre del Evento"
     attendees_number:    "Número de Asistentes"
+    ticket_type:         "Tipo de Entrada"
     target_email:        "Correo en el que recibir la Entrada"
     qr_code:             "Código QR"
     sell:                "Vender Entradas"

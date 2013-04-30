@@ -2,5 +2,7 @@
 %dd= @event.name
 %dt= t('tickets.attendees_number')
 %dd= @ticket.attendees
+%dt= t('tickets.ticket_type')
+%dd= @ticket.ticket_type.name
 %dt= t('tickets.qr_code')
 %dd= render 'qr_code'

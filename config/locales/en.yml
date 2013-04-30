@@ -137,7 +137,8 @@ en:
   tickets:
     event_name:          "Event name"
     attendees_number:    "Number of attendees"
-    target_email:               "Email to receive the ticket"
+    ticket_type:         "Tickets type"
+    target_email:        "Email to receive the ticket"
     qr_code:             "QR code"
     sell:                "Sell Tickets"
     purchase:            "Purchase Tickets"

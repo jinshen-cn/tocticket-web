@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :attendees, :paid, :random_key, :email, :checked
+  attr_accessible :attendees, :paid, :random_key, :email, :checked, :ticket_type_id
   
   belongs_to :ticket_type
   has_one :event, :through => :ticket_type
@@ -8,10 +8,10 @@ class Ticket < ActiveRecord::Base
 
   validates_presence_of :attendees, :email
   validates :attendees, :numericality => {:greater_than => 0}
-  validate :attendees_cannot_exceed_event_capacity, :if => :attendees
+  validate :attendees_cannot_exceed_ticket_type_capacity, :if => :attendees
   
-  def attendees_cannot_exceed_event_capacity
-    if event.capacity < event.total_attendees + attendees
+  def attendees_cannot_exceed_ticket_type_capacity
+    if ticket_type.capacity < ticket_type.total_attendees + attendees
       errors.add(:attendees, I18n.t('tickets.message.exceed_capacity'))
     end
   end
@@ -29,8 +29,8 @@ class Ticket < ActiveRecord::Base
       :return => return_url,
       :notify_url => notify_url,
       :invoice => id,
-      :amount_1 => event.price,
-      :item_name_1 => event.name,
+      :amount_1 => ticket_type.price,
+      :item_name_1 => "#{event.name} (#{ticket_type.name} tickets)",
       :item_number_1 => id,
       :quantity_1 => attendees
     }
