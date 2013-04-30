@@ -154,6 +154,9 @@ es:
       create_date:         "Fecha de Creación"
       checked_date:        "Fecha de Chequeo"
       paypal_notification: "Notificación de pago de Paypal"
+    type:
+      new:                 "Nuevo Tipo de Entrada"
+      name:                "Nombre del tipo"
     message:
       exceed_capacity:     "Solo %{free_capacity} entradas libres a la venta"
       success_create:      "Entrada creada correctamente."

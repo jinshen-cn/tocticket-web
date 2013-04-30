@@ -6,7 +6,7 @@
     = f.error_notification
 
     .form-inputs
-      = f.input :name
+      = f.input :name, :placeholder => t('tickets.type.name')
       = f.input :price, :label => t('events.form.price'), :wrapper => 'prepend' do
         = content_tag :span, "$", :class => "add-on"
         = f.number_field :price, :step => '0.05'

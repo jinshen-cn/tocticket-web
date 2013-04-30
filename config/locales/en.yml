@@ -156,6 +156,9 @@ en:
       create_date:         "Creation date"
       checked_date:        "Checked date"
       paypal_notification: "Paypal Payment nofication"
+    type:
+      new:                 "New Ticket type"
+      name:                "Name of Type"
     message:
       exceed_capacity:     "Only %{free_capacity} attendees free to sell"
       success_create:      "Ticket was successfully created."
