@@ -32,7 +32,11 @@
 
         .form-inputs
           = f.input :paypal_account, :label => t('events.form.paypal_account'), :placeholder => t('events.form.paypal_account_ph'), :input_html => {:class => 'span6'}, :hint => t('events.form.paypal_account_hint')
-
+          %hr
+          = f.input :site_map, as: :file, :label => t('events.form.site_map')
+          -  if @event.site_map?
+            = image_tag @event.site_map_url(:thumb)
+            = f.input :remove_site_map, as: :boolean, :label => t('events.form.remove_site_map')
         .form-actions
           = f.button :submit, :class => "btn btn-success"
 

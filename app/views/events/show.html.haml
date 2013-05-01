@@ -2,15 +2,18 @@
 %h2.event-title= link_to @event.name, @event.public_url, :target => "_blank"
 .date_place= t('events.show.date_place', date: l(@event.celebrated_at, :format => :long), place:@event.address)
 .event-details
-  %p= t('events.show.price')
-  %ul
-    - @event.ticket_types.each do |type|
-      %li= t('events.show.ticket_type_price', type: type.name, price: type.price)
   - if !@event.info.nil?
     %p= @event.info
   - if !@event.url.nil?
     %p= link_to t(:more_info), @event.url, :target => "_blank"
 
+  %p= t('events.show.price')
+  %ul
+    - @event.ticket_types.each do |type|
+      %li= t('events.show.ticket_type_price', type: type.name, price: type.price)
+  - if @event.site_map?
+    %p= t('events.show.site_map')
+    = image_tag @event.site_map_url(:thumb)
 - if @event.organizer == current_user
   .organizer-info
     %h4= t('events.show.organizer_info')

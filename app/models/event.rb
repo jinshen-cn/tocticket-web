@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  attr_accessible :address, :celebrated_at, :info, :name, :url, :paypal_account, :uri, :ticket_types_attributes
+  attr_accessible :address, :celebrated_at, :info, :name, :url, :paypal_account, :uri, :site_map,
+                  :ticket_types_attributes, :remove_site_map
 
   belongs_to :organizer, :class_name => "User"
   has_many :ticket_types
@@ -11,6 +12,8 @@ class Event < ActiveRecord::Base
                                                     :message => I18n.t('events.message.custom_uri') }
   validates :url, :allow_blank => true, :format => { :with => /^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/ix,
                                                      :message => I18n.t('events.message.bad_url') }
+  # CarrierWave
+  mount_uploader :site_map, SiteMapUploader
 
   # Formatting in and out dates
   include FormatTime

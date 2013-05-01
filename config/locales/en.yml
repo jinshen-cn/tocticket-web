@@ -108,6 +108,8 @@ en:
       paypal_account:      "Paypal account (email)"
       paypal_account_ph:   "Paypal email"
       paypal_account_hint: "This is the account where all the ticket sales profit will be paid out to"
+      site_map:            "Upload an image detailing the ticket types distribution (only jpg jpeg gif png extensions):"
+      remove_site_map:     "Mark to remove the image:"
     create:
       congrats:            "Congratulations!! Here is the URL to sell your tickets:"
       public_url:          "Public URL for '%{name}' is %{url}"
@@ -116,6 +118,7 @@ en:
     show:
       date_place:          "%{date} at %{place}"
       price:               "Enjoy the event for:"
+      site_map:            "Ticket types distribution:"
       ticket_type_price:   "%{type} tickets only for $%{price} per attendee"
       organizer_info:      "Information for Organizer"
       paypal_account:      "Paypal account"

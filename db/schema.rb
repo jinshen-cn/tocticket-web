@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428113252) do
+ActiveRecord::Schema.define(:version => 20130501210255) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20130428113252) do
     t.datetime "updated_at",     :null => false
     t.string   "paypal_account"
     t.string   "uri",            :null => false
+    t.string   "site_map"
   end
 
   add_index "events", ["uri"], :name => "index_events_on_uri", :unique => true
