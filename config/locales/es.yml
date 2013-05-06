@@ -120,8 +120,20 @@ es:
       organizer_info:      "Información para el Organizador"
       paypal_account:      "Cuenta de Paypal"
       ticket_list:         "Lista de Entradas"
+      charts:              "Gráficas"
       sell_tickets:        "Vender Entradas"
       purchase_tickets:    "Comprar Entradas"
+    charts:
+      money:
+        title:             "Beneficio total"
+      selling_columns:
+        title:             "Entradas vendidas"
+        y_axis:            "Número total de entradas"
+        sold:              "Vendidas"
+        not_sold:          "No vendidas aún"
+      time_graph:
+        title:             "Numero de entradas vendidas en el tiempo"
+        y_axis:            "Entradas"
     index:
       my_events:           "Mis Eventos"
       sold_limit:          "Entradas (vendidas/límite)"

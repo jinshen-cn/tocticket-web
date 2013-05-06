@@ -10,7 +10,7 @@
     },
 
     title: {
-      text: 'Total profits'
+      text: "#{t('events.charts.money.title')}"
     },
 
     pane: {
@@ -94,21 +94,21 @@
 
   });
 
-#selling-gauge
+#selling-columns
 :javascript
-  $('#selling-gauge').highcharts({
+  $('#selling-columns').highcharts({
     chart: {
       type: 'column'
     },
     title: {
-      text: 'Sold tickets'
+      text: "#{t('events.charts.selling_columns.title')}"
     },
     xAxis: {
       categories: [#{ @event.ticket_types.map{ |t| "'#{t.name}'" }.join(",") }]
     },
     yAxis: {
       title: {
-        text: 'Total tickets'
+        text: "#{t('events.charts.selling_columns.y_axis')}"
       },
       stackLabels: {
         enabled: true,
@@ -135,10 +135,10 @@
        }
     },
     series: [{
-        name: 'Sold',
+        name: "#{t('events.charts.selling_columns.sold')}",
         data: [#{ @event.ticket_types.map{ |t| t.total_attendees }.join(",") }]
     }, {
-        name: 'Not Sold yet',
+        name: "#{t('events.charts.selling_columns.not_sold')}",
         data: [#{ @event.ticket_types.map{ |t| t.free_capacity }.join(",") }]
     }]
   });
@@ -158,7 +158,8 @@
     yAxis: {
       title: {
         text: 'Tickets'
-      }
+      },
+      min: 0
     },
     series: [
       #{ ticket_type_time_series(@event) }

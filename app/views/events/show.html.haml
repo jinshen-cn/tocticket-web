@@ -23,13 +23,12 @@
       %dt= t('events.show.paypal_account')
       %dd= @event.paypal_account
 
-
     .tabbable
       %ul.nav.nav-tabs
         %li.active
           = link_to t('events.show.ticket_list'), '#ticket-list', {"data-toggle" => "tab"}
         %li
-          = link_to "Grafics", '#ticket-graphs', {"data-toggle" => "tab"}
+          = link_to t('events.show.charts'), '#ticket-charts', {"data-toggle" => "tab"}
       .tab-content
         #ticket-list.tab-pane.active
           = render :partial => "tickets/list", :locals => {tickets: @event.tickets}
@@ -37,7 +36,7 @@
             = link_to t('tickets.sell'), new_event_ticket_path(@event), :class => "btn btn-success"
             = link_to t(:edit), edit_event_path(@event), :class => "btn btn-success"
             = link_to t(:back), events_path, :class => "btn btn-success"
-        #ticket-graphs.tab-pane
-          = render :partial => 'ticket_graphs'
+        #ticket-charts.tab-pane
+          = render :partial => 'ticket_charts'
   - else
     = link_to t('events.tickets.purchase'), new_event_ticket_path(@event), :class => "btn btn-success"

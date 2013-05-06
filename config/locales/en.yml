@@ -123,8 +123,20 @@ en:
       organizer_info:      "Information for Organizer"
       paypal_account:      "Paypal account"
       ticket_list:         "Ticket list"
+      charts:              "Dashboard"
       sell_tickets:        "Sell Tickets"
       purchase_tickets:    "Purchase a ticket"
+    charts:
+      money:
+        title:             "Total profits"
+      selling_columns:
+        title:             "Sold tickets"
+        y_axis:            "Total tickets"
+        sold:              "Sold"
+        not_sold:          "Not sold yet"
+      time_graph:
+        title:             "Number of tickets sold"
+        y_axis:            "Tickets"
     index:
       my_events:           "My Events"
       sold_limit:          "Tickets (sold/limit)"
