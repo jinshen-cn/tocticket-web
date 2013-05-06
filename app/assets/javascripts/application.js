@@ -20,6 +20,8 @@
 //= require jwplayer
 //= require jwplayer.html5
 //= require jquery.qrcode.min
+//= require highcharts
+//= require highcharts-more
 //= require design
 //= require events
 //= require ticket_types

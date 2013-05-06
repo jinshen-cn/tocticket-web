@@ -9,7 +9,11 @@ class Ticket < ActiveRecord::Base
   validates_presence_of :attendees, :email
   validates :attendees, :numericality => {:greater_than => 0}
   validate :attendees_cannot_exceed_ticket_type_capacity, :if => :attendees
-  
+
+  def self.total_on(date)
+    where("date(created_at) = ?",date).sum(:attendees)
+  end
+
   def attendees_cannot_exceed_ticket_type_capacity
     if ticket_type.capacity < ticket_type.total_attendees + attendees
       errors.add(:attendees, I18n.t('tickets.message.exceed_capacity'))

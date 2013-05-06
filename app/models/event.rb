@@ -49,7 +49,15 @@ class Event < ActiveRecord::Base
   def free_capacity
     total_capacity - total_attendees
   end
-  
+
+  def max_money
+    ticket_types.map { |t| t.capacity * t.price }.sum()
+  end
+
+  def sold_money
+    ticket_types.map { |t| t.total_attendees * t.price }.sum()
+  end
+
   def public_url(root_url="")
     '/to/'+ uri
   end

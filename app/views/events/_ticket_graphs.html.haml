@@ -1,0 +1,166 @@
+#money
+:javascript
+  $('#money').highcharts({
+    chart: {
+      type: 'gauge',
+      plotBackgroundColor: null,
+      plotBackgroundImage: null,
+      plotBorderWidth: 0,
+      plotShadow: false
+    },
+
+    title: {
+      text: 'Total profits'
+    },
+
+    pane: {
+      startAngle: -150,
+      endAngle: 150,
+      background: [{
+          backgroundColor: {
+              linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+              stops: [
+                  [0, '#FFF'],
+                  [1, '#333']
+              ]
+          },
+          borderWidth: 0,
+          outerRadius: '109%'
+      }, {
+          backgroundColor: {
+              linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+              stops: [
+                  [0, '#333'],
+                  [1, '#FFF']
+              ]
+          },
+          borderWidth: 1,
+          outerRadius: '107%'
+      }, {
+          // default background
+      }, {
+          backgroundColor: '#DDD',
+          borderWidth: 0,
+          outerRadius: '105%',
+          innerRadius: '103%'
+      }]
+    },
+
+    // the value axis
+    yAxis: {
+      min: 0,
+      max: #{ @event.max_money },
+
+      minorTickInterval: 'auto',
+      minorTickWidth: 1,
+      minorTickLength: 10,
+      minorTickPosition: 'inside',
+      minorTickColor: '#666',
+
+      tickPixelInterval: 30,
+      tickWidth: 2,
+      tickPosition: 'inside',
+      tickLength: 10,
+      tickColor: '#666',
+      labels: {
+          step: 2,
+          rotation: 'auto'
+      },
+      title: {
+          text: '$'
+      },
+      plotBands: [{
+          from: 0,
+          to: #{ @event.max_money * 0.6 },
+          color: '#DF5353' // red
+      }, {
+          from: #{ @event.max_money * 0.6 },
+          to: #{ @event.max_money * 0.8 },
+          color: '#DDDF0D' // yellow
+      }, {
+          from: #{ @event.max_money * 0.8 },
+          to: #{ @event.max_money },
+          color: '#55BF3B' // green
+      }]
+    },
+
+    series: [{
+      name: 'Sold',
+      data: [#{ @event.sold_money}],
+      tooltip: {
+          valueSuffix: ' $'
+      }
+    }]
+
+  });
+
+#selling-gauge
+:javascript
+  $('#selling-gauge').highcharts({
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Sold tickets'
+    },
+    xAxis: {
+      categories: [#{ @event.ticket_types.map{ |t| "'#{t.name}'" }.join(",") }]
+    },
+    yAxis: {
+      title: {
+        text: 'Total tickets'
+      },
+      stackLabels: {
+        enabled: true,
+        style: {
+          fontWeight: 'bold',
+          color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+        }
+      }
+    },
+    tooltip: {
+      formatter: function() {
+        return '<b>'+ this.x +'</b><br/>'+
+          this.series.name +': '+ this.y +'<br/>'+
+          'Total: '+ this.point.stackTotal;
+      }
+    },
+    plotOptions: {
+       column: {
+           stacking: 'normal',
+           dataLabels: {
+             enabled: true,
+             color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+           }
+       }
+    },
+    series: [{
+        name: 'Sold',
+        data: [#{ @event.ticket_types.map{ |t| t.total_attendees }.join(",") }]
+    }, {
+        name: 'Not Sold yet',
+        data: [#{ @event.ticket_types.map{ |t| t.free_capacity }.join(",") }]
+    }]
+  });
+
+#time-graph
+:javascript
+  $('#time-graph').highcharts({
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Number of tickets sold'
+    },
+    xAxis: {
+      type: 'datetime'
+    },
+    yAxis: {
+      title: {
+        text: 'Tickets'
+      }
+    },
+    series: [
+      #{ ticket_type_time_series(@event) }
+    ]
+  });
