@@ -4,4 +4,5 @@
   %td= f.check_box :required
   %td
     = f.hidden_field :_destroy
-    = link_to '[remove]', '#', class: 'remove_fields'
+    = link_to '#', class: 'btn btn-mini btn-success remove_fields' do
+      %i.icon-trash.icon-white
