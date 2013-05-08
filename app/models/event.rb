@@ -1,12 +1,14 @@
 class Event < ActiveRecord::Base
   attr_accessible :address, :celebrated_at, :info, :name, :url, :paypal_account, :uri, :site_map,
-                  :ticket_types_attributes, :remove_site_map
+                  :ticket_types_attributes, :remove_site_map, :fields_attributes
 
   belongs_to :organizer, :class_name => "User"
   has_many :ticket_types
   accepts_nested_attributes_for :ticket_types, :allow_destroy => true
   has_many :tickets, :through => :ticket_types
-  
+  has_many :fields, class_name: "CustomField"
+  accepts_nested_attributes_for :fields, allow_destroy: true
+
   validates :name, :address, :celebrated_at, :paypal_account, :formatted_celebrated_at, :uri, :presence => true
   validates :uri, :uniqueness => true, :format => { :with => /\A[a-zA-Z0-9\-_]+\z/,
                                                     :message => I18n.t('events.message.custom_uri') }
