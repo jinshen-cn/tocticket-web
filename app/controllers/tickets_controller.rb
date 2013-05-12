@@ -24,7 +24,7 @@ class TicketsController < ApplicationController
 
   # GET /events/:event_id/tickets/new
   def new
-    @ticket = Ticket.new
+    @ticket = Ticket.new#(event_id: params[:event_id])
   end
 
   # POST /events/:event_id/tickets

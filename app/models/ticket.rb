@@ -1,10 +1,11 @@
 class Ticket < ActiveRecord::Base
-  attr_accessible :attendees, :paid, :random_key, :email, :checked, :ticket_type_id
+  attr_accessible :attendees, :paid, :random_key, :email, :checked, :properties, :ticket_type_id
   
   belongs_to :ticket_type
   has_one :event, :through => :ticket_type
   belongs_to :user
   has_one :payment_notification
+  serialize :properties, Hash
 
   validates_presence_of :attendees, :email
   validates :attendees, :numericality => {:greater_than => 0}

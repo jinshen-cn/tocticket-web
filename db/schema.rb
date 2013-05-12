@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130508202613) do
+ActiveRecord::Schema.define(:version => 20130512090359) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20130508202613) do
     t.string   "email"
     t.boolean  "checked",        :default => false
     t.integer  "ticket_type_id"
+    t.text     "properties"
   end
 
   create_table "users", :force => true do |t|

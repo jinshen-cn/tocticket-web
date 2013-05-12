@@ -5,6 +5,10 @@
     = f.input :attendees, :label => t('tickets.attendees_number')
     = f.input :ticket_type_id, collection: @event.ticket_types, as: :select, :label => t('tickets.ticket_type')
     = f.input :email, :label => t('tickets.target_email'), :input_html => { :value => "#{current_user.email if current_user}" }
+    = f.fields_for :properties do |builder|
+      - @event.fields.each do |field|
+        = render "events/fields/#{field.field_type}", field: field, f: builder
+
   .form-actions
     - if @event.organizer == current_user
       = f.button :submit, :value => t('tickets.sell'), :class => "btn btn-success"
