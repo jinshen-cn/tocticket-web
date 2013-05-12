@@ -175,6 +175,7 @@ es:
       exceed_capacity:     "Solo %{free_capacity} entradas libres a la venta"
       success_create:      "Entrada creada correctamente."
       success_update:      "Entrada modificada correctamente."
+      not_blank:           "no debe estar en blanco"
 
   api:
     v1:

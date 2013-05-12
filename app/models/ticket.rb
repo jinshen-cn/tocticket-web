@@ -10,6 +10,15 @@ class Ticket < ActiveRecord::Base
   validates_presence_of :attendees, :email
   validates :attendees, :numericality => {:greater_than => 0}
   validate :attendees_cannot_exceed_ticket_type_capacity, :if => :attendees
+  validate :validate_properties
+
+  def validate_properties
+    event.fields.each do |field|
+      if field.required? && properties[field.name].blank?
+        errors.add field.name, I18n.t('tickets.message.not_blank')
+      end
+    end
+  end
 
   def self.total_on(date)
     where("date(created_at) = ?",date).sum(:attendees)
@@ -17,7 +26,7 @@ class Ticket < ActiveRecord::Base
 
   def attendees_cannot_exceed_ticket_type_capacity
     if ticket_type.capacity < ticket_type.total_attendees + attendees
-      errors.add(:attendees, I18n.t('tickets.message.exceed_capacity'))
+      errors.add(:attendees, I18n.t('tickets.message.exceed_capacity', free_capacity: ticket_type.free_capacity))
     end
   end
   

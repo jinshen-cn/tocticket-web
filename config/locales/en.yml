@@ -178,6 +178,7 @@ en:
       exceed_capacity:     "Only %{free_capacity} attendees free to sell"
       success_create:      "Ticket was successfully created."
       success_update:      "Ticket was successfully updated."
+      not_blank:           "must not be blank"
 
   api:
     v1:

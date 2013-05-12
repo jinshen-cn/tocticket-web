@@ -6,3 +6,6 @@
 %dd= @ticket.ticket_type.name
 %dt= t('tickets.qr_code')
 %dd= render 'qr_code'
+- @ticket.properties.each do |key, value|
+  %dt= key
+  %dd= value

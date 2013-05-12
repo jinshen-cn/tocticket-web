@@ -5,9 +5,16 @@
     = f.input :attendees, :label => t('tickets.attendees_number')
     = f.input :ticket_type_id, collection: @event.ticket_types, as: :select, :label => t('tickets.ticket_type')
     = f.input :email, :label => t('tickets.target_email'), :input_html => { :value => "#{current_user.email if current_user}" }
-    = f.fields_for :properties do |builder|
+    = f.simple_fields_for :properties do |builder|
       - @event.fields.each do |field|
         = render "events/fields/#{field.field_type}", field: field, f: builder
+        :javascript
+          error = '#{f.full_error(field.name)}'
+          input_id = "#ticket_properties_#{field.name}"
+          if (error != "") {
+            $(input_id).parent().append(error)
+            $(input_id).parents(".control-group").addClass("error")
+          }
 
   .form-actions
     - if @event.organizer == current_user
