@@ -1,5 +1,5 @@
 %tr
-  %td= f.select :field_type, %w{text_field check_box}
+  %td= f.select :field_type, CustomField::FIELD_TYPES
   %td= f.text_field :name, placeholder: 'field_name'
   %td= f.check_box :required
   %td

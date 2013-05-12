@@ -3,13 +3,13 @@
 .tabbable
   %ul.nav.nav-tabs
     %li.active
-      = link_to "Basic data", '#basic', {"data-toggle" => "tab"}
+      = link_to t('events.sections.basic'), '#basic', {"data-toggle" => "tab"}
     %li
-      = link_to "Prices", '#prices', {"data-toggle" => "tab"}
+      = link_to t('events.sections.prices'), '#prices', {"data-toggle" => "tab"}
     %li
-      = link_to "Publish Info", '#publish', {"data-toggle" => "tab"}
+      = link_to t('events.sections.info'), '#publish', {"data-toggle" => "tab"}
     %li
-      = link_to "Custom Fields", '#fields', {"data-toggle" => "tab"}
+      = link_to t('events.sections.fields'), '#fields', {"data-toggle" => "tab"}
 
   .tab-content
     #basic.tab-pane.active
@@ -54,12 +54,12 @@
         .form-inputs
           %table.table.table-bordered.table-condensed.table-hover
             %tr
-              %th Type
-              %th Name
-              %th Required
+              %th #{t('events.custom_fields.type')} *
+              %th #{t :name} *
+              %th= t('events.custom_fields.required')
               %th= t :delete
             = f.fields_for :fields do |builder|
-              = render 'custom_fields/field_fields', f: builder
-          = link_to_add_fields "Add Field", f, :fields
+              = render 'custom_fields/line_form', f: builder
+          = link_to_add_fields t('events.custom_fields.add_field'), f, :fields
         .form-actions
           = f.button :submit, :class => "btn btn-success"

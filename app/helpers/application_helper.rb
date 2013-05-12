@@ -3,7 +3,7 @@ module ApplicationHelper
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render("custom_fields/#{association.to_s.singularize}_fields", f: builder)
+      render("custom_fields/line_form", f: builder)
     end
     link_to(name, '#', class: "btn btn-success add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end

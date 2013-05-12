@@ -86,6 +86,11 @@ es:
   events:
     edit_header:           "Editar Evento"
     new_header:            "Nuevo Evento"
+    sections:
+      basic:               "Datos básicos"
+      prices:              "Precios"
+      info:                "Info adicional"
+      fields:              "Campos Personalizados"
     form:
       event_name:          "Nombre del Evento"
       event_name_ph:       "Nombre del Evento"
@@ -134,6 +139,13 @@ es:
       time_graph:
         title:             "Numero de entradas vendidas en el tiempo"
         y_axis:            "Entradas"
+    custom_fields:
+      type:                "Tipo"
+      required:            "Obligatorio"
+      add_field:           "Añadir campo"
+      text_field:          "Campo de texto"
+      check_box:           "Casilla de verificación"
+      image:               "Imagen"
     index:
       my_events:           "Mis Eventos"
       sold_limit:          "Entradas (vendidas/límite)"

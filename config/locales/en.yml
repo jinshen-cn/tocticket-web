@@ -89,6 +89,11 @@ en:
   events:
     edit_header:           "Editing Event"
     new_header:            "New event"
+    sections:
+      basic:               "Basic data"
+      prices:              "Prices"
+      info:                "Publish info"
+      fields:              "Custom fields"
     form:
       event_name:          "Event Name"
       event_name_ph:       "Name of Event"
@@ -137,6 +142,13 @@ en:
       time_graph:
         title:             "Number of tickets sold"
         y_axis:            "Tickets"
+    custom_fields:
+      type:                "Type"
+      required:            "Required"
+      add_field:           "Add Field"
+      text_field:          "Text Field"
+      check_box:           "Check box"
+      image:               "Image"
     index:
       my_events:           "My Events"
       sold_limit:          "Tickets (sold/limit)"
