@@ -7,7 +7,7 @@
     = f.input :email, :label => t('tickets.target_email'), :input_html => { :value => "#{current_user.email if current_user}" }
     = f.simple_fields_for :properties do |builder|
       - @event.fields.each do |field|
-        = render "events/fields/#{field.field_type}", field: field, f: builder
+        = render "custom_fields/edit/#{field.field_type}", field: field, f: builder
         :javascript
           error = '#{f.full_error(field.name)}'
           input_id = "#ticket_properties_#{field.name}"

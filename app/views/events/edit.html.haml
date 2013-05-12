@@ -59,7 +59,7 @@
               %th Required
               %th= t :delete
             = f.fields_for :fields do |builder|
-              = render 'field_fields', f: builder
+              = render 'custom_fields/field_fields', f: builder
           = link_to_add_fields "Add Field", f, :fields
         .form-actions
           = f.button :submit, :class => "btn btn-success"
