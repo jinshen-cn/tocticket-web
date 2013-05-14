@@ -8,4 +8,4 @@
 %dd= render 'qr_code'
 - @ticket.properties.each do |key, value|
   %dt= key
-  %dd= value
+  %dd= value.to_s.empty? ? "--": value

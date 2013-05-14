@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512090359) do
+ActiveRecord::Schema.define(:version => 20130514214107) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -70,6 +70,10 @@ ActiveRecord::Schema.define(:version => 20130512090359) do
   end
 
   add_index "events", ["uri"], :name => "index_events_on_uri", :unique => true
+
+  create_table "image_fields", :force => true do |t|
+    t.string "image"
+  end
 
   create_table "payment_notifications", :force => true do |t|
     t.text     "params"
