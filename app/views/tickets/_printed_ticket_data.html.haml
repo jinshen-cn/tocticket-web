@@ -8,4 +8,5 @@
 %dd= render 'qr_code'
 - @ticket.properties.each do |key, value|
   %dt= key
-  %dd= value.to_s.empty? ? "--": value
+  %dd= render partial: "custom_fields/show/#{@event.fields.find_by_name(key).field_type}",
+              locals: { value: value }
