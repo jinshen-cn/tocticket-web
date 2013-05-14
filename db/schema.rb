@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514214107) do
+ActiveRecord::Schema.define(:version => 20130514230929) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130514214107) do
     t.string  "field_type"
     t.boolean "required"
     t.integer "event_id"
+    t.string  "label"
   end
 
   add_index "custom_fields", ["event_id"], :name => "index_custom_fields_on_event_id"

@@ -55,7 +55,7 @@
           %table.table.table-bordered.table-condensed.table-hover
             %tr
               %th #{t('events.custom_fields.type')} *
-              %th #{t :name} *
+              %th #{t :label} *
               %th= t('events.custom_fields.required')
               %th= t :delete
             = f.fields_for :fields do |builder|

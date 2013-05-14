@@ -1,6 +1,6 @@
 %tr
   %td= f.select :field_type, CustomField::FIELD_TYPES
-  %td= f.text_field :name, placeholder: 'field_name'
+  %td= f.text_field :label, placeholder: 'label'
   %td= f.check_box :required
   %td
     = f.hidden_field :_destroy
