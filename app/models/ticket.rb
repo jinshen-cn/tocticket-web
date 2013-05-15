@@ -30,19 +30,9 @@ class Ticket < ActiveRecord::Base
     end
   end
   
-  before_save :default_values, :process_image_custom_fields
+  before_save :default_values
   def default_values
     self.random_key ||= SecureRandom.hex(16)
-  end
-  def process_image_custom_fields
-    self.properties.each do |key, value|
-      type = self.event.fields.find_by_name(key).field_type
-      if type == "image"
-        image = ImageField.new(image: self.properties[key])
-        image.save!
-        self.properties[key] = image.id
-      end
-    end
   end
 
   def paypal_url(return_url, notify_url)
@@ -60,4 +50,16 @@ class Ticket < ActiveRecord::Base
     }
     Rails.application.config.paypal_url + "/cgi-bin/webscr?" + values.to_query
   end
+
+  def process_image_custom_fields
+    self.properties.each do |key, value|
+      type = self.event.fields.find_by_name(key).field_type
+      if type == "image"
+        image = ImageField.new(image: value)
+        image.save!
+        self.properties[key] = image.id.to_s
+      end
+    end
+  end
+
 end

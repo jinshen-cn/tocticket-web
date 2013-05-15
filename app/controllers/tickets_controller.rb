@@ -32,6 +32,8 @@ class TicketsController < ApplicationController
     @ticket = Ticket.new(params[:ticket])
     @ticket.user = current_user
 
+    @ticket.process_image_custom_fields
+
     if @ticket.save
       if @event.organizer == current_user
         @ticket.update_attribute(:paid, true)

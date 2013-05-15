@@ -1,1 +1,1 @@
-= value.to_s.empty? ? "--": image_tag(ImageField.find(value).image_url(:thumb))
+= value.empty? ? "--": image_tag(ImageField.find(value.to_i).image_url(:thumb))
