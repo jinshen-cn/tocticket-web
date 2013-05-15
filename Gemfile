@@ -36,7 +36,8 @@ gem "railroady", :group => :development
 gem "capistrano"
 gem "rvm-capistrano"
 # Images uploading
-gem "rmagick"    # sudo apt-get install graphicsmagick-libmagick-dev-compat libmagickwand-dev
+gem "rmagick"     # sudo apt-get update
+                  # sudo apt-get install libmagickwand-dev
 gem "carrierwave"
 
 group :development do
