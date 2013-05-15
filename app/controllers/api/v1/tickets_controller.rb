@@ -13,7 +13,7 @@ class Api::V1::TicketsController < ApplicationController
     elsif !@ticket.paid?
       render :status=>409, :json=>{:message=>t('api.v1.ticket.not_paid')}
     else
-      @ticket.update_attribute(:checked, true)
+      #@ticket.update_attribute(:checked, true)
       render(json: { html: render_to_string(partial: "tickets/mobile_ticket")})
     end
   end

@@ -5,6 +5,8 @@
   %dd= @ticket.attendees
   %dt= t('tickets.ticket_type')
   %dd= @ticket.ticket_type.name
+  %dt= t('tickets.target_email')
+  %dd= @ticket.email
   - @ticket.properties.each do |key, value|
     %dt= @event.fields.find_by_name(key).label
     %dd= render partial: "custom_fields/show/#{@event.fields.find_by_name(key).field_type}",

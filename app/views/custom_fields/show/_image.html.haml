@@ -1,1 +1,1 @@
-= value.empty? ? "--": image_tag(ImageField.find(value.to_i).image_url(:thumb))
+= value.empty? ? "--": image_tag(request.protocol + request.host_with_port + ImageField.find(value.to_i).image_url(:thumb))
