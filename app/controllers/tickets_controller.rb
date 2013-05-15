@@ -34,8 +34,7 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       if @event.organizer == current_user
-        @ticket.paid = true
-        @ticket.save
+        @ticket.update_attribute(:paid, true)
         redirect_to event_ticket_url(@event, @ticket), notice: t('tickets.message.success_create')
       else
         redirect_to @ticket.paypal_url(secure_ticket_url(@event, @ticket, @ticket.random_key), payment_notifications_url)

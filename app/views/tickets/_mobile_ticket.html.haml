@@ -1,0 +1,11 @@
+%dl.dl-horizontal
+  %dt= t('tickets.event_name')
+  %dd= @event.name
+  %dt= t('tickets.attendees_number')
+  %dd= @ticket.attendees
+  %dt= t('tickets.ticket_type')
+  %dd= @ticket.ticket_type.name
+  - @ticket.properties.each do |key, value|
+    %dt= @event.fields.find_by_name(key).label
+    %dd= render partial: "custom_fields/show/#{@event.fields.find_by_name(key).field_type}",
+                locals: { value: value }
