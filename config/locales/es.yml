@@ -25,6 +25,12 @@ es:
   yes:                   "sí"
   no:                    "no"
 
+  activerecord:
+    models:
+      event:
+        one:             "Evento"
+        other:           "Eventos"
+
   layouts:
     navigation:
       my_events:         "Mis Eventos"
