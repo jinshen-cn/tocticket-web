@@ -4,6 +4,6 @@
 %p= t(:date_title) +  ": " + l(@event.celebrated_at, format: :long)
 %p= t('tickets.email.attendees_number', number: @ticket.attendees)
 
-%h2= link_to t('tickets.email.purchased_ticket'), secure_ticket_url(@event, @ticket, @ticket.random_key)
+%h2= link_to t('tickets.email.purchased_ticket'), Rails.application.routes.url_helpers.secure_ticket_url(@event, @ticket, @ticket.random_key)
 
 %p= t('tickets.warning')

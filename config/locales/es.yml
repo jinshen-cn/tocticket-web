@@ -116,7 +116,7 @@ es:
       paypal_account:      "Cuenta de Paypal (email)"
       paypal_account_ph:   "Paypal email"
       paypal_account_hint: "Esta es la cuenta donde será ingresado el pago de las entradas"
-      site_map:            "Súbe una imagen detayada con la distribución de los tipos de entrada (solo extensiones jpg jpeg gif png):"
+      site_map:            "Súbe una imagen detallada con la distribución de los tipos de entrada (solo extensiones jpg jpeg gif png):"
       remove_site_map:     "Marca la casilla para eliminar la imagen:"
     create:
       congrats:            "Enhorabuena!! Aquí tienes la URL para vender entradas:"
