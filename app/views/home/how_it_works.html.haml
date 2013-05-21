@@ -1,0 +1,151 @@
+.row
+  .span3.bs-docs-sidebar
+    %ul#navbar.nav.nav-list.bs-docs-sidenav.affix{style: "margin-top: 150px"}
+      %li
+        = link_to "#crear" do
+          %i.icon-chevron-right
+          Creacion de Eventos
+      %li
+        = link_to "#venta" do
+          %i.icon-chevron-right
+          Venta de Entradas
+      %li
+        = link_to "#acceso" do
+          %i.icon-chevron-right
+          Control de acceso
+  .span9
+    %p{style: "margin-top: 50px"}
+      TocTicket es un Sistema de venta de tickets distribuido, que ofrece a los Organizadores de Eventos  los siguientes servicios:
+    %ol
+      %li Crear y publicar Eventos: con nuestra aplicación web.
+      %li Vender tickets: a través de Paypal (y tarjetas de crédito) y desde nuestra consola web en la puerta.
+      %li Control de acceso: con un dispositivo Android escaneando códigos QR seguros.
+
+
+    %h1#crear Creación del Eventos (Organizador)
+    %p En este apartado describimos las posibilidades que tiene el usuario con rol “Organizador”
+
+    %h2 Alta de Organizador
+    %p Con el fin de crear eventos tenemos que darnos de alta en la web: #{link_to "http://demo.tocticket.com"}
+    = image_tag "shots/01-alta.png"
+    %p Hemos creado la cuenta: organizer@tocticket.com/please
+    %p Esta cuenta se puede editar desde la opción del menú superior. Se puede:
+    %ol
+      %li Editar: nombre, email, password
+      %li Cancelar la cuenta
+    = image_tag "shots/02-edit-account.png"
+
+    %h2 Creación del evento
+    %p Se puede crear el evento a través de la pantalla principal:
+    = image_tag "shots/03-new-event.png"
+    %p El formulario de creación ofrece definir las siguientes propiedades mínimas:
+    %ol
+      %li Nombre del evento
+      %li Fecha del evento
+      %li Lugar donde se celebrara el evento
+      %li Precio de la entrada Standard (luego podremos crear mas tipos)
+      %li Numero máximo de asistentes con entrada Standard
+    = image_tag "shots/04-event-form.png"
+    %p En este punto tenemos la “Landing page” del evento, a partir de la cual haremos las acciones de marketing necesarias ya que es desde donde los usuarios podrán comprar las entradas al evento:
+    = image_tag "shots/05-landing-page.png"
+
+    %h2 Gestión de eventos
+    %p En el listado de eventos podemos gestionar nuestros eventos: Editar propiedades, ver como va la venta de entradas y borrarlos
+    = image_tag "shots/06-event-list.png"
+    %p Pdemos acceder a la Edicion, borrado y detalle de cada evento. Pulsando sobre el evento deseado podemos ver el detalle del evento:
+    %ul
+      %li Detalle público del evento
+      %li Ver cuantos tickets hemos vendido del total
+      %li Vender tickets: que puede ser muy útil en la puerta del evento o en establecimiento. Para apuntar cuantos se van vendiendo e imprimir la entrada para que sea verificada en la puerta.
+      %li Gráficas que nos muestran el estado de las ventas del evento.
+    = image_tag "shots/13-event-management.png"
+    %p Observe que pulsando el botón “Vender Entradas” el organizador puede vender entradas directamente o en establecimiento.
+
+    %h2 Pestaña de Gráficas
+    %p En la pagina de mostrar evento, podemos ver la pestana de Graficas.
+    %p Se han desarrollado las siguientes graficas:
+    %ul
+      %li Contador: con el dinero en entradas total vendido, comparado con el total al final de la aguja
+      %li Barras: Numero total de entradas vendidos de diferentes tipos
+      %li Temporal: Tipos de entradas vendidas distribuidos temporalmente
+    = image_tag "shots/20-graficas1.png"
+
+    %h2 Editar Evento (propiedades avanzadas)
+    %p En el botón de Editar eventos (tanto en la lista de eventos como en la pagina de mostrar Evento), podremos modificar las propiedades de cada evento.
+    %p Datos Básicos:
+    %ul
+      %li Nombre del Evento
+      %li Fecha y hora del evento
+      %li Dirección donde se celebrará el evento
+      %li Detalles del evento: más información adicional
+    = image_tag "shots/21-editar-basico.png"
+    %p Precios:
+    %ul
+      %li Crear nuevos tipos de entrada: Standard, VIP, Grada, Anfiteatro.... Con precio y numero de asistentes por cada tipo
+      %li Cuenta de Paypal: donde se ingresará el dinero de cada entrada
+      %li Imagen con la distribución del local según los tipos de entrada
+    = image_tag "shots/22-editar-precios.png"
+    %p Información adicional:
+    %ul
+      %li URL personalizada del evento
+      %li URL adicional del evento
+    = image_tag "shots/23-editar-info.png"
+    %p Campos personalizados: añadiremos los campos que queremos que rellene el asistente en cada compra de entrada. Pueden ser del tipo texto, imagen ó casilla de verificación.
+    = image_tag "shots/24-editar-campos.png"
+
+
+    %h1#venta Compra de tickets (Asistente)
+    %p Aquí vemos el punto de vista del cliente que compra las entradas con rol “Asistente”
+    %p Desde la Landing page del evento que le llegara al usuario a través de alguna acción de marketing:
+    = image_tag "shots/05-landing-page.png"
+    %p Accedemos al formulario de compra, donde definimos:
+    %ul
+      %li Numero de tickets
+      %li El tipo de entrada: Standard, VIP,...
+      %li Un correo donde recibir la verificación de la compra
+      %li Los campos obligatorios que haya definido el organizador: foto, localidad, NIF,....
+    = image_tag "shots/07-ticket-form.png"
+
+    %h2 Pago
+    %p Desde donde accedemos a la pagina de pago de Paypal. Tenemos a la derecha el detalle del pago, y a la izquierda los dos métodos de pago: cuenta de Paypal y tarjeta de crédito.
+    = image_tag "shots/08-paypal-payment.png"
+    %p Podemos pagar con una cuenta simulada de Paypal que hemos creado para probar la aplicación:
+    = image_tag "shots/09-paypal-fake-account.png"
+    %p Pagamos las entradas:
+    = image_tag "shots/10-paypal-pay-now.png"
+
+    %h2 Impresión y comunicación
+    %p Una vez pagada la factura se ejecutan dos acciones:
+    %ul
+      %li En el servidor Tocticket se marca el ticket como pagado.
+      %li Se envía un correo electrónico al asistente con la verificación de la compra y el link al ticket
+    = image_tag "shots/11-paypal-verification-mail.png"
+    %p La siguiente pagina verifica que se ha realizado el pago a la cuenta Paypal del organizador (organizer@tocticket.com):
+    = image_tag "shots/14-paypal-payment-done.png"
+    %p Una vez volvamos a la página, el ticket con el código QR es:
+    = image_tag "shots/12-ticket.png"
+
+
+    %h1#acceso Control de Acceso (Organizador)
+    %p Aquí se define como utiliza el usuario Organizador la aplicación móvil de control de acceso en la puerta
+
+    %h2 Instalación
+    %p La aplicación puede ser instalada en dispositivos:
+    %ul
+      %li Con Android 2.1 o superior.
+      %li Con conexión de red
+    %p Simplemente buscando en el “Play Store” (el market de Google) la aplicación “Tocticket”:
+    = image_tag "shots/19-market.png"
+    %p Se puede iniciar en el menú de programas instalados:
+    = image_tag "shots/20-inicio.png"
+
+    %h2 Checkear un ticket
+    %p Abrir la aplicación y logearse con una cuenta de organizador:
+    = image_tag "shots/15-login.png"
+    %p Después de esto se abra la pantalla de lista de eventos:
+    = image_tag "shots/16-events.png"
+    %p Pulsar sobre un evento, y podemos empezar a escanear:
+    = image_tag "shots/17-scanner.png"
+    %p Una vez reconocido el código, la aplicación lo manda al servidor para checkearlo y verificar si es valido. Devolviendo todos los datos del ticket si es así:
+    = image_tag "shots/18-ticket-valid.png"
+    %p Una vez comprobado en el servidor queda marcado para que no se pueda volver a utilizar. Si existe algún error o conflicto en esa pantalla se advertirá. Se puede volver a scanear pulsando sobre el botón.
