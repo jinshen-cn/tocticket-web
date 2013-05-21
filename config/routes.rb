@@ -17,6 +17,7 @@ TocticketWeb::Application.routes.draw do
     root :to => 'dashboard#index'
   end
   root :to => "home#index"
+  match 'how_it_works' => 'home#how_it_works'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",  :registrations => "users/registrations"  }
   # Users can delete session even from selector for small screens
   devise_scope :user do

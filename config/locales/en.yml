@@ -34,6 +34,7 @@ en:
       my_tickets:        "My Tickets"
       logout:            "Logout"
       edit_account:      "Edit Account"
+      how_it_works:      "How it works"
     email_title:         "TocTicket Ticket Mail"
     app_title:           "TocTicket Web"
 

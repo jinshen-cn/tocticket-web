@@ -37,6 +37,7 @@ es:
       my_tickets:        "Mis Entradas"
       logout:            "Cerrar Sesión"
       edit_account:      "Editar Cuenta"
+      how_it_works:      "Como funciona"
     email_title:         "Correo de entrega de Entradas de TocTicket"
     app_title:           "TocTicket Web"
 
