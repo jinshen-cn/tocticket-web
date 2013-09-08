@@ -1,5 +1,9 @@
 TocticketWeb::Application.routes.draw do
 
+  authenticated :user do
+    root :to => 'dashboard#index'
+  end
+  root :to => "home#index"
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -13,10 +17,6 @@ TocticketWeb::Application.routes.draw do
   match 'my_tickets' => 'tickets#my_tickets', :as => :my_tickets
   match '/e/:event_id/t/:ticket_id/r/:random_key' => 'tickets#secure_ticket', :as => :secure_ticket
 
-  authenticated :user do
-    root :to => 'dashboard#index'
-  end
-  root :to => "home#index"
   match 'how_it_works' => 'home#how_it_works'
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",  :registrations => "users/registrations"  }
   # Users can delete session even from selector for small screens
