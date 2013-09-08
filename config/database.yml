@@ -1,7 +1,7 @@
 common: &common
   adapter: postgresql
-  username: tocticket
-  password: password # from psql setup, see Postgresql
+  username: pg_user
+  password: 12@tr% # from psql setup, see Postgresql
 
 development:
   <<: *common
