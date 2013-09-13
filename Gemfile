@@ -6,7 +6,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'jquery-rails'
+gem 'jquery-rails', "~> 2.3.0"
 gem 'jquery-ui-rails'
 gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
