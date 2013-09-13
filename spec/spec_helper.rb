@@ -39,3 +39,15 @@ RSpec.configure do |config|
 
   config.include Capybara::DSL
 end
+
+def login_as_organizer
+  user = FactoryGirl.create(:user)
+
+  visit root_path
+  within("form[action='/users/sign_in']") do
+    fill_in "Email", with: user.email
+    fill_in "Password", with: "ilovegrapes"
+
+    click_button "Sign in"
+  end
+end

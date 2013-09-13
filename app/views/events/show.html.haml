@@ -38,5 +38,5 @@
             = link_to t(:back), events_path, :class => "btn btn-success"
         #ticket-charts.tab-pane
           = render :partial => 'ticket_charts'
-  - else
-    = link_to t('events.show.purchase_tickets'), new_event_ticket_path(@event), :class => "btn btn-success"
+- else
+  = link_to t('events.show.purchase_tickets'), new_event_ticket_path(@event), :class => "btn btn-success"
