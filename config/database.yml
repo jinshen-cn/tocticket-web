@@ -7,6 +7,10 @@ development:
   <<: *common
   database: tocticket_development
 
+vagrant:
+  <<: *common
+  database: tocticket_vagrant
+
 test: &test
   <<: *common
   database: tocticket_test
