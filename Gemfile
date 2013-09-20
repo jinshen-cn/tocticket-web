@@ -29,7 +29,7 @@ gem "rmagick"     # sudo apt-get update
                   # sudo apt-get install libmagickwand-dev
 gem "carrierwave"
 
-gem "lebops", git: "git@labs.lebrijo.com:lebops.git"
+#gem "lebops", git: "git@labs.lebrijo.com:lebops.git"
 
 group :development do
   gem 'better_errors'
