@@ -14,7 +14,7 @@ gem 'jquery-ui-rails'
 gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
 
-gem "bootstrap-sass", ">= 2.1.0.1"
+gem "bootstrap-sass", "2.3.2.2"
 gem "devise", "3.1.0"
 gem 'omniauth'
 gem 'oauth2'
