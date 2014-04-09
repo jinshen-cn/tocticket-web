@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+#ruby=ruby-1.9.3-p484
+#ruby-gemset=tocticket-web
 gem 'rails', '3.2.13'
 gem 'pg'
 group :assets do
@@ -12,7 +15,7 @@ gem "thin", ">= 1.5.0"
 gem "haml", ">= 3.1.7"
 
 gem "bootstrap-sass", ">= 2.1.0.1"
-gem "devise", ">= 2.1.2"
+gem "devise", "3.1.0"
 gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook'
@@ -29,7 +32,7 @@ gem "rmagick"     # sudo apt-get update
                   # sudo apt-get install libmagickwand-dev
 gem "carrierwave"
 
-#gem "lebops", git: "git@labs.lebrijo.com:lebops.git"
+gem "lebops", git: "git@labs.lebrijo.com:lebops.git"
 
 group :development do
   gem 'better_errors'
