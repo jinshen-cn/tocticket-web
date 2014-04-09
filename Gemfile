@@ -27,6 +27,7 @@ gem "therubyracer", ">= 0.10.2", :group => :assets, :platform => :ruby
 gem 'activeadmin'
 gem "capistrano"
 gem "rvm-capistrano"
+gem "whenever"
 # Images uploading
 gem "rmagick"     # sudo apt-get update
                   # sudo apt-get install libmagickwand-dev

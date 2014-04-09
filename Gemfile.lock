@@ -392,3 +392,4 @@ DEPENDENCIES
   therubyracer (>= 0.10.2)
   thin (>= 1.5.0)
   uglifier (>= 1.0.3)
+  whenever
